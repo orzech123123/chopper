@@ -21,7 +21,7 @@ public class VelocityController : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         if (Math.Abs(_joystick.Vertical) > 0.01f)
         {
