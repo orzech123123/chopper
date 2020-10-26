@@ -7,13 +7,6 @@ namespace Assets.Scripts
         [SerializeField]
         private int _speed = 500;
 
-        // Start is called before the first frame update
-        void Start()
-        {
-
-        }
-
-        // Update is called once per frame
         void Update()
         {
             var rotor = transform.Find("Sk_Veh_Attack_Heli/Rotor");

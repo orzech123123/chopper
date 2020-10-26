@@ -4,11 +4,11 @@ namespace Assets.Scripts
 {
     public class FpsDisplay : MonoBehaviour
     {
-        float deltaTime = 0.0f;
+        private float _deltaTime;
 
         void Update()
         {
-            deltaTime += (Time.unscaledDeltaTime - deltaTime) * 0.1f;
+            _deltaTime += (Time.unscaledDeltaTime - _deltaTime) * 0.1f;
         }
 
         void OnGUI()
@@ -21,8 +21,8 @@ namespace Assets.Scripts
             style.alignment = TextAnchor.UpperLeft;
             style.fontSize = h * 2 / 30;
             style.normal.textColor = new Color(0.0f, 0.0f, 0.5f, 1.0f);
-            float msec = deltaTime * 1000.0f;
-            float fps = 1.0f / deltaTime;
+            float msec = _deltaTime * 1000.0f;
+            float fps = 1.0f / _deltaTime;
             string text = string.Format("{0:0.0} ms ({1:0.} fps)", msec, fps);
             GUI.Label(rect, text, style);
         }
