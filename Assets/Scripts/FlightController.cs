@@ -38,13 +38,6 @@ namespace Assets.Scripts
             {
                 _rigidBody.AddTorque(transform.up * _rightJoystick.Horizontal, ForceMode.Acceleration);
             }
-
-            // if (Input.GetMouseButton(0) &&
-            //     Input.mousePosition.x > Screen.width / 2f &&
-            //     Input.mousePosition.y < Screen.height / 2f)
-            // {
-            //     _rigidBody.AddForce(transform.forward * 5f, ForceMode.Acceleration);
-            // }
         }
     }
 }   
