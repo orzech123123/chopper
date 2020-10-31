@@ -2199,7 +2199,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a275ed6adb879314b8dcc652e2d688bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _force: 15
+  _force: 23
   _leftJoystick: {fileID: 1092653449}
   _rightJoystick: {fileID: 2115758402}
 --- !u!114 &1160412787
@@ -2222,15 +2222,15 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1160412785}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 53.93255, y: -6.3665695, z: 30.009987}
+  m_LocalRotation: {x: -0, y: -0.2950808, z: -0, w: 0.95547235}
+  m_LocalPosition: {x: 273.41312, y: 291.6, z: -135.04749}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 963194228}
   - {fileID: 1123513133}
   m_Father: {fileID: 0}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -34.325, z: 0}
 --- !u!54 &1160412789
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -17,6 +17,7 @@ namespace Assets.Scripts
         void Start()
         {
             _rigidBody = GetComponent<Rigidbody>();
+            _rigidBody.maxAngularVelocity = 10.5f;
         }
 
         void FixedUpdate()
@@ -32,11 +33,11 @@ namespace Assets.Scripts
 
             if (Math.Abs(_rightJoystick.Vertical) > 0.01f)
             {
-                _rigidBody.AddForce(transform.forward * 10f * _rightJoystick.Vertical, ForceMode.Acceleration);
+                _rigidBody.AddForce(transform.forward * 8f * _rightJoystick.Vertical, ForceMode.Acceleration);
             }
             if (Math.Abs(_rightJoystick.Horizontal) > 0.01f)
             {
-                _rigidBody.AddTorque(transform.up * _rightJoystick.Horizontal, ForceMode.Acceleration);
+                _rigidBody.AddTorque(transform.up * 0.2f * _rightJoystick.Horizontal, ForceMode.Acceleration);
             }
         }
     }

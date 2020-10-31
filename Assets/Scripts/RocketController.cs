@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 namespace Assets.Scripts
 {
@@ -10,6 +11,8 @@ namespace Assets.Scripts
         private float _turn;
         [SerializeField]
         private float _rocketVelocity;
+        private Transform _smoke;
+        private Transform _explosion;
 
         void Start()
         {
@@ -27,7 +30,24 @@ namespace Assets.Scripts
 
         void OnCollisionEnter(Collision collision)
         {
+            _smoke = transform.Find("WhiteSmoke");
+            _smoke.parent = null;
+            _smoke.GetComponent<ParticleSystem>().Stop();
+
+            _explosion = transform.Find("ExplosionSpot");
+            _explosion.parent = null;
+            _explosion.GetComponent<AudioSource>().Play();
+
             Destroy(gameObject);
+            StartCoroutine(Destroy());
+        }
+
+        private IEnumerator Destroy()
+        {
+            yield return new WaitForSeconds(5f);
+
+            Destroy(_explosion.gameObject);
+            Destroy(_smoke.gameObject);
         }
     }
 }
