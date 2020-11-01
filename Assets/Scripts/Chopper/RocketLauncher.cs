@@ -1,6 +1,7 @@
-﻿using UnityEngine;
+﻿using Assets.Scripts.Rocket;
+using UnityEngine;
 
-namespace Assets.Scripts
+namespace Assets.Scripts.Chopper
 {
     public class RocketLauncher : MonoBehaviour
     {
@@ -10,13 +11,16 @@ namespace Assets.Scripts
         private Transform[] _launchSpots;
         [SerializeField]
         private GameObject _rocketPrefab;
+        [SerializeField]
+        private float _launchLockPeriod; 
+        private float _nextLaunchTime;
 
-        void Update()
+        public void TryLaunch()
         {
-            if (Input.GetMouseButtonDown(0) &&
-                Input.mousePosition.x > Screen.width / 2f &&
-                Input.mousePosition.y > Screen.height / 2f)
+            if (Time.time > _nextLaunchTime)
             {
+                _nextLaunchTime = Time.time + _launchLockPeriod;
+
                 var launchSpot = _launchSpots[Random.Range(0, _launchSpots.Length - 1)];
 
                 var rocketGo = Instantiate(_rocketPrefab, launchSpot.position, transform.rotation);

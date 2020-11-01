@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-namespace Assets.Scripts
+namespace Assets.Scripts.Rocket
 {
     public class RocketController : MonoBehaviour
     {
@@ -17,6 +17,8 @@ namespace Assets.Scripts
         void Start()
         {
             _rigidBody = GetComponent<Rigidbody>();
+            _smoke = transform.Find("WhiteSmoke");
+            _explosion = transform.Find("ExplosionSpot");
         }
 
         void FixedUpdate()
@@ -30,24 +32,15 @@ namespace Assets.Scripts
 
         void OnCollisionEnter(Collision collision)
         {
-            _smoke = transform.Find("WhiteSmoke");
             _smoke.parent = null;
-            _smoke.GetComponent<ParticleSystem>().Stop();
-
-            _explosion = transform.Find("ExplosionSpot");
             _explosion.parent = null;
+
+            _smoke.GetComponent<ParticleSystem>().Stop();
             _explosion.GetComponent<AudioSource>().Play();
 
             Destroy(gameObject);
-            StartCoroutine(Destroy());
-        }
-
-        private IEnumerator Destroy()
-        {
-            yield return new WaitForSeconds(5f);
-
-            Destroy(_explosion.gameObject);
-            Destroy(_smoke.gameObject);
+            Destroy(_smoke.gameObject, 5f);
+            Destroy(_explosion.gameObject, 5f);
         }
     }
 }
