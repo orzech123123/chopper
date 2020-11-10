@@ -8,8 +8,9 @@ OcclusionCullingSettings:
     smallestOccluder: 5
     smallestHole: 0.25
     backfaceThreshold: 100
-  m_SceneGUID: 00000000000000000000000000000000
-  m_OcclusionCullingData: {fileID: 0}
+  m_SceneGUID: 9fc0d4010bbf28b4594072e72b8655ab
+  m_OcclusionCullingData: {fileID: 36300000, guid: 1255a2111dc22464d81fc3419eca04f3,
+    type: 2}
 --- !u!104 &2
 RenderSettings:
   m_ObjectHideFlags: 0
@@ -2233,8 +2234,8 @@ GameObject:
   - component: {fileID: 1160412788}
   - component: {fileID: 1160412787}
   - component: {fileID: 1160412789}
-  - component: {fileID: 1160412786}
   - component: {fileID: 1160412790}
+  - component: {fileID: 1160412786}
   m_Layer: 0
   m_Name: Chopper
   m_TagString: Untagged
@@ -2254,7 +2255,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a275ed6adb879314b8dcc652e2d688bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _force: 23
+  MaxVelocity: 10
+  _force: 250
   _leftJoystick: {fileID: 1092653449}
   _rightJoystick: {fileID: 2115758402}
 --- !u!114 &1160412787
