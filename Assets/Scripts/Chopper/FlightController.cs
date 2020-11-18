@@ -11,7 +11,6 @@ namespace Assets.Scripts.Chopper
         public Joystick LeftJoystick;
         public Joystick RightJoystick;
         private Rigidbody _rigidBody;
-        private float? _keepAltitude;
 
         void Start()
         {
@@ -22,13 +21,13 @@ namespace Assets.Scripts.Chopper
         void FixedUpdate()
         {
             var forwardVelocity = Vector3.Dot(_rigidBody.velocity, transform.forward);
-            var altitudeChangedByInput = false;
 
+            var heightChanged = false;
             if (Math.Abs(LeftJoystick.Vertical) > 0.01f)
             {
                 _rigidBody.AddForce(transform.up * Force * LeftJoystick.Vertical, ForceMode.Acceleration);
-                _keepAltitude = null;
-                altitudeChangedByInput = true;
+                heightChanged = true;
+                t = 0;
             }
 
             if (Math.Abs(LeftJoystick.Horizontal) > 0.01f)
@@ -45,16 +44,18 @@ namespace Assets.Scripts.Chopper
                 _rigidBody.AddTorque(transform.up * 0.2f * RightJoystick.Horizontal, ForceMode.Acceleration);
             }
 
-            if (!altitudeChangedByInput)
+            if (!heightChanged)
             {
-                if (_keepAltitude == null)
-                {
-                    _keepAltitude = transform.position.y;
-                }
+                var duration = 5;
+                t += Time.deltaTime / duration;
+                var factor = Mathf.Lerp(0, 1, t);
 
-                var goHigher = transform.position.y <= _keepAltitude ? 1 : -1;
-                _rigidBody.AddForce(transform.up * Force * goHigher, ForceMode.Acceleration);
+                var v = _rigidBody.velocity;
+                var yCounterVelocity = -v.y * factor;
+                _rigidBody.AddForce(new Vector3(0, yCounterVelocity, 0), ForceMode.VelocityChange);
             }
         }
+
+        private float t;
     }
 }   
