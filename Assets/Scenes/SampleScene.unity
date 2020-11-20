@@ -15,8 +15,8 @@ OcclusionCullingSettings:
 RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 9
-  m_Fog: 0
-  m_FogColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+  m_Fog: 1
+  m_FogColor: {r: 0.5754717, g: 0.56940514, b: 0.5564703, a: 1}
   m_FogMode: 3
   m_FogDensity: 0.01
   m_LinearFogStart: 0
@@ -217,7 +217,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 306c080194cc6c54b81a51dff1f0a841, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 60f47922b50b0c040b400688136ede5c, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -2255,10 +2255,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a275ed6adb879314b8dcc652e2d688bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  MaxAngularVelocity: 10
   MaxVelocity: 10
   Force: 25
   LeftJoystick: {fileID: 1092653449}
   RightJoystick: {fileID: 2115758402}
+  VerticalSlowDownTotalTime: 5
 --- !u!114 &1160412787
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2271,7 +2273,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c05ab1c95b7bff7429da8d9dc0a18f95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 2000
+  MaxSpeed: 10
+  EnginesWarmUpTotalTime: 30
 --- !u!4 &1160412788
 Transform:
   m_ObjectHideFlags: 0
@@ -2280,7 +2283,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1160412785}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 59, y: 34, z: -123}
+  m_LocalPosition: {x: -63.94821, y: -3, z: -134.98}
   m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
   m_Children:
   - {fileID: 963194228}
@@ -3569,15 +3572,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 473602, guid: 6bc44a445920cb94cb277a688e7d6ebc, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 65.3
+      value: -55.2
       objectReference: {fileID: 0}
     - target: {fileID: 473602, guid: 6bc44a445920cb94cb277a688e7d6ebc, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 4.36
       objectReference: {fileID: 0}
     - target: {fileID: 473602, guid: 6bc44a445920cb94cb277a688e7d6ebc, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 36.7
+      value: -130.6
       objectReference: {fileID: 0}
     - target: {fileID: 473602, guid: 6bc44a445920cb94cb277a688e7d6ebc, type: 3}
       propertyPath: m_LocalRotation.x

@@ -6,28 +6,35 @@ namespace Assets.Scripts.Chopper
     [RequireComponent(typeof(Rigidbody))]
     public class FlightController : MonoBehaviour
     {
+        public float MaxAngularVelocity = 10f;
         public float MaxVelocity = 10f;
         public float Force = 25f;
+
         public Joystick LeftJoystick;
         public Joystick RightJoystick;
+
         private Rigidbody _rigidBody;
+
+        public float VerticalSlowDownTotalTime = 5f;
+        private float _verticalSlowDownDiffTime;
 
         void Start()
         {
             _rigidBody = GetComponent<Rigidbody>();
-            _rigidBody.maxAngularVelocity = 10.5f;
+            _rigidBody.maxAngularVelocity = MaxAngularVelocity;
         }
 
         void FixedUpdate()
         {
             var forwardVelocity = Vector3.Dot(_rigidBody.velocity, transform.forward);
+            var wasHeightChanged = false;
 
-            var heightChanged = false;
             if (Math.Abs(LeftJoystick.Vertical) > 0.01f)
             {
                 _rigidBody.AddForce(transform.up * Force * LeftJoystick.Vertical, ForceMode.Acceleration);
-                heightChanged = true;
-                t = 0;
+
+                wasHeightChanged = true;
+                _verticalSlowDownDiffTime = 0;
             }
 
             if (Math.Abs(LeftJoystick.Horizontal) > 0.01f)
@@ -44,18 +51,20 @@ namespace Assets.Scripts.Chopper
                 _rigidBody.AddTorque(transform.up * 0.2f * RightJoystick.Horizontal, ForceMode.Acceleration);
             }
 
-            if (!heightChanged)
+            if (!wasHeightChanged)
             {
-                var duration = 5;
-                t += Time.deltaTime / duration;
-                var factor = Mathf.Lerp(0, 1, t);
-
-                var v = _rigidBody.velocity;
-                var yCounterVelocity = -v.y * factor;
-                _rigidBody.AddForce(new Vector3(0, yCounterVelocity, 0), ForceMode.VelocityChange);
+                SlowDownVertically();
             }
         }
 
-        private float t;
+        private void SlowDownVertically()
+        {
+            _verticalSlowDownDiffTime += Time.deltaTime / VerticalSlowDownTotalTime;
+            var factor = Mathf.Lerp(0, 1, _verticalSlowDownDiffTime);
+
+            var v = _rigidBody.velocity;
+            var yCounterVelocity = -v.y * factor;
+            _rigidBody.AddForce(new Vector3(0, yCounterVelocity, 0), ForceMode.VelocityChange);
+        }
     }
 }   
