@@ -2261,6 +2261,9 @@ MonoBehaviour:
   LeftJoystick: {fileID: 1092653449}
   RightJoystick: {fileID: 2115758402}
   VerticalSlowDownTotalTime: 5
+  ForwardSlowDownTotalTime: 5
+  RotationSlowDownTotalTime: 5
+  LeftRightSlowDownTotalTime: 5
 --- !u!114 &1160412787
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2273,8 +2276,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c05ab1c95b7bff7429da8d9dc0a18f95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxSpeed: 10
-  EnginesWarmUpTotalTime: 30
+  MaxSpeed: 200
+  EnginesWarmUpTotalTime: 60
 --- !u!4 &1160412788
 Transform:
   m_ObjectHideFlags: 0
