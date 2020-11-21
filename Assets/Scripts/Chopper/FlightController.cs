@@ -59,7 +59,8 @@ namespace Assets.Scripts.Chopper
 
         private void MoveVertically()
         {
-            if (Math.Abs(LeftJoystick.Vertical) > 0.01f)
+            var upVelocity = Vector3.Dot(_rigidBody.velocity, transform.up);
+            if (Math.Abs(LeftJoystick.Vertical) > 0.01f && Math.Abs(upVelocity) < MaxVelocity)
             {
                 _rigidBody.AddForce(transform.up * Force * LeftJoystick.Vertical, ForceMode.Acceleration);
                 _verticalSlowDownDiffTime = 0;
@@ -86,7 +87,8 @@ namespace Assets.Scripts.Chopper
 
         private void MoveLeftRight()
         {
-            if (Math.Abs(LeftJoystick.Horizontal) > 0.01f)
+            var rightVelocity = Vector3.Dot(_rigidBody.velocity, transform.right);
+            if (Math.Abs(LeftJoystick.Horizontal) > 0.01f && Math.Abs(rightVelocity) < MaxVelocity)
             {
                 _rigidBody.AddForce(transform.right * 7f * LeftJoystick.Horizontal, ForceMode.Acceleration);
                 _leftRightSlowDownDiffTime = 0f;
@@ -112,19 +114,9 @@ namespace Assets.Scripts.Chopper
             _verticalSlowDownDiffTime += Time.deltaTime / VerticalSlowDownTotalTime;
             var factor = Mathf.Lerp(0, 1, _verticalSlowDownDiffTime);
 
-            var v = _rigidBody.velocity;
-            var yCounterVelocity = -v.y * factor;
-            _rigidBody.AddForce(new Vector3(0, yCounterVelocity, 0), ForceMode.VelocityChange);
-        }
-
-        private void SlowDownRotation()
-        {
-            _rotationSlowDownDiffTime += Time.deltaTime / RotationSlowDownTotalTime;
-            var factor = Mathf.Lerp(0, 1, _rotationSlowDownDiffTime);
-
-            var v = _rigidBody.angularVelocity;
-            var yCounterVelocity = -v.y * factor;
-            _rigidBody.AddTorque(new Vector3(0, yCounterVelocity, 0), ForceMode.VelocityChange);
+            var upVelocity = Vector3.Dot(_rigidBody.velocity, transform.up);
+            var counterUpVelocity = -upVelocity * factor;
+            _rigidBody.AddForce(transform.up * counterUpVelocity, ForceMode.VelocityChange);
         }
 
         private void SlowDownForward()
@@ -135,6 +127,16 @@ namespace Assets.Scripts.Chopper
             var forwardVelocity = Vector3.Dot(_rigidBody.velocity, transform.forward);
             var counterForwardVelocity = -forwardVelocity * factor;
             _rigidBody.AddForce(transform.forward * counterForwardVelocity, ForceMode.VelocityChange);
+        }
+
+        private void SlowDownRotation()
+        {
+            _rotationSlowDownDiffTime += Time.deltaTime / RotationSlowDownTotalTime;
+            var factor = Mathf.Lerp(0, 1, _rotationSlowDownDiffTime);
+
+            var v = _rigidBody.angularVelocity;
+            var yCounterVelocity = -v.y * factor;
+            _rigidBody.AddTorque(new Vector3(0, yCounterVelocity, 0), ForceMode.VelocityChange);
         }
     }
 }   
