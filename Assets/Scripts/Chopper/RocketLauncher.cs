@@ -1,4 +1,5 @@
-﻿using Assets.Scripts.Rocket;
+﻿using System.Linq;
+using Assets.Scripts.Rocket;
 using UnityEngine;
 
 namespace Assets.Scripts.Chopper
@@ -25,6 +26,11 @@ namespace Assets.Scripts.Chopper
 
                 var rocketGo = Instantiate(_rocketPrefab, launchSpot.position, transform.rotation);
                 rocketGo.GetComponent<RocketController>().Target = _target;
+
+
+                //TODO remove
+                var light = transform.Find("RedLightSphere");
+                light.gameObject.SetActive(!light.gameObject.activeInHierarchy);
             }
         }
     }
