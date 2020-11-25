@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 4163862180626915902}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
   m_Children:
   - {fileID: 4163862181272628823}
   - {fileID: 4163862181855850426}
@@ -69,7 +69,6 @@ MonoBehaviour:
   Target: {fileID: 0}
   _turn: 2
   _rocketVelocity: 60
-  s: {fileID: 0}
 --- !u!65 &7969533799196686945
 BoxCollider:
   m_ObjectHideFlags: 0
