@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class BlinkingLightController : MonoBehaviour
 {
@@ -16,7 +14,6 @@ public class BlinkingLightController : MonoBehaviour
         _initialIntensity = _light.intensity;
     }
 
-    // Update is called once per frame
     void Update()
     {
         _fadeOutDiffTime += Time.deltaTime / FadeOutTotalTime;
