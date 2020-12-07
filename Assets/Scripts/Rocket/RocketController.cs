@@ -12,6 +12,10 @@ namespace Assets.Scripts.Rocket
         private float _rocketVelocity;
         private Transform _smoke;
         private Transform _explosion;
+        [SerializeField]
+        private GameObject _firePrefab;
+        [SerializeField]
+        private GameObject _explosionPrefab;
 
         void Start()
         {
@@ -40,6 +44,9 @@ namespace Assets.Scripts.Rocket
             Destroy(gameObject);
             Destroy(_smoke.gameObject, 5f);
             Destroy(_explosion.gameObject, 5f);
+
+            Instantiate(_firePrefab, collision.gameObject.transform.position, _firePrefab.transform.rotation);
+            Instantiate(_explosionPrefab, collision.gameObject.transform.position, _explosionPrefab.transform.rotation);
         }
     }
 }

@@ -7,6 +7,8 @@ namespace Assets.Scripts.Ui
     public class RocketLaunchButtonController : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     {
         [SerializeField]
+        private Transform _target;
+        [SerializeField]
 		private RocketLauncher _chopperRocketLauncher;
         private bool _isHeld;
 
@@ -24,7 +26,7 @@ namespace Assets.Scripts.Ui
         {
             if (_isHeld)
             {
-                _chopperRocketLauncher.TryLaunch();
+                _chopperRocketLauncher.TryLaunch(_target);
             }
         }
     }

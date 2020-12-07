@@ -7,8 +7,6 @@ namespace Assets.Scripts.Chopper
     public class RocketLauncher : MonoBehaviour
     {
         [SerializeField]
-        private Transform _target;
-        [SerializeField]
         private Transform[] _launchSpots;
         [SerializeField]
         private GameObject _rocketPrefab;
@@ -16,7 +14,7 @@ namespace Assets.Scripts.Chopper
         private float _launchLockPeriod; 
         private float _nextLaunchTime;
 
-        public void TryLaunch()
+        public void TryLaunch(Transform target)
         {
             if (Time.time > _nextLaunchTime)
             {
@@ -25,7 +23,7 @@ namespace Assets.Scripts.Chopper
                 var launchSpot = _launchSpots[Random.Range(0, _launchSpots.Length - 1)];
 
                 var rocketGo = Instantiate(_rocketPrefab, launchSpot.position, transform.rotation);
-                rocketGo.GetComponent<RocketController>().Target = _target;
+                rocketGo.GetComponent<RocketController>().Target = target;
 
 
                 //TODO remove
