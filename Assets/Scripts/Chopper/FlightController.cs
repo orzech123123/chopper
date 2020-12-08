@@ -1,12 +1,21 @@
 ﻿using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using Zenject;
 
 namespace Assets.Scripts.Chopper
 {
     [RequireComponent(typeof(Rigidbody))]
     public class FlightController : MonoBehaviour
     {
+        private Greeter greeter;
+
+        [Inject]
+        public void Init(Greeter greeter)
+        {
+            this.greeter = greeter;
+        }
+
         public float MaxAngularVelocity = 10f;
         public float MaxVelocity = 10f;
         public float Force = 25f;
