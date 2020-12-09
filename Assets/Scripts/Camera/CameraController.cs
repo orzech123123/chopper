@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using Input = UnityEngine.Input;
 
 namespace Assets.Scripts.Chopper
 {
@@ -18,7 +19,7 @@ namespace Assets.Scripts.Chopper
 
         void LateUpdate()
         {
-            if(Input.GetMouseButton(0))
+            if(UnityEngine.Input.GetMouseButton(0))
             {
                 AdjustCamera();
             }
@@ -26,11 +27,11 @@ namespace Assets.Scripts.Chopper
 
         private void AdjustCamera()
         {
-            var pointerX = Input.GetAxis("Mouse X");
+            var pointerX = UnityEngine.Input.GetAxis("Mouse X");
             //android:
-            if(Input.touchCount > 0)
+            if(UnityEngine.Input.touchCount > 0)
             {
-                pointerX = Input.touches[0].deltaPosition.x / Screen.width * 100;
+                pointerX = UnityEngine.Input.touches[0].deltaPosition.x / Screen.width * 100;
             }
 
             offset = Quaternion.AngleAxis(pointerX * turnSpeed, Vector3.up) * offset;

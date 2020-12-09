@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Assets.Scripts.Input;
+using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using Zenject;
@@ -8,20 +9,17 @@ namespace Assets.Scripts.Chopper
     [RequireComponent(typeof(Rigidbody))]
     public class FlightController : MonoBehaviour
     {
-        private Greeter greeter;
+        private IInputManager _inputManager;
 
         [Inject]
-        public void Init(Greeter greeter)
+        public void Init(IInputManager inputManager)
         {
-            this.greeter = greeter;
+            _inputManager = inputManager;
         }
 
         public float MaxAngularVelocity = 10f;
         public float MaxVelocity = 10f;
         public float Force = 25f;
-
-        public Joystick LeftJoystick;
-        public Joystick RightJoystick;
 
         private Rigidbody _rigidBody;
 
@@ -56,9 +54,9 @@ namespace Assets.Scripts.Chopper
 
         private void RotateOnYAxis()
         {
-            if (Math.Abs(RightJoystick.Horizontal) > 0.01f)
+            if (_inputManager.IsTurnActive)
             {
-                _rigidBody.AddTorque(transform.up * 0.2f * RightJoystick.Horizontal, ForceMode.Acceleration);
+                _rigidBody.AddTorque(transform.up * 0.2f * _inputManager.TurnValue, ForceMode.Acceleration);
                 _rotationSlowDownDiffTime = 0;
             }
             else
@@ -70,9 +68,9 @@ namespace Assets.Scripts.Chopper
         private void MoveVertically()
         {
             var upVelocity = Vector3.Dot(_rigidBody.velocity, transform.up);
-            if (Math.Abs(LeftJoystick.Vertical) > 0.01f && Math.Abs(upVelocity) < MaxVelocity)
+            if (_inputManager.IsVerticalActive && Math.Abs(upVelocity) < MaxVelocity)
             {
-                _rigidBody.AddForce(transform.up * Force * LeftJoystick.Vertical, ForceMode.Acceleration);
+                _rigidBody.AddForce(transform.up * Force * _inputManager.VerticalValue, ForceMode.Acceleration);
                 _verticalSlowDownDiffTime = 0;
             }
             else
@@ -84,9 +82,9 @@ namespace Assets.Scripts.Chopper
         private void MoveForward()
         {
             var forwardVelocity = Vector3.Dot(_rigidBody.velocity, transform.forward);
-            if (Math.Abs(RightJoystick.Vertical) > 0.01f && Math.Abs(forwardVelocity) < MaxVelocity)
+            if (_inputManager.IsForwardActive && Math.Abs(forwardVelocity) < MaxVelocity)
             {
-                _rigidBody.AddForce(transform.forward * 8f * RightJoystick.Vertical, ForceMode.Acceleration);
+                _rigidBody.AddForce(transform.forward * 8f * _inputManager.ForwardValue, ForceMode.Acceleration);
                 _forwardSlowDownDiffTime = 0f;
             }
             else
@@ -98,9 +96,9 @@ namespace Assets.Scripts.Chopper
         private void MoveLeftRight()
         {
             var rightVelocity = Vector3.Dot(_rigidBody.velocity, transform.right);
-            if (Math.Abs(LeftJoystick.Horizontal) > 0.01f && Math.Abs(rightVelocity) < MaxVelocity)
+            if (_inputManager.IsLeftRightActive && Math.Abs(rightVelocity) < MaxVelocity)
             {
-                _rigidBody.AddForce(transform.right * 7f * LeftJoystick.Horizontal, ForceMode.Acceleration);
+                _rigidBody.AddForce(transform.right * 7f * _inputManager.LeftRightValue, ForceMode.Acceleration);
                 _leftRightSlowDownDiffTime = 0f;
             }
             else
