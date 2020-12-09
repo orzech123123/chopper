@@ -100,7 +100,7 @@ LightmapSettings:
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 112000000, guid: 95b6000770f70f44ea6c9ad29724e8ff,
     type: 2}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -3899,8 +3899,6 @@ MonoBehaviour:
   MaxAngularVelocity: 10
   MaxVelocity: 10
   Force: 25
-  LeftJoystick: {fileID: 1092653449}
-  RightJoystick: {fileID: 2115758402}
   VerticalSlowDownTotalTime: 5
   ForwardSlowDownTotalTime: 5
   RotationSlowDownTotalTime: 5
@@ -6210,6 +6208,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 458eab1f5ff262844b6dd694d8e45795, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _leftJoystick: {fileID: 1092653449}
+  _rightJoystick: {fileID: 2115758402}
 --- !u!114 &1880309605
 MonoBehaviour:
   m_ObjectHideFlags: 0
