@@ -2,6 +2,7 @@
 using System.Linq;
 using Assets.Scripts.Rocket;
 using UnityEngine;
+using Zenject;
 
 namespace Assets.Scripts.Chopper
 {
@@ -14,12 +15,17 @@ namespace Assets.Scripts.Chopper
         [SerializeField]
         private Transform _shotStartingMarker;
         [SerializeField]
-        private GunShotRangeAreaController _gunShotRangeAreaController;
-        [SerializeField]
         private float _shootLockPeriod; 
         private float _nextLaunchTime;
 
+        private ChopperGunShotRangeAreaController _gunShotRangeAreaController;
         private IList<(int time, GameObject line)> _lines = new List<(int time, GameObject line)>();
+
+        [Inject]
+        public void Construct(ChopperGunShotRangeAreaController gunShotRangeAreaController)
+        {
+            _gunShotRangeAreaController = gunShotRangeAreaController;
+        }
 
         public void TryShoot()
         {

@@ -24,12 +24,19 @@ public class ChopperInstaller : MonoInstaller
             .BindInterfacesTo<ChopperRotorsController>()
             .AsSingle()
             .WithArguments(_settings.TopRotorTransform, _settings.RearRotorTransform, _settings.ChopperRotorsControllerSettings);
+
+        var component = Container.InstantiateComponent<ChopperGunShotRangeAreaController>(_settings.GunShotAreaRangeGo);
+        Container
+            .Bind<ChopperGunShotRangeAreaController>()
+            .FromInstance(component)
+            .AsSingle();
     }
 
     [Serializable]
     public class Settings
     {
         public Rigidbody Rigidbody;
+        public GameObject GunShotAreaRangeGo;
         public Transform TopRotorTransform;
         public Transform RearRotorTransform;
 
