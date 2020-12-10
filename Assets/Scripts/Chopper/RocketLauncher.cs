@@ -4,6 +4,11 @@ using UnityEngine;
 
 namespace Assets.Scripts.Chopper
 {
+    //TODO to przerabiam na nie-Monobehaviour:
+    //* wstrzyknij skad strzelamy (lunchSpoty)
+    //* wstrzyknij RocketSpawner
+    //* metoda TryLunch musi odpalac jakis RocketSpawner z parametrami...
+    //* zrobic celowanie i wybor celu na jakiejs podstawie
     public class RocketLauncher : MonoBehaviour
     {
         [SerializeField]
@@ -12,6 +17,7 @@ namespace Assets.Scripts.Chopper
         private GameObject _rocketPrefab;
         [SerializeField]
         private float _launchLockPeriod; 
+
         private float _nextLaunchTime;
 
         public void TryLaunch(Transform target)
@@ -24,11 +30,6 @@ namespace Assets.Scripts.Chopper
 
                 var rocketGo = Instantiate(_rocketPrefab, launchSpot.position, transform.rotation);
                 rocketGo.GetComponent<RocketController>().Target = target;
-
-
-                //TODO remove
-                var light = transform.Find("RedLightSphere");
-                light.gameObject.SetActive(!light.gameObject.activeInHierarchy);
             }
         }
     }

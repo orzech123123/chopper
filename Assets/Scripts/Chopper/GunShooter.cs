@@ -1,17 +1,14 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using Assets.Scripts.Rocket;
+﻿using System.Linq;
 using UnityEngine;
 using Zenject;
 
 namespace Assets.Scripts.Chopper
 {
+    //TODO to przerabiam na nie-Monobehaviour:
+    //* wstrzyknij skad strzelamy
+    //* metoda TryShoot musi odpalac jakis Damage dla Enemy jeśli jakies sa w colliderze
     public class GunShooter : MonoBehaviour
     {
-        [SerializeField]
-        private GameObject _decalPrefab;
-        [SerializeField]
-        private GameObject _drawLinePrefab;
         [SerializeField]
         private Transform _shotStartingMarker;
         [SerializeField]
@@ -19,7 +16,6 @@ namespace Assets.Scripts.Chopper
         private float _nextLaunchTime;
 
         private ChopperGunShotRangeAreaController _gunShotRangeAreaController;
-        private IList<(int time, GameObject line)> _lines = new List<(int time, GameObject line)>();
 
         [Inject]
         public void Construct(ChopperGunShotRangeAreaController gunShotRangeAreaController)
@@ -58,16 +54,6 @@ namespace Assets.Scripts.Chopper
                         }
                     }
                 }
-            }
-        }
-
-        void Update()
-        {
-            var linesToRemove = _lines.Where(l => Time.time - l.time > 0.5f);
-            foreach(var line in linesToRemove)
-            {
-                Destroy(line.line);
-                _lines.Remove(line);
             }
         }
     }
