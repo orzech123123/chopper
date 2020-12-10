@@ -1277,6 +1277,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ec536a7718376554185e4a856d5ae230, type: 3}
+--- !u!4 &308077916 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 479082, guid: ae4b8d90450391640addee2b41d60938,
+    type: 3}
+  m_PrefabInstance: {fileID: 1622005049}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &351048223 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 411758, guid: 48f0acf6c96f1e0428af09fbaa0295de,
@@ -3873,7 +3879,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1160412788}
-  - component: {fileID: 1160412787}
   - component: {fileID: 1160412789}
   - component: {fileID: 1160412790}
   - component: {fileID: 1160412791}
@@ -3884,20 +3889,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1160412787
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1160412785}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c05ab1c95b7bff7429da8d9dc0a18f95, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MaxSpeed: 200
-  EnginesWarmUpTotalTime: 60
 --- !u!4 &1160412788
 Transform:
   m_ObjectHideFlags: 0
@@ -4999,6 +4990,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bd635153a99477349a00fc45de465a43, type: 3}
+--- !u!4 &1554424337 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 426598, guid: ae4b8d90450391640addee2b41d60938,
+    type: 3}
+  m_PrefabInstance: {fileID: 1622005049}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1613487178 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400002, guid: d3e74f7c0011b184cbefa590559b054b,
@@ -6375,11 +6372,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _settings:
     Rigidbody: {fileID: 1160412789}
+    TopRotorTransform: {fileID: 1554424337}
+    RearRotorTransform: {fileID: 308077916}
     ChopperFlightHandlerSettings:
       MaxVelocity: 10
     ChopperPlayerSettings:
       MaxVerticalForce: 25
       SlowDownTotalTime: 5
+    ChopperRotorsControllerSettings:
+      MaxSpeed: 200
+      EnginesWarmUpTotalTime: 60
 --- !u!1 &1887786644
 GameObject:
   m_ObjectHideFlags: 0

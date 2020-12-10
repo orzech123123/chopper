@@ -19,13 +19,22 @@ public class ChopperInstaller : MonoInstaller
             .BindInterfacesTo<ChopperFlightHandler>()
             .AsSingle()
             .WithArguments(_settings.ChopperFlightHandlerSettings);
+
+        Container
+            .BindInterfacesTo<ChopperRotorsController>()
+            .AsSingle()
+            .WithArguments(_settings.TopRotorTransform, _settings.RearRotorTransform, _settings.ChopperRotorsControllerSettings);
     }
 
     [Serializable]
     public class Settings
     {
         public Rigidbody Rigidbody;
+        public Transform TopRotorTransform;
+        public Transform RearRotorTransform;
+
         public ChopperFlightHandler.Settings ChopperFlightHandlerSettings;
         public ChopperPlayer.Settings ChopperPlayerSettings;
+        public ChopperRotorsController.Settings ChopperRotorsControllerSettings;
     }
 }
