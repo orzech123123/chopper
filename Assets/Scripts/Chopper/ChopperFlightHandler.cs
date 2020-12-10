@@ -4,26 +4,23 @@ using Zenject;
 
 public class ChopperFlightHandler : IFixedTickable
 {
-    //readonly Settings _settings;
     readonly ChopperPlayer _chopperPlayer;
     readonly IInputManager _inputManager;
-
-    public float MaxVelocity = 10f; 
-
+    readonly Settings _settings;
 
     public ChopperFlightHandler(
         ChopperPlayer chopperPlayer,
-        IInputManager inputManager/*,
-        Settings settings*/)
+        IInputManager inputManager,
+        Settings settings)
     {
-        //_settings = settings;
         _chopperPlayer = chopperPlayer;
         _inputManager = inputManager;
+        _settings = settings;
     }
 
     public void FixedTick()
     {
-        if (_inputManager.IsForwardActive && Math.Abs(_chopperPlayer.ForwardVelocity) < MaxVelocity)
+        if (_inputManager.IsForwardActive && Math.Abs(_chopperPlayer.ForwardVelocity) < _settings.MaxVelocity)
         {
             _chopperPlayer.MoveForward(_inputManager.ForwardValue);
         }
@@ -33,7 +30,7 @@ public class ChopperFlightHandler : IFixedTickable
         }
 
 
-        if (_inputManager.IsVerticalActive && Math.Abs(_chopperPlayer.UpVelocity) < MaxVelocity)
+        if (_inputManager.IsVerticalActive && Math.Abs(_chopperPlayer.UpVelocity) < _settings.MaxVelocity)
         {
             _chopperPlayer.MoveVertically(_inputManager.VerticalValue);
         }
@@ -42,7 +39,7 @@ public class ChopperFlightHandler : IFixedTickable
             _chopperPlayer.SlowDownVertically();
         }
 
-        if (_inputManager.IsLeftRightActive && Math.Abs(_chopperPlayer.LeftRightVelocity) < MaxVelocity)
+        if (_inputManager.IsLeftRightActive && Math.Abs(_chopperPlayer.LeftRightVelocity) < _settings.MaxVelocity)
         {
             _chopperPlayer.MoveLeftRight(_inputManager.LeftRightValue);
         }
@@ -64,9 +61,6 @@ public class ChopperFlightHandler : IFixedTickable
     [Serializable]
     public class Settings
     {
-        public float BoundaryBuffer;
-        public float BoundaryAdjustForce;
-        public float MoveSpeed;
-        public float SlowDownSpeed;
+        public float MaxVelocity = 10f;
     }
 }

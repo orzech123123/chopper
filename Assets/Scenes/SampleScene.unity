@@ -6392,6 +6392,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _settings:
     Rigidbody: {fileID: 1160412789}
+    ChopperFlightHandlerSettings:
+      MaxVelocity: 10
+    ChopperPlayerSettings:
+      MaxVerticalForce: 25
+      SlowDownTotalTime: 5
 --- !u!1 &1887786644
 GameObject:
   m_ObjectHideFlags: 0
