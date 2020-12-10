@@ -6,6 +6,7 @@ using Zenject;
 
 namespace Assets.Scripts.Chopper
 {
+
     [RequireComponent(typeof(Rigidbody))]
     public class FlightController : MonoBehaviour
     {
@@ -20,20 +21,14 @@ namespace Assets.Scripts.Chopper
         public float MaxAngularVelocity = 10f;
         public float MaxVelocity = 10f;
         public float Force = 25f;
+        public float SlowDownTotalTime = 5f;
 
         private Rigidbody _rigidBody;
 
-        public float VerticalSlowDownTotalTime = 5f;
-        private float _verticalSlowDownDiffTime;
-
-        public float ForwardSlowDownTotalTime = 5f;
-        private float _forwardSlowDownDiffTime;
-
-        public float RotationSlowDownTotalTime = 5f;
         private float _rotationSlowDownDiffTime;
-
-        public float LeftRightSlowDownTotalTime = 5f;
         private float _leftRightSlowDownDiffTime;
+        private float _forwardSlowDownDiffTime;
+        private float _verticalSlowDownDiffTime;
 
         void Start()
         {
@@ -109,7 +104,7 @@ namespace Assets.Scripts.Chopper
 
         private void SlowDownLeftRight()
         {
-            _leftRightSlowDownDiffTime += Time.deltaTime / LeftRightSlowDownTotalTime;
+            _leftRightSlowDownDiffTime += Time.deltaTime / SlowDownTotalTime;
             var factor = Mathf.Lerp(0, 1, _leftRightSlowDownDiffTime);
 
             var rightVelocity = Vector3.Dot(_rigidBody.velocity, transform.right);
@@ -119,7 +114,7 @@ namespace Assets.Scripts.Chopper
 
         private void SlowDownVertically()
         {
-            _verticalSlowDownDiffTime += Time.deltaTime / VerticalSlowDownTotalTime;
+            _verticalSlowDownDiffTime += Time.deltaTime / SlowDownTotalTime;
             var factor = Mathf.Lerp(0, 1, _verticalSlowDownDiffTime);
 
             var upVelocity = Vector3.Dot(_rigidBody.velocity, transform.up);
@@ -129,7 +124,7 @@ namespace Assets.Scripts.Chopper
 
         private void SlowDownForward()
         {
-            _forwardSlowDownDiffTime += Time.deltaTime / ForwardSlowDownTotalTime;
+            _forwardSlowDownDiffTime += Time.deltaTime / SlowDownTotalTime;
             var factor = Mathf.Lerp(0, 1, _forwardSlowDownDiffTime);
 
             var forwardVelocity = Vector3.Dot(_rigidBody.velocity, transform.forward);
@@ -139,7 +134,7 @@ namespace Assets.Scripts.Chopper
 
         private void SlowDownRotation()
         {
-            _rotationSlowDownDiffTime += Time.deltaTime / RotationSlowDownTotalTime;
+            _rotationSlowDownDiffTime += Time.deltaTime / SlowDownTotalTime;
             var factor = Mathf.Lerp(0, 1, _rotationSlowDownDiffTime);
 
             var v = _rigidBody.angularVelocity;

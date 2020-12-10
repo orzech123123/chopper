@@ -19,9 +19,4 @@ public class GunShotRangeAreaController : MonoBehaviour
     {
         _collidingObjects.Remove(other.gameObject);
     }
-
-    private void Update()
-    {
-        Debug.Log(_collidingObjects.Count);
-    }
 }
