@@ -3956,10 +3956,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1bd7ed338fc1813499fc8a4e405c5d0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _decalPrefab: {fileID: 7102300569838607649, guid: d1a9e8a6cd1eb6540bad706735f337a9,
-    type: 3}
-  _drawLinePrefab: {fileID: 6842020951521721412, guid: a0e619ca2e99e7240b104f86a4d476fb,
-    type: 3}
   _shotStartingMarker: {fileID: 1123513133}
   _shootLockPeriod: 0.2
 --- !u!1001 &1178658952
@@ -4313,6 +4309,7 @@ GameObject:
   - component: {fileID: 1241068397}
   - component: {fileID: 1241068396}
   - component: {fileID: 1241068395}
+  - component: {fileID: 1241068398}
   m_Layer: 0
   m_Name: GunShotRangeArea
   m_TagString: Untagged
@@ -4394,6 +4391,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1241068393}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1241068398
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1241068393}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21752b11a509b5745a727344a6f9c436, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1274479475
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6492,6 +6501,8 @@ MonoBehaviour:
     ChopperRotorsControllerSettings:
       MaxSpeed: 200
       EnginesWarmUpTotalTime: 60
+    EnemyPrafab: {fileID: 6236967036185637751, guid: 68386e34805cc8b4f977bdf76c94e265,
+      type: 3}
 --- !u!1 &1887786644
 GameObject:
   m_ObjectHideFlags: 0

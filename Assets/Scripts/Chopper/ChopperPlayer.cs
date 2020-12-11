@@ -90,4 +90,10 @@ public class ChopperPlayer
         public float MaxVerticalForce = 25f; 
         public float SlowDownTotalTime = 5f;
     }
+
+
+    //***********************************
+
+
+    public Vector3 Position => _rigidbody.transform.Find("Sk_Veh_Attack_Heli").position;
 }
