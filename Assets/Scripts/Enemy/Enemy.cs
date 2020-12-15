@@ -11,7 +11,7 @@ namespace Assets.Scripts.Enemy
         public void Construct(ChopperPlayer player)
         {
             _player = player;
-            transform.position = player.Position;
+            transform.position = new Vector3(player.Position.x, 5f, player.Position.z);
         }
 
         public class Factory : PlaceholderFactory<Enemy>
@@ -20,7 +20,6 @@ namespace Assets.Scripts.Enemy
 
         public void Update()
         {
-            Debug.Log(_player.ForwardVelocity);
         }
     }
 }

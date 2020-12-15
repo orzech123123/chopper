@@ -1,10 +1,11 @@
 ﻿using UnityEngine;
+using Zenject;
 
 namespace Assets.Scripts.Rocket
 {
-    public class RocketController : MonoBehaviour
+    public class Rocket : MonoBehaviour
     {
-        public Transform Target;
+        private Transform _target;
         private Rigidbody _rigidBody;
         [SerializeField]
         private float _turn;
@@ -17,6 +18,25 @@ namespace Assets.Scripts.Rocket
         [SerializeField]
         private GameObject _explosionPrefab;
 
+        [Inject]
+        public void Construct(Settings settings)
+        {
+            transform.position = settings.Position;
+            transform.rotation = settings.Rotation;
+            _target = settings.Target;
+        }
+
+        public class Factory : PlaceholderFactory<Settings, Rocket>
+        {
+        }
+
+        public class Settings
+        {
+            public Vector3 Position;
+            public Quaternion Rotation;
+            public Transform Target;
+        }
+
         void Start()
         {
             _rigidBody = GetComponent<Rigidbody>();
@@ -28,7 +48,7 @@ namespace Assets.Scripts.Rocket
         {
             _rigidBody.velocity = transform.forward * _rocketVelocity;
 
-            var rocketTargetRotation = Quaternion.LookRotation(Target.position - transform.position);
+            var rocketTargetRotation = Quaternion.LookRotation(_target.position - transform.position);
 
             _rigidBody.MoveRotation(Quaternion.RotateTowards(transform.rotation, rocketTargetRotation, _turn));
         }
