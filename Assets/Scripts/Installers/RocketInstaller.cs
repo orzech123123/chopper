@@ -3,20 +3,22 @@ using System;
 using UnityEngine;
 using Zenject;
 
-
-public class RocketInstaller : MonoInstaller
+namespace Assets.Scripts.Installers
 {
-    [SerializeField]
-    private Settings _settings;
-
-    public override void InstallBindings()
+    public class RocketInstaller : MonoInstaller
     {
-        Container.BindFactory<RocketParams, Rocket, RocketFactory>().FromComponentInNewPrefab(_settings.RocketPrafab);
-    }
+        [SerializeField]
+        private Settings _settings;
 
-    [Serializable]
-    public class Settings
-    {
-        public GameObject RocketPrafab;
+        public override void InstallBindings()
+        {
+            Container.BindFactory<RocketParams, Rocket.Rocket, RocketFactory>().FromComponentInNewPrefab(_settings.RocketPrafab);
+        }
+
+        [Serializable]
+        public class Settings
+        {
+            public GameObject RocketPrafab;
+        }
     }
 }

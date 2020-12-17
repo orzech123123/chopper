@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
-using Input = UnityEngine.Input;
 
-namespace Assets.Scripts.Chopper
+namespace Assets.Scripts.Camera
 {
     public class CameraController : MonoBehaviour
     {

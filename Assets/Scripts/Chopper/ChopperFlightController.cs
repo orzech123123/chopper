@@ -2,65 +2,68 @@
 using System;
 using Zenject;
 
-[Serializable]
-public class ChopperFlightControllerSettings
+namespace Assets.Scripts.Chopper
 {
-    public float MaxVelocity = 10f;
-}
-
-public class ChopperFlightController : IFixedTickable
-{
-    readonly ChopperPlayer _chopperPlayer;
-    readonly IInputManager _inputManager;
-    readonly ChopperFlightControllerSettings _settings;
-
-    public ChopperFlightController(
-        ChopperPlayer chopperPlayer,
-        IInputManager inputManager,
-        ChopperFlightControllerSettings settings)
+    [Serializable]
+    public class ChopperFlightControllerSettings
     {
-        _chopperPlayer = chopperPlayer;
-        _inputManager = inputManager;
-        _settings = settings;
+        public float MaxVelocity = 10f;
     }
 
-    public void FixedTick()
+    public class ChopperFlightController : IFixedTickable
     {
-        if (_inputManager.IsForwardActive && Math.Abs(_chopperPlayer.ForwardVelocity) < _settings.MaxVelocity)
+        readonly ChopperPlayer _chopperPlayer;
+        readonly IInputManager _inputManager;
+        readonly ChopperFlightControllerSettings _settings;
+
+        public ChopperFlightController(
+            ChopperPlayer chopperPlayer,
+            IInputManager inputManager,
+            ChopperFlightControllerSettings settings)
         {
-            _chopperPlayer.MoveForward(_inputManager.ForwardValue);
-        }
-        else
-        {
-            _chopperPlayer.SlowDownForward();
+            _chopperPlayer = chopperPlayer;
+            _inputManager = inputManager;
+            _settings = settings;
         }
 
+        public void FixedTick()
+        {
+            if (_inputManager.IsForwardActive && Math.Abs(_chopperPlayer.ForwardVelocity) < _settings.MaxVelocity)
+            {
+                _chopperPlayer.MoveForward(_inputManager.ForwardValue);
+            }
+            else
+            {
+                _chopperPlayer.SlowDownForward();
+            }
 
-        if (_inputManager.IsVerticalActive && Math.Abs(_chopperPlayer.UpVelocity) < _settings.MaxVelocity)
-        {
-            _chopperPlayer.MoveVertically(_inputManager.VerticalValue);
-        }
-        else
-        {
-            _chopperPlayer.SlowDownVertically();
-        }
 
-        if (_inputManager.IsLeftRightActive && Math.Abs(_chopperPlayer.LeftRightVelocity) < _settings.MaxVelocity)
-        {
-            _chopperPlayer.MoveLeftRight(_inputManager.LeftRightValue);
-        }
-        else
-        {
-            _chopperPlayer.SlowDownLeftRight();
-        }
+            if (_inputManager.IsVerticalActive && Math.Abs(_chopperPlayer.UpVelocity) < _settings.MaxVelocity)
+            {
+                _chopperPlayer.MoveVertically(_inputManager.VerticalValue);
+            }
+            else
+            {
+                _chopperPlayer.SlowDownVertically();
+            }
 
-        if (_inputManager.IsTurnActive)
-        {
-            _chopperPlayer.RotateOnYAxis(_inputManager.TurnValue);
-        }
-        else
-        {
-            _chopperPlayer.SlowDownRotation();
+            if (_inputManager.IsLeftRightActive && Math.Abs(_chopperPlayer.LeftRightVelocity) < _settings.MaxVelocity)
+            {
+                _chopperPlayer.MoveLeftRight(_inputManager.LeftRightValue);
+            }
+            else
+            {
+                _chopperPlayer.SlowDownLeftRight();
+            }
+
+            if (_inputManager.IsTurnActive)
+            {
+                _chopperPlayer.RotateOnYAxis(_inputManager.TurnValue);
+            }
+            else
+            {
+                _chopperPlayer.SlowDownRotation();
+            }
         }
     }
 }

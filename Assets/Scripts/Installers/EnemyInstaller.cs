@@ -3,23 +3,25 @@ using System;
 using UnityEngine;
 using Zenject;
 
-
-public class EnemyInstaller : MonoInstaller
+namespace Assets.Scripts.Installers
 {
-    [SerializeField]
-    private Settings _settings;
-
-    public override void InstallBindings()
+    public class EnemyInstaller : MonoInstaller
     {
-        Container.BindFactory<EnemyParams, Enemy, EnemyFactory>().FromComponentInNewPrefab(_settings.EnemyPrafab);
-        Container.BindInterfacesAndSelfTo<EnemyManager>().AsSingle();
+        [SerializeField]
+        private Settings _settings;
 
-        Container.BindInterfacesTo<EnemySpawner>().AsSingle(); //TODO remove
-    }
+        public override void InstallBindings()
+        {
+            Container.BindFactory<EnemyParams, Enemy.Enemy, EnemyFactory>().FromComponentInNewPrefab(_settings.EnemyPrafab);
+            Container.BindInterfacesAndSelfTo<EnemyManager>().AsSingle();
 
-    [Serializable]
-    public class Settings
-    {
-        public GameObject EnemyPrafab;
+            Container.BindInterfacesTo<EnemySpawner>().AsSingle(); //TODO remove
+        }
+
+        [Serializable]
+        public class Settings
+        {
+            public GameObject EnemyPrafab;
+        }
     }
 }

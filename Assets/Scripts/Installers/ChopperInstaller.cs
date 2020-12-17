@@ -1,30 +1,33 @@
+using Assets.Scripts.Chopper;
 using System;
 using UnityEngine;
 using Zenject;
 
-
-public class ChopperInstaller : MonoInstaller
+namespace Assets.Scripts.Installers
 {
-    [SerializeField]
-    private Settings _settings;
-
-    public override void InstallBindings()
+    public class ChopperInstaller : MonoInstaller
     {
-        Container
-            .BindInterfacesTo<ChopperFlightController>()
-            .AsSingle()
-            .WithArguments(_settings.ChopperFlightControllerSettings);
+        [SerializeField]
+        private Settings _settings;
 
-        Container
-            .BindInterfacesTo<ChopperRotorsController>()
-            .AsSingle()
-            .WithArguments(_settings.ChopperRotorsControllerSettings);
-    }
+        public override void InstallBindings()
+        {
+            Container
+                .BindInterfacesTo<ChopperFlightController>()
+                .AsSingle()
+                .WithArguments(_settings.ChopperFlightControllerSettings);
 
-    [Serializable]
-    public class Settings
-    {
-        public ChopperFlightControllerSettings ChopperFlightControllerSettings;
-        public ChopperRotorsControllerSettings ChopperRotorsControllerSettings;
+            Container
+                .BindInterfacesTo<ChopperRotorsController>()
+                .AsSingle()
+                .WithArguments(_settings.ChopperRotorsControllerSettings);
+        }
+
+        [Serializable]
+        public class Settings
+        {
+            public ChopperFlightControllerSettings ChopperFlightControllerSettings;
+            public ChopperRotorsControllerSettings ChopperRotorsControllerSettings;
+        }
     }
 }

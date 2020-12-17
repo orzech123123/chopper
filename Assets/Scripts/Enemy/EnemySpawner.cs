@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Assets.Scripts.Chopper;
+using UnityEngine;
 using Zenject;
 
 namespace Assets.Scripts.Enemy
