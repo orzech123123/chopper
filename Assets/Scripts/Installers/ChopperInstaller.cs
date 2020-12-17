@@ -24,11 +24,6 @@ public class ChopperInstaller : MonoInstaller
             .BindInterfacesTo<ChopperRotorsController>()
             .AsSingle()
             .WithArguments(_settings.TopRotorTransform, _settings.RearRotorTransform, _settings.ChopperRotorsControllerSettings);
-
-        Container
-            .Bind<ChopperGunShotRangeAreaController>()
-            .FromComponentOn(_settings.GunShotAreaRangeGo)
-            .AsSingle();
     }
 
     [Serializable]

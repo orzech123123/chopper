@@ -96,4 +96,5 @@ public class ChopperPlayer
 
 
     public Vector3 Position => _rigidbody.transform.Find("Sk_Veh_Attack_Heli").position;
+    public Quaternion Rotation => _rigidbody.transform.Find("Sk_Veh_Attack_Heli").rotation;
 }

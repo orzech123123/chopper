@@ -1,16 +1,29 @@
 ﻿using Assets.Scripts.Chopper;
+using Assets.Scripts.Rocket;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using Zenject;
 
 namespace Assets.Scripts.Ui
 {
-    public class RocketLaunchButtonController : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
+    public class RocketLaunchButtonController : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, ITickable
     {
         [SerializeField]
         private Transform _target;
         [SerializeField]
-		private RocketLauncher _chopperRocketLauncher;
+        private float _launchLockPeriod;
+
         private bool _isHeld;
+        private RocketFactory _rocketFactory;
+        private ChopperPlayer _player;
+        private float _nextLaunchTime;
+
+        [Inject]
+        public void Construct(RocketFactory rocketFactory, ChopperPlayer player)
+        {
+            _rocketFactory = rocketFactory;
+            _player = player;
+        }
 
         public void OnPointerDown(PointerEventData eventData)
         {
@@ -22,11 +35,20 @@ namespace Assets.Scripts.Ui
             _isHeld = false;
         }
 
-        void Update()
+        public void Tick()
         {
             if (_isHeld)
             {
-                _chopperRocketLauncher.TryLaunch(_target);
+                if (Time.time > _nextLaunchTime)
+                {
+                    _nextLaunchTime = Time.time + _launchLockPeriod;
+                    _rocketFactory.Create(new RocketSettings
+                    {
+                        Position = _player.Position, //TODO change to get launchSpots from here - ChopperPlayer - as from view
+                        Rotation = _player.Rotation, //TODO the same as above,
+                        Target = _target
+                    });
+                }
             }
         }
     }

@@ -11,9 +11,10 @@ public class EnemyInstaller : MonoInstaller
 
     public override void InstallBindings()
     {
+        Container.BindFactory<EnemySettings, Enemy, EnemyFactory>().FromComponentInNewPrefab(_settings.EnemyPrafab);
         Container.BindInterfacesAndSelfTo<EnemyManager>().AsSingle();
-        Container.BindInterfacesTo<EnemySpawner>().AsSingle();
-        Container.BindFactory<Enemy, Enemy.Factory>().FromComponentInNewPrefab(_settings.EnemyPrafab);
+
+        Container.BindInterfacesTo<EnemySpawner>().AsSingle(); //TODO remove
     }
 
     [Serializable]

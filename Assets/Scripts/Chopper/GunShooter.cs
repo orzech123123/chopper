@@ -37,20 +37,7 @@ namespace Assets.Scripts.Chopper
                     {
                         if (hitInfo.collider.gameObject == enemy)
                         {
-                            //var decal = Instantiate(_decalPrefab);
-                            //decal.transform.position = hitInfo.point;
-                            //decal.transform.forward = hitInfo.normal * -1f;
-
-                            //var line = Instantiate(_drawLinePrefab);
-                            //_lines.Add(((int time, GameObject line))(Time.time, line));
-                            //var drawer = line.GetComponent<DrawLine>();
-                            //drawer.Configure(_shotStartingMarker.position, hitInfo.point);
-                            //var renderer = line.GetComponent<LineRenderer>();
-                            //renderer.material = new Material(Shader.Find("Mobile/Particles/Additive"));
-                            //renderer.startColor = renderer.endColor = Color.red;
-                            //renderer.startWidth = renderer.endWidth = 0.1f;
-
-                            GetComponent<RocketLauncher>().TryLaunch(hitInfo.collider.gameObject.transform);
+                            //TODO shootingh
                         }
                     }
                 }

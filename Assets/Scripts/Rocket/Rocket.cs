@@ -19,22 +19,11 @@ namespace Assets.Scripts.Rocket
         private GameObject _explosionPrefab;
 
         [Inject]
-        public void Construct(Settings settings)
+        public void Construct(RocketSettings settings)
         {
             transform.position = settings.Position;
             transform.rotation = settings.Rotation;
             _target = settings.Target;
-        }
-
-        public class Factory : PlaceholderFactory<Settings, Rocket>
-        {
-        }
-
-        public class Settings
-        {
-            public Vector3 Position;
-            public Quaternion Rotation;
-            public Transform Target;
         }
 
         void Start()

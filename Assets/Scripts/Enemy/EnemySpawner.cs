@@ -5,16 +5,16 @@ namespace Assets.Scripts.Enemy
 {
     public class EnemySpawner : ITickable
     {
-        readonly Enemy.Factory _enemyFactory;
         EnemyManager _enemyManager;
+        ChopperPlayer _player;
 
         private float _spawnLockPeriod = 5f;
         private float _nextSpawnTime;
 
-        public EnemySpawner(Enemy.Factory enemyFactory, EnemyManager enemyManager)
+        public EnemySpawner(EnemyManager enemyManager, ChopperPlayer player)
         {
-            _enemyFactory = enemyFactory;
             _enemyManager = enemyManager;
+            _player = player;
         }
 
         public void Tick()
@@ -23,8 +23,7 @@ namespace Assets.Scripts.Enemy
             {
                 _nextSpawnTime = Time.time + _spawnLockPeriod;
 
-                var enemy = _enemyFactory.Create();
-                _enemyManager.Add(enemy);
+                _enemyManager.Create(new EnemySettings { Position = new Vector3(_player.Position.x, 5f, _player.Position.z) });
             }
         }
     }
