@@ -2,7 +2,7 @@
 
 namespace Assets.Scripts.Rocket
 {
-    public class RocketFactory : PlaceholderFactory<RocketSettings, Rocket>
+    public class RocketFactory : PlaceholderFactory<RocketParams, Rocket>
     {
     }
 }

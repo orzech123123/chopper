@@ -56,8 +56,7 @@ namespace Assets.Scripts.Ui
                         {
                             if (hitInfo.collider.gameObject == enemy)
                             {
-                                //TODO dlaczego koliduje z rakietą ?!?! ze samym sobą OnColliderEnter w Rocket :/
-                                _rocketFactory.Create(new RocketSettings
+                                _rocketFactory.Create(new RocketParams
                                 {
                                     Position = _player.Position, //TODO change to get launchSpots from here - ChopperPlayer - as from view
                                     Rotation = _player.Rotation, //TODO the same as above,

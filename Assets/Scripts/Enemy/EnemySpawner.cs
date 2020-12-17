@@ -23,7 +23,7 @@ namespace Assets.Scripts.Enemy
             {
                 _nextSpawnTime = Time.time + _spawnLockPeriod;
 
-                _enemyManager.Create(new EnemySettings { Position = new Vector3(_player.Position.x, 5f, _player.Position.z) });
+                _enemyManager.Create(new EnemyParams { Position = new Vector3(_player.Position.x, 5f, _player.Position.z) });
             }
         }
     }

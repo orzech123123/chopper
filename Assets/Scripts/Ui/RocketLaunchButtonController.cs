@@ -42,7 +42,7 @@ namespace Assets.Scripts.Ui
                 if (Time.time > _nextLaunchTime)
                 {
                     _nextLaunchTime = Time.time + _launchLockPeriod;
-                    _rocketFactory.Create(new RocketSettings
+                    _rocketFactory.Create(new RocketParams
                     {
                         Position = _player.Position, //TODO change to get launchSpots from here - ChopperPlayer - as from view
                         Rotation = _player.Rotation, //TODO the same as above,

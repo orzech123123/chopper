@@ -11,7 +11,7 @@ public class RocketInstaller : MonoInstaller
 
     public override void InstallBindings()
     {
-        Container.BindFactory<RocketSettings, Rocket, RocketFactory>().FromComponentInNewPrefab(_settings.RocketPrafab);
+        Container.BindFactory<RocketParams, Rocket, RocketFactory>().FromComponentInNewPrefab(_settings.RocketPrafab);
     }
 
     [Serializable]

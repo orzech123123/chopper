@@ -1,19 +1,27 @@
 using System;
 using UnityEngine;
 
-public class ChopperPlayer
+[Serializable]
+public class ChopperPlayerParams
 {
+    public float MaxVerticalForce = 25f;
+    public float SlowDownTotalTime = 5f;
+}
+
+public class ChopperPlayer : MonoBehaviour
+{
+    [SerializeField]
+    private ChopperPlayerParams _settings;
+
     private Rigidbody _rigidbody;
-    private Settings _settings;
     private float _rotationSlowDownDiffTime;
     private float _leftRightSlowDownDiffTime;
     private float _forwardSlowDownDiffTime;
     private float _verticalSlowDownDiffTime;
 
-    public ChopperPlayer(Rigidbody rigidbody, Settings settings)
+    private void Start()
     {
-        _rigidbody = rigidbody;
-        _settings = settings;
+        _rigidbody = GetComponent<Rigidbody>();
     }
 
     public float UpVelocity => Vector3.Dot(_rigidbody.velocity, _rigidbody.transform.up);
@@ -82,13 +90,6 @@ public class ChopperPlayer
         var v = _rigidbody.angularVelocity;
         var yCounterVelocity = -v.y * factor;
         _rigidbody.AddTorque(new Vector3(0, yCounterVelocity, 0), ForceMode.VelocityChange);
-    }
-
-    [Serializable]
-    public class Settings
-    {
-        public float MaxVerticalForce = 25f; 
-        public float SlowDownTotalTime = 5f;
     }
 
 

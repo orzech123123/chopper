@@ -1,8 +1,17 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using Zenject;
 
 namespace Assets.Scripts.Rocket
 {
+    [Serializable]
+    public class RocketParams
+    {
+        public Vector3 Position;
+        public Quaternion Rotation;
+        public Transform Target;
+    }
+
     public class Rocket : MonoBehaviour
     {
         private Transform _target;
@@ -19,7 +28,7 @@ namespace Assets.Scripts.Rocket
         private GameObject _explosionPrefab;
 
         [Inject]
-        public void Construct(RocketSettings settings)
+        public void Construct(RocketParams settings)
         {
             transform.position = settings.Position;
             transform.rotation = settings.Rotation;
