@@ -11,25 +11,20 @@ public class ChopperInstaller : MonoInstaller
     public override void InstallBindings()
     {
         Container
-            .BindInterfacesTo<ChopperFlightHandler>()
+            .BindInterfacesTo<ChopperFlightController>()
             .AsSingle()
-            .WithArguments(_settings.ChopperFlightHandlerSettings);
+            .WithArguments(_settings.ChopperFlightControllerSettings);
 
         Container
             .BindInterfacesTo<ChopperRotorsController>()
             .AsSingle()
-            .WithArguments(_settings.TopRotorTransform, _settings.RearRotorTransform, _settings.ChopperRotorsControllerSettings);
+            .WithArguments(_settings.ChopperRotorsControllerSettings);
     }
 
     [Serializable]
     public class Settings
     {
-        public GameObject GunShotAreaRangeGo;
-        public Transform TopRotorTransform;
-        public Transform RearRotorTransform;
-
-        public ChopperFlightHandler.Settings ChopperFlightHandlerSettings;
-        public ChopperPlayerParams ChopperPlayerParams;
-        public ChopperRotorsController.Settings ChopperRotorsControllerSettings;
+        public ChopperFlightControllerSettings ChopperFlightControllerSettings;
+        public ChopperRotorsControllerSettings ChopperRotorsControllerSettings;
     }
 }

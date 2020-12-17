@@ -14,9 +14,9 @@ namespace Assets.Scripts.Enemy
             _factory = factory;
         }
 
-        public void Create(EnemySettings settings)
+        public void Create(EnemyParams @params)
         {
-            var enemy = _factory.Create(settings);
+            var enemy = _factory.Create(@params);
             _enemies.Add(enemy);
         }
 

@@ -2,16 +2,22 @@
 using System;
 using Zenject;
 
-public class ChopperFlightHandler : IFixedTickable
+[Serializable]
+public class ChopperFlightControllerSettings
+{
+    public float MaxVelocity = 10f;
+}
+
+public class ChopperFlightController : IFixedTickable
 {
     readonly ChopperPlayer _chopperPlayer;
     readonly IInputManager _inputManager;
-    readonly Settings _settings;
+    readonly ChopperFlightControllerSettings _settings;
 
-    public ChopperFlightHandler(
+    public ChopperFlightController(
         ChopperPlayer chopperPlayer,
         IInputManager inputManager,
-        Settings settings)
+        ChopperFlightControllerSettings settings)
     {
         _chopperPlayer = chopperPlayer;
         _inputManager = inputManager;
@@ -56,11 +62,5 @@ public class ChopperFlightHandler : IFixedTickable
         {
             _chopperPlayer.SlowDownRotation();
         }
-    }
-
-    [Serializable]
-    public class Settings
-    {
-        public float MaxVelocity = 10f;
     }
 }

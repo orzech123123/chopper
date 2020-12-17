@@ -11,9 +11,9 @@ namespace Assets.Scripts.Enemy
     public class Enemy : MonoBehaviour
     {
         [Inject]
-        public void Construct(EnemyParams settings)
+        public void Construct(EnemyParams @params)
         {
-            transform.position = settings.Position;
+            transform.position = @params.Position;
         }
     }
 }

@@ -3952,6 +3952,8 @@ GameObject:
   - component: {fileID: 1160412788}
   - component: {fileID: 1160412789}
   - component: {fileID: 1160412791}
+  - component: {fileID: 1160412787}
+  - component: {fileID: 1160412786}
   m_Layer: 0
   m_Name: Chopper
   m_TagString: Untagged
@@ -3959,6 +3961,41 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &1160412786
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1160412785}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0166d8ff8d905b048b2448179e1f5d11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _components:
+  - {fileID: 1160412787}
+  _identifier: 
+  _useSceneContext: 0
+  _context: {fileID: 0}
+  _bindType: 0
+--- !u!114 &1160412787
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1160412785}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e747224db3f9b2a4e90b04e632376354, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _params:
+    MaxVerticalForce: 25
+    SlowDownTotalTime: 5
+    TopRotor: {fileID: 1554424337}
+    RearRotor: {fileID: 308077916}
 --- !u!4 &1160412788
 Transform:
   m_ObjectHideFlags: 0
@@ -3967,7 +4004,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1160412785}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 61.831924, y: 45.1, z: -77.9}
+  m_LocalPosition: {x: 61.831924, y: 2.6, z: -77.9}
   m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
   m_Children:
   - {fileID: 963194228}
@@ -4007,6 +4044,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _shotStartingMarker: {fileID: 1123513133}
   _shootLockPeriod: 0.2
+  _nextLaunchTime: 0
+  _gunShotRangeAreaController: {fileID: 0}
 --- !u!1001 &1178658952
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4361,7 +4400,7 @@ GameObject:
   - component: {fileID: 1241068398}
   - component: {fileID: 1241068399}
   m_Layer: 0
-  m_Name: GunShotRangeArea
+  m_Name: RangeArea
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5077,11 +5116,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 178502, guid: ae4b8d90450391640addee2b41d60938, type: 3}
       propertyPath: m_Name
-      value: Rotor
+      value: TopRotor
       objectReference: {fileID: 0}
     - target: {fileID: 182312, guid: ae4b8d90450391640addee2b41d60938, type: 3}
       propertyPath: m_Name
-      value: Rotor2
+      value: RearRotor
       objectReference: {fileID: 0}
     - target: {fileID: 465544, guid: ae4b8d90450391640addee2b41d60938, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5918,7 +5957,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _target: {fileID: 401941042}
-  _launchLockPeriod: 2
+  _launchLockPeriod: 1
 --- !u!114 &1677381353
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6574,15 +6613,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _settings:
-    Rigidbody: {fileID: 1160412789}
-    GunShotAreaRangeGo: {fileID: 1241068393}
-    TopRotorTransform: {fileID: 1554424337}
-    RearRotorTransform: {fileID: 308077916}
-    ChopperFlightHandlerSettings:
+    ChopperFlightControllerSettings:
       MaxVelocity: 10
-    ChopperPlayerSettings:
-      MaxVerticalForce: 25
-      SlowDownTotalTime: 5
     ChopperRotorsControllerSettings:
       MaxSpeed: 200
       EnginesWarmUpTotalTime: 60

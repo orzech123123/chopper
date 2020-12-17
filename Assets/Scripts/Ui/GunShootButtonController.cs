@@ -10,22 +10,21 @@ namespace Assets.Scripts.Ui
     public class GunShootButtonController : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, ITickable
     {
         private bool _isHeld;
-
-        private ChopperGunShotRangeAreaController _areaController;
+        private RangeArea _rangeArea;
         private RocketFactory _rocketFactory;
         private ChopperPlayer _player;
+        private float _nextShotTime;
 
         [SerializeField]
         private float _shotLockPeriod;
-        private float _nextShotTime;
 
         [Inject]
         public void Construct(
-            ChopperGunShotRangeAreaController areaController,
+            RangeArea rangeArea,
             RocketFactory rocketFactory,
             ChopperPlayer player)
         {
-            _areaController = areaController;
+            _rangeArea = rangeArea;
             _rocketFactory = rocketFactory;
             _player = player;
         }
@@ -49,7 +48,7 @@ namespace Assets.Scripts.Ui
                     _nextShotTime = Time.time + _shotLockPeriod;
 
                     RaycastHit hitInfo;
-                    foreach (var enemy in _areaController.CollidingObjects.Where(go => go.layer == LayerMask.NameToLayer("Enemy")))
+                    foreach (var enemy in _rangeArea.CollidingObjects.Where(go => go.layer == LayerMask.NameToLayer("Enemy")))
                     {
                         var dir = (enemy.transform.position - _player.Position).normalized;
                         if (Physics.Raycast(_player.Position, dir, out hitInfo, float.MaxValue, LayerMask.GetMask("Enemy")))

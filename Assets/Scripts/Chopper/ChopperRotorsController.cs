@@ -2,17 +2,23 @@
 using UnityEngine;
 using Zenject;
 
+
+[Serializable]
+public class ChopperRotorsControllerSettings
+{
+    public float MaxSpeed = 200f;
+    public float EnginesWarmUpTotalTime = 60f;
+}
+
 public class ChopperRotorsController : ITickable
 {
-    readonly Transform _topRotor;
-    readonly Transform _rearRotor;
     private float _enginesWarmUpDiffTime;
-    private Settings _settings;
+    private ChopperRotorsControllerSettings _settings;
+    private ChopperPlayer _player;
 
-    public ChopperRotorsController(Transform topRotor, Transform rearRotor, Settings settings)
+    public ChopperRotorsController(ChopperPlayer player, ChopperRotorsControllerSettings settings)
     {
-        _topRotor = topRotor;
-        _rearRotor = rearRotor;
+        _player = player;
         _settings = settings;
     }
 
@@ -22,14 +28,7 @@ public class ChopperRotorsController : ITickable
         var factor = Mathf.Lerp(0, 1, _enginesWarmUpDiffTime);
         var speed = _settings.MaxSpeed * factor;
 
-        _topRotor.localRotation = Quaternion.Euler(0, speed, 0) * _topRotor.localRotation;
-        _rearRotor.localRotation = Quaternion.Euler(speed, 0, 0) * _rearRotor.localRotation;
-    }
-
-    [Serializable]
-    public class Settings
-    {
-        public float MaxSpeed = 200f;
-        public float EnginesWarmUpTotalTime = 60f;
+        _player.SetTopRotorSpeed(speed);
+        _player.SetRearRotorSpeed(speed);
     }
 }

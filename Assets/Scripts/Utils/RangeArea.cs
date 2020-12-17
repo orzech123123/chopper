@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-public class ChopperGunShotRangeAreaController : MonoBehaviour
+public class RangeArea : MonoBehaviour
 {
     private ICollection<GameObject> _collidingObjects = new List<GameObject>();
     public IEnumerable<GameObject> CollidingObjects => _collidingObjects;

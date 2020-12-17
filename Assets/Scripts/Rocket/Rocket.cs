@@ -14,6 +14,7 @@ namespace Assets.Scripts.Rocket
 
     public class Rocket : MonoBehaviour
     {
+        //TODO tą parametrozę:
         private Transform _target;
         private Rigidbody _rigidBody;
         [SerializeField]

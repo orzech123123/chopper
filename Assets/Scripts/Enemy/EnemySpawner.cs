@@ -5,9 +5,8 @@ namespace Assets.Scripts.Enemy
 {
     public class EnemySpawner : ITickable
     {
-        EnemyManager _enemyManager;
-        ChopperPlayer _player;
-
+        private EnemyManager _enemyManager;
+        private ChopperPlayer _player;
         private float _spawnLockPeriod = 5f;
         private float _nextSpawnTime;
 
