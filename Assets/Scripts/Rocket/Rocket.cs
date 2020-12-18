@@ -12,58 +12,62 @@ namespace Assets.Scripts.Rocket
         public Transform Target;
     }
 
+    [RequireComponent(typeof(Rigidbody))]
     public class Rocket : MonoBehaviour
     {
-        //TODO tą parametrozę:
-        private Transform _target;
-        private Rigidbody _rigidBody;
-        [SerializeField]
-        private float _turn;
-        [SerializeField]
-        private float _rocketVelocity;
-        private Transform _smoke;
-        private Transform _explosion;
+        //TODO dac to z jakiegos facotry ognia i eksplozji
         [SerializeField]
         private GameObject _firePrefab;
         [SerializeField]
         private GameObject _explosionPrefab;
 
+        [SerializeField]
+        private float _turn = 2f;
+        [SerializeField]
+        private float _rocketVelocity = 60f;
+        [SerializeField]
+        private GameObject _smokePrefab;
+
+        private RocketParams _params;
+        private Rigidbody _rigidBody;
+
         [Inject]
-        public void Construct(RocketParams settings)
+        public void Construct(RocketParams @params)
         {
-            transform.position = settings.Position;
-            transform.rotation = settings.Rotation;
-            _target = settings.Target;
+            transform.position = @params.Position;
+            transform.rotation = @params.Rotation;
+            _params = @params;
         }
 
         void Start()
         {
             _rigidBody = GetComponent<Rigidbody>();
-            _smoke = transform.Find("WhiteSmoke");
-            _explosion = transform.Find("ExplosionSpot");
         }
 
         void FixedUpdate()
         {
             _rigidBody.velocity = transform.forward * _rocketVelocity;
 
-            var rocketTargetRotation = Quaternion.LookRotation(_target.position - transform.position);
+            var rocketTargetRotation = Quaternion.LookRotation(_params.Target.position - transform.position);
 
             _rigidBody.MoveRotation(Quaternion.RotateTowards(transform.rotation, rocketTargetRotation, _turn));
         }
 
         void OnCollisionEnter(Collision collision)
         {
-            _smoke.parent = null;
-            _explosion.parent = null;
-
-            _smoke.GetComponent<ParticleSystem>().Stop();
-            _explosion.GetComponent<AudioSource>().Play();
+            _smokePrefab.GetComponent<ParticleSystem>().Stop();
+            _smokePrefab.transform.parent = null;
+            
+            //TODO przeniesc explozje do jakiegos factory z eksplozjami
+            var explosion = transform.Find("ExplosionSpot");
+            explosion.parent = null;
+            explosion.GetComponent<AudioSource>().Play();
 
             Destroy(gameObject);
-            Destroy(_smoke.gameObject, 5f);
-            Destroy(_explosion.gameObject, 5f);
+            Destroy(_smokePrefab.gameObject, 5f);
+            Destroy(explosion.gameObject, 5f);
 
+            //TODO to inicjowac z jakiegos factory
             Instantiate(_firePrefab, collision.gameObject.transform.position, _firePrefab.transform.rotation);
             Instantiate(_explosionPrefab, collision.gameObject.transform.position, _explosionPrefab.transform.rotation);
         }

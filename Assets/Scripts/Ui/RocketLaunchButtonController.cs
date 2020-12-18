@@ -42,10 +42,11 @@ namespace Assets.Scripts.Ui
                 if (Time.time > _nextLaunchTime)
                 {
                     _nextLaunchTime = Time.time + _launchLockPeriod;
+                    var spot = _player.RocketLaunchSpots[Random.Range(0, _player.RocketLaunchSpots.Length)];
                     _rocketFactory.Create(new RocketParams
                     {
-                        Position = _player.Position, //TODO change to get launchSpots from here - ChopperPlayer - as from view
-                        Rotation = _player.Rotation, //TODO the same as above,
+                        Position = spot.position, 
+                        Rotation = spot.rotation, 
                         Target = _target
                     });
                 }

@@ -8,6 +8,7 @@ namespace Assets.Scripts.Enemy
         public Vector3 Position;
     }
 
+    [RequireComponent(typeof(Rigidbody))]
     public class Enemy : MonoBehaviour
     {
         [Inject]

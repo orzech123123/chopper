@@ -3951,7 +3951,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1160412788}
   - component: {fileID: 1160412789}
-  - component: {fileID: 1160412791}
   - component: {fileID: 1160412787}
   - component: {fileID: 1160412786}
   m_Layer: 0
@@ -3991,11 +3990,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e747224db3f9b2a4e90b04e632376354, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _params:
-    MaxVerticalForce: 25
-    SlowDownTotalTime: 5
-    TopRotor: {fileID: 1554424337}
-    RearRotor: {fileID: 308077916}
+  _maxVerticalForce: 25
+  _slowDownTotalTime: 5
+  _topRotor: {fileID: 1554424337}
+  _rearRotor: {fileID: 308077916}
+  _helicopter: {fileID: 1123513133}
+  _rocketLaunchSpots:
+  - {fileID: 1739464682}
+  - {fileID: 1900954512}
+  - {fileID: 1744248728}
+  - {fileID: 1832588268}
 --- !u!4 &1160412788
 Transform:
   m_ObjectHideFlags: 0
@@ -4030,22 +4034,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &1160412791
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1160412785}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1bd7ed338fc1813499fc8a4e405c5d0d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _shotStartingMarker: {fileID: 1123513133}
-  _shootLockPeriod: 0.2
-  _nextLaunchTime: 0
-  _gunShotRangeAreaController: {fileID: 0}
 --- !u!1001 &1178658952
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6199,6 +6187,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 360440188}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &1739464682 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 430642, guid: ae4b8d90450391640addee2b41d60938,
+    type: 3}
+  m_PrefabInstance: {fileID: 1622005049}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1744248728 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 484626, guid: ae4b8d90450391640addee2b41d60938,
+    type: 3}
+  m_PrefabInstance: {fileID: 1622005049}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1781360948
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6372,6 +6372,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 473860, guid: 7b9b0470169edd24fb7b97a97e4aac1b,
     type: 3}
   m_PrefabInstance: {fileID: 1827415114}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1832588268 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 484102, guid: ae4b8d90450391640addee2b41d60938,
+    type: 3}
+  m_PrefabInstance: {fileID: 1622005049}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1839240492
 PrefabInstance:
@@ -6714,6 +6720,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &1900954512 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 421412, guid: ae4b8d90450391640addee2b41d60938,
+    type: 3}
+  m_PrefabInstance: {fileID: 1622005049}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1902968017 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400000, guid: b5bab66d94288154397321e11b328a2a,
