@@ -27,10 +27,17 @@ namespace Assets.Scripts.Camera
         private void AdjustCamera()
         {
             var pointerX = UnityEngine.Input.GetAxis("Mouse X");
+            var position = UnityEngine.Input.mousePosition.x;
             //android:
-            if(UnityEngine.Input.touchCount > 0)
+            if (UnityEngine.Input.touchCount > 0)
             {
                 pointerX = UnityEngine.Input.touches[0].deltaPosition.x / Screen.width * 100;
+                position = UnityEngine.Input.touches[0].rawPosition.x;
+            }
+
+            if(position < Screen.width * 0.3f || position > Screen.width * 2/3)
+            {
+                return;
             }
 
             offset = Quaternion.AngleAxis(pointerX * turnSpeed, Vector3.up) * offset;
