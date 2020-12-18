@@ -13,7 +13,7 @@ namespace Assets.Scripts.Camera
 
         private void Start()
         {
-            AdjustCamera();
+            AdjustCamera(true);
         }
 
         void LateUpdate()
@@ -24,7 +24,7 @@ namespace Assets.Scripts.Camera
             }
         }
 
-        private void AdjustCamera()
+        private void AdjustCamera(bool force = false)
         {
             var pointerX = UnityEngine.Input.GetAxis("Mouse X");
             var position = UnityEngine.Input.mousePosition.x;
@@ -35,7 +35,7 @@ namespace Assets.Scripts.Camera
                 position = UnityEngine.Input.touches[0].rawPosition.x;
             }
 
-            if(position < Screen.width * 0.3f || position > Screen.width * 2/3)
+            if((position < Screen.width * 0.3f || position > Screen.width * 2/3) && !force)
             {
                 return;
             }
