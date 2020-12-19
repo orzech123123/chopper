@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Assets.Scripts.Effects;
+using System;
 using UnityEngine;
 using Zenject;
 
@@ -15,12 +16,6 @@ namespace Assets.Scripts.Rocket
     [RequireComponent(typeof(Rigidbody))]
     public class Rocket : MonoBehaviour
     {
-        //TODO dac to z jakiegos facotry ognia i eksplozji
-        [SerializeField]
-        private GameObject _firePrefab;
-        [SerializeField]
-        private GameObject _explosionPrefab;
-
         [SerializeField]
         private float _turn = 2f;
         [SerializeField]
@@ -30,18 +25,22 @@ namespace Assets.Scripts.Rocket
 
         private RocketParams _params;
         private Rigidbody _rigidBody;
+        private ParticleSystem _smokeParticles;
+        private EffectFactories _effectFactories;
 
         [Inject]
-        public void Construct(RocketParams @params)
+        public void Construct(RocketParams @params, EffectFactories effectFactories)
         {
             transform.position = @params.Position;
             transform.rotation = @params.Rotation;
             _params = @params;
+            _effectFactories = effectFactories;
         }
 
         void Start()
         {
             _rigidBody = GetComponent<Rigidbody>();
+            _smokeParticles = _smokePrefab.GetComponent<ParticleSystem>();
         }
 
         void FixedUpdate()
@@ -55,21 +54,20 @@ namespace Assets.Scripts.Rocket
 
         void OnCollisionEnter(Collision collision)
         {
-            _smokePrefab.GetComponent<ParticleSystem>().Stop();
+            _smokeParticles.Stop();
             _smokePrefab.transform.parent = null;
-            
-            //TODO przeniesc explozje do jakiegos factory z eksplozjami
-            var explosion = transform.Find("ExplosionSpot");
-            explosion.parent = null;
-            explosion.GetComponent<AudioSource>().Play();
+            Destroy(_smokePrefab.gameObject, 5f);
+
+            _effectFactories.ExplosionFactory.Create(new ExplosionParams
+            {
+                Position = collision.gameObject.transform.position
+            });
+            _effectFactories.FireFactory.Create(new FireParams
+            {
+                Position = collision.gameObject.transform.position
+            });
 
             Destroy(gameObject);
-            Destroy(_smokePrefab.gameObject, 5f);
-            Destroy(explosion.gameObject, 5f);
-
-            //TODO to inicjowac z jakiegos factory
-            Instantiate(_firePrefab, collision.gameObject.transform.position, _firePrefab.transform.rotation);
-            Instantiate(_explosionPrefab, collision.gameObject.transform.position, _explosionPrefab.transform.rotation);
         }
     }
 }

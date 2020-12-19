@@ -6536,6 +6536,7 @@ GameObject:
   - component: {fileID: 1880309607}
   - component: {fileID: 1880309608}
   - component: {fileID: 1880309609}
+  - component: {fileID: 1880309610}
   m_Layer: 0
   m_Name: SceneContext
   m_TagString: Untagged
@@ -6575,6 +6576,7 @@ MonoBehaviour:
   - {fileID: 1880309608}
   - {fileID: 1880309609}
   - {fileID: 1880309607}
+  - {fileID: 1880309610}
   _installerPrefabs: []
   _autoRun: 1
   OnPreInstall:
@@ -6653,6 +6655,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _settings:
     RocketPrafab: {fileID: 4163862180626915902, guid: 0ca85b0c7e5ddb74a8b09707ad216116,
+      type: 3}
+--- !u!114 &1880309610
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1880309603}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9111ef6a71ab1b04398c6c2309b63a50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _settings:
+    FirePrefab: {fileID: 3072211132576421404, guid: e565a23d8f4d3be45b9f92c37ec09ff4,
+      type: 3}
+    ExplosionPrefab: {fileID: 8454775675310402716, guid: eecbfbafb7df7c246803858a02aa92b5,
       type: 3}
 --- !u!1 &1887786644
 GameObject:
