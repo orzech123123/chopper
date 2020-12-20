@@ -104,8 +104,19 @@ namespace Assets.Scripts.Chopper
             var factor = Mathf.Lerp(0, 1, _rotationSlowDownDiffTime);
 
             var v = _rigidbody.angularVelocity;
-            var yCounterVelocity = -v.y * factor;
-            _rigidbody.AddTorque(new Vector3(0, yCounterVelocity, 0), ForceMode.VelocityChange);
+            var counterVelocity = -v * factor;
+            _rigidbody.AddTorque(counterVelocity, ForceMode.VelocityChange);
+
+            //TODO
+            //1 slow down rotation of Chopper object (root) when hit by sth to return it into proper rotation
+            //2 rotate Heli mesh inside root with rotation when speed increases/decreases
+            
+            //ad1 done slowing down after collision - also need to lerp to 0, y, 0 rotation in some time
+            return;
+            Vector3 faceTarget = new Vector3(0, _rigidbody.rotation.y, 0);
+            Quaternion currentRotation = _rigidbody.rotation;
+            Quaternion newRotation = Quaternion.LookRotation(faceTarget);
+            _rigidbody.MoveRotation(Quaternion.Slerp(currentRotation, newRotation, 2f));
         }
 
         public void SetTopRotorSpeed(float speed)
