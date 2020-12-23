@@ -50,8 +50,8 @@ namespace Assets.Scripts.Ui
                     RaycastHit hitInfo;
                     foreach (var enemy in _rangeArea.CollidingObjects.Where(go => go.layer == LayerMask.NameToLayer("Enemy")))
                     {
-                        var dir = (enemy.transform.position - _player.Position).normalized;
-                        if (Physics.Raycast(_player.Position, dir, out hitInfo, float.MaxValue, LayerMask.GetMask("Enemy")))
+                        var dir = (enemy.transform.position - _player.Chopper.position).normalized;
+                        if (Physics.Raycast(_player.Chopper.position, dir, out hitInfo, float.MaxValue, LayerMask.GetMask("Enemy")))
                         {
                             if (hitInfo.collider.gameObject == enemy)
                             {

@@ -41,8 +41,7 @@ namespace Assets.Scripts.Chopper
         public float LeftRightVelocity => Vector3.Dot(_rigidbody.velocity, _rigidbody.transform.right);
 
         public Transform[] RocketLaunchSpots => _rocketLaunchSpots;
-        public Vector3 Position => _helicopter.position;
-        public Quaternion Rotation => _helicopter.rotation;
+        public Transform Chopper => _helicopter.transform;
 
         public void RotateOnYAxis(float powerFactor)
         {

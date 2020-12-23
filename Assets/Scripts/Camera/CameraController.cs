@@ -5,7 +5,7 @@ namespace Assets.Scripts.Camera
     public class CameraController : MonoBehaviour
     {
         public Vector3 offset;
-        public float dowwRotationAngle = 15f;
+        public float downRotationAngle = 15f;
 
 
         public float turnSpeed = 4.0f;
@@ -43,7 +43,7 @@ namespace Assets.Scripts.Camera
             offset = Quaternion.AngleAxis(pointerX * turnSpeed, Vector3.up) * offset;
             transform.position = player.position + offset;
             transform.LookAt(player.position);
-            transform.Rotate(dowwRotationAngle, 0f, 0);
+            transform.Rotate(downRotationAngle, 0f, 0);
         }
     }
 }   

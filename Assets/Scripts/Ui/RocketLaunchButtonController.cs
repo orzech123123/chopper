@@ -49,6 +49,14 @@ namespace Assets.Scripts.Ui
                         Rotation = spot.rotation, 
                         Target = _target
                     });
+
+                    //TODO tests:
+                    _rocketFactory.Create(new RocketParams
+                    {
+                        Position = new Vector3(0, 100f, 0),
+                        Rotation = Quaternion.identity,
+                        Target = _player.Chopper
+                    });
                 }
             }
         }

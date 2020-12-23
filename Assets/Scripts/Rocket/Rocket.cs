@@ -54,17 +54,23 @@ namespace Assets.Scripts.Rocket
 
         void OnCollisionEnter(Collision collision)
         {
+            var other = collision.gameObject;
+            if(other.layer != _params.Target.gameObject.layer)
+            {
+                return;
+            }
+
             _smokeParticles.Stop();
             _smokePrefab.transform.parent = null;
             Destroy(_smokePrefab.gameObject, 5f);
 
             _effectFactories.ExplosionFactory.Create(new ExplosionParams
             {
-                Position = collision.gameObject.transform.position
+                Position = other.transform.position
             });
             _effectFactories.FireFactory.Create(new FireParams
             {
-                Position = collision.gameObject.transform.position
+                Position = other.transform.position
             });
 
             Destroy(gameObject);
