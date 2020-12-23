@@ -14,10 +14,10 @@ TagManager:
   - 
   - 
   - Enemy
-  - Ammunition
+  - PlayerAmmunition
   - Environment
   - Player
-  - 
+  - EnemyAmmunition
   - 
   - 
   - 
