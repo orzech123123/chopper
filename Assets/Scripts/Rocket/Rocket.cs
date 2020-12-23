@@ -10,6 +10,7 @@ namespace Assets.Scripts.Rocket
     {
         public Vector3 Position;
         public Quaternion Rotation;
+        public LayerMask Layer;
         public Transform Target;
     }
 
@@ -35,6 +36,7 @@ namespace Assets.Scripts.Rocket
             transform.rotation = @params.Rotation;
             _params = @params;
             _effectFactories = effectFactories;
+            gameObject.layer = @params.Layer;
         }
 
         void Start()

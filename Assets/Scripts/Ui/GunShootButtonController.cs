@@ -60,7 +60,8 @@ namespace Assets.Scripts.Ui
                                 {
                                     Position = spot.position,
                                     Rotation = spot.rotation, 
-                                    Target = enemy.transform
+                                    Target = enemy.transform,
+                                    Layer = LayerMask.NameToLayer("PlayerAmmunition")
                                 });
                             } 
                         } 

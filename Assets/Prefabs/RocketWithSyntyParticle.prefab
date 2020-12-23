@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7969533799196686945}
   - component: {fileID: 2460762611043392283}
   - component: {fileID: 252970922056105277}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: RocketWithSyntyParticle
   m_TagString: Untagged
   m_Icon: {fileID: 0}

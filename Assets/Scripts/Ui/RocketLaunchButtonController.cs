@@ -47,7 +47,8 @@ namespace Assets.Scripts.Ui
                     {
                         Position = spot.position, 
                         Rotation = spot.rotation, 
-                        Target = _target
+                        Target = _target,
+                        Layer = LayerMask.NameToLayer("PlayerAmmunition")
                     });
 
                     //TODO tests:
@@ -55,7 +56,8 @@ namespace Assets.Scripts.Ui
                     {
                         Position = new Vector3(0, 100f, 0),
                         Rotation = Quaternion.identity,
-                        Target = _player.Chopper
+                        Target = _player.Chopper,
+                        Layer = LayerMask.NameToLayer("EnemyAmmunition")
                     });
                 }
             }
