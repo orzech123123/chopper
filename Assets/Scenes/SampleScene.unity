@@ -762,6 +762,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75e1c5e1c9f1055429151fec1aa4d5f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _rangeArea: {fileID: 1241068398}
   _shotLockPeriod: 3
 --- !u!114 &111989735
 MonoBehaviour:

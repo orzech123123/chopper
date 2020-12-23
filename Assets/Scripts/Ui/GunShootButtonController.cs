@@ -10,21 +10,20 @@ namespace Assets.Scripts.Ui
     public class GunShootButtonController : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, ITickable
     {
         private bool _isHeld;
-        private RangeArea _rangeArea;
         private RocketFactory _rocketFactory;
         private ChopperPlayer _player;
         private float _nextShotTime;
 
         [SerializeField]
+        private RangeArea _rangeArea;
+        [SerializeField]
         private float _shotLockPeriod;
 
         [Inject]
         public void Construct(
-            RangeArea rangeArea,
             RocketFactory rocketFactory,
             ChopperPlayer player)
         {
-            _rangeArea = rangeArea;
             _rocketFactory = rocketFactory;
             _player = player;
         }
@@ -48,10 +47,10 @@ namespace Assets.Scripts.Ui
                     _nextShotTime = Time.time + _shotLockPeriod;
 
                     RaycastHit hitInfo;
-                    foreach (var enemy in _rangeArea.CollidingObjects.Where(go => go.layer == LayerMask.NameToLayer("Enemy")))
+                    foreach (var enemy in _rangeArea.CollidingObjects.Where(go => go.layer == Layers.Enemy))
                     {
                         var dir = (enemy.transform.position - _player.Chopper.position).normalized;
-                        if (Physics.Raycast(_player.Chopper.position, dir, out hitInfo, float.MaxValue, LayerMask.GetMask("Enemy")))
+                        if (Physics.Raycast(_player.Chopper.position, dir, out hitInfo, float.MaxValue, LayerMask.GetMask(LayerMask.LayerToName(Layers.Enemy))))
                         {
                             if (hitInfo.collider.gameObject == enemy)
                             {
@@ -61,7 +60,7 @@ namespace Assets.Scripts.Ui
                                     Position = spot.position,
                                     Rotation = spot.rotation, 
                                     Target = enemy.transform,
-                                    Layer = LayerMask.NameToLayer("PlayerAmmunition")
+                                    Layer = Layers.PlayerAmmunition
                                 });
                             } 
                         } 
