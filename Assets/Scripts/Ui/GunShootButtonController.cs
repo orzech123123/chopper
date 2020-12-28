@@ -1,4 +1,5 @@
-﻿using Assets.Scripts.Chopper;
+﻿using Assets.Scripts.Bullet;
+using Assets.Scripts.Chopper;
 using Assets.Scripts.Rocket;
 using System.Linq;
 using UnityEngine;
@@ -7,6 +8,7 @@ using Zenject;
 
 namespace Assets.Scripts.Ui
 {
+    [RequireComponent(typeof(AudioSource))]
     public class GunShootButtonController : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, ITickable
     {
         private bool _isHeld;
@@ -18,23 +20,36 @@ namespace Assets.Scripts.Ui
         private RangeArea _rangeArea;
         [SerializeField]
         private float _shotLockPeriod;
+        [SerializeField]
+        private BulletFactory _bulletFactory;
+        [SerializeField]
+        private AudioSource _gunAudio;
+
+        void Start()
+        {
+            _gunAudio = GetComponent<AudioSource>();
+        }
 
         [Inject]
         public void Construct(
             RocketFactory rocketFactory,
+            BulletFactory bulletFactory, 
             ChopperPlayer player)
         {
             _rocketFactory = rocketFactory;
+            _bulletFactory = bulletFactory;
             _player = player;
         }
 
         public void OnPointerDown(PointerEventData eventData)
         {
+            _gunAudio.Play();
             _isHeld = true;
         }
 
         public void OnPointerUp(PointerEventData eventData)
         {
+            _gunAudio.Stop();
             _isHeld = false;
         }
 
@@ -47,7 +62,8 @@ namespace Assets.Scripts.Ui
                     _nextShotTime = Time.time + _shotLockPeriod;
 
                     RaycastHit hitInfo;
-                    foreach (var enemy in _rangeArea.CollidingObjects.Where(go => go.layer == Layers.Enemy))
+                    var enemies = _rangeArea.CollidingObjects.Where(go => go.layer == Layers.Enemy);
+                    foreach (var enemy in enemies)
                     {
                         var dir = (enemy.transform.position - _player.Chopper.position).normalized;
                         if (Physics.Raycast(_player.Chopper.position, dir, out hitInfo, float.MaxValue, LayerMask.GetMask(LayerMask.LayerToName(Layers.Enemy))))
@@ -55,15 +71,25 @@ namespace Assets.Scripts.Ui
                             if (hitInfo.collider.gameObject == enemy)
                             {
                                 var spot = _player.RocketLaunchSpots[Random.Range(0, _player.RocketLaunchSpots.Length)];
-                                _rocketFactory.Create(new RocketParams
+                                _bulletFactory.Create(new BulletParams
                                 {
                                     Position = spot.position,
-                                    Rotation = spot.rotation, 
-                                    Target = enemy.transform,
+                                    Rotation = Quaternion.LookRotation(dir),
                                     Layer = Layers.PlayerAmmunition
                                 });
                             } 
                         } 
+                    }
+
+                    if(!enemies.Any())
+                    {
+                        var spot = _player.RocketLaunchSpots[Random.Range(0, _player.RocketLaunchSpots.Length)];
+                        _bulletFactory.Create(new BulletParams
+                        {
+                            Position = spot.position,
+                            Rotation = _player.Chopper.rotation,
+                            Layer = Layers.PlayerAmmunition
+                        });
                     }
                 }
             }

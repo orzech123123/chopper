@@ -885,6 +885,7 @@ GameObject:
   - component: {fileID: 111989735}
   - component: {fileID: 111989734}
   - component: {fileID: 111989738}
+  - component: {fileID: 111989739}
   m_Layer: 5
   m_Name: GunShootButton
   m_TagString: Untagged
@@ -925,7 +926,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rangeArea: {fileID: 1241068398}
-  _shotLockPeriod: 3
+  _shotLockPeriod: 0.3
+  _gunAudio: {fileID: 0}
 --- !u!114 &111989735
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1024,6 +1026,102 @@ MonoBehaviour:
   _useSceneContext: 0
   _context: {fileID: 0}
   _bindType: 1
+--- !u!82 &111989739
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 111989732}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: ed2a8d5800a4b094984760350c6ff0a2, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!4 &189611619 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 400002, guid: d3e74f7c0011b184cbefa590559b054b,
@@ -4290,7 +4388,7 @@ Transform:
   m_GameObject: {fileID: 1241068393}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.2, y: -25.7, z: 82.8}
-  m_LocalScale: {x: 11.7, y: 76.63838, z: 150.9}
+  m_LocalScale: {x: 11.7, y: 57.09, z: 126.5}
   m_Children: []
   m_Father: {fileID: 1160412788}
   m_RootOrder: 2
@@ -6414,7 +6512,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _settings:
     ChopperFlightControllerSettings:
-      MaxVelocity: 10
+      MaxVelocity: 20
     ChopperRotorsControllerSettings:
       MaxSpeed: 200
       EnginesWarmUpTotalTime: 60
@@ -6447,6 +6545,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _settings:
     RocketPrafab: {fileID: 4163862180626915902, guid: 0ca85b0c7e5ddb74a8b09707ad216116,
+      type: 3}
+    BulletPrefab: {fileID: 569733640619449247, guid: d94cdd24d79ebdb4d8e40855a2b7796e,
       type: 3}
 --- !u!114 &1880309610
 MonoBehaviour:

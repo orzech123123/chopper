@@ -1,3 +1,4 @@
+using Assets.Scripts.Bullet;
 using Assets.Scripts.Rocket;
 using System;
 using UnityEngine;
@@ -5,7 +6,7 @@ using Zenject;
 
 namespace Assets.Scripts.Installers
 {
-    public class RocketInstaller : MonoInstaller
+    public class WeaponsInstaller : MonoInstaller
     {
         [SerializeField]
         private Settings _settings;
@@ -13,12 +14,14 @@ namespace Assets.Scripts.Installers
         public override void InstallBindings()
         {
             Container.BindFactory<RocketParams, Rocket.Rocket, RocketFactory>().FromComponentInNewPrefab(_settings.RocketPrafab);
+            Container.BindFactory<BulletParams, Bullet.Bullet, BulletFactory>().FromComponentInNewPrefab(_settings.BulletPrefab);
         }
 
         [Serializable]
         public class Settings
         {
             public GameObject RocketPrafab;
+            public GameObject BulletPrefab;
         }
     }
 }

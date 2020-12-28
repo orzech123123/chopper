@@ -23,7 +23,7 @@ namespace Assets.Scripts.Enemy
 
         public void Tick()
         {
-            Debug.Log(_enemies.Count);
+            //Debug.Log(_enemies.Count);
         }
     }
 }
