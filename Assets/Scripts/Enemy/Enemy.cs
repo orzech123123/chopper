@@ -1,4 +1,5 @@
 ﻿using Assets.Scripts.Chopper;
+using Assets.Scripts.Interfaces;
 using UnityEngine;
 using UnityEngine.AI;
 using Zenject;
@@ -12,10 +13,15 @@ namespace Assets.Scripts.Enemy
 
     [RequireComponent(typeof(Rigidbody))]
     [RequireComponent(typeof(NavMeshAgent))]
-    public class Enemy : MonoBehaviour, IInitializable
+    public class Enemy : MonoBehaviour, IInitializable, IDamagable
     {
         private NavMeshAgent _agent; 
         private ChopperPlayer _player;
+
+        [SerializeField]
+        private int _health = 100;
+
+        public bool IsFullyDamaged => _health <= 0;
 
         [Inject]
         public void Construct([InjectOptional] EnemyParams @params, ChopperPlayer player)
@@ -30,9 +36,25 @@ namespace Assets.Scripts.Enemy
             _agent = GetComponent<NavMeshAgent>();
         }
 
+        public void TakeDamage(int damage)
+        {
+            _health -= damage;
+        }
+
         void Update()
         {
-            _agent.SetDestination(new Vector3(_player.Chopper.position.x, 0, _player.Chopper.position.z));
+            //TODO!!
+            if(!IsFullyDamaged)
+            {
+                _agent.SetDestination(new Vector3(_player.Chopper.position.x, 0, _player.Chopper.position.z));
+            }
+            else
+            {
+                if(GetComponent<NavMeshAgent>() != null)
+                {
+                    Destroy(GetComponent<NavMeshAgent>());
+                }
+            }
         }
     }
 }

@@ -1,5 +1,7 @@
 ﻿using Assets.Scripts.Bullet;
 using Assets.Scripts.Chopper;
+using Assets.Scripts.Enemy;
+using Assets.Scripts.Interfaces;
 using Assets.Scripts.Rocket;
 using System.Linq;
 using UnityEngine;
@@ -14,6 +16,7 @@ namespace Assets.Scripts.Ui
         private bool _isHeld;
         private RocketFactory _rocketFactory;
         private ChopperPlayer _player;
+        private EnemyManager _enemyManager;
         private float _nextShotTime;
 
         [SerializeField]
@@ -34,10 +37,12 @@ namespace Assets.Scripts.Ui
         public void Construct(
             RocketFactory rocketFactory,
             BulletFactory bulletFactory, 
-            ChopperPlayer player)
+            ChopperPlayer player,
+            EnemyManager enemyManager)
         {
             _rocketFactory = rocketFactory;
             _bulletFactory = bulletFactory;
+            _enemyManager = enemyManager;
             _player = player;
         }
 
@@ -68,25 +73,26 @@ namespace Assets.Scripts.Ui
                         var dir = (enemy.transform.position - _player.Chopper.position).normalized;
                         if (Physics.Raycast(_player.Chopper.position, dir, out hitInfo, float.MaxValue, LayerMask.GetMask(LayerMask.LayerToName(Layers.Enemy))))
                         {
-                            if (hitInfo.collider.gameObject == enemy)
+                            if (hitInfo.collider.transform.root.gameObject == enemy)
                             {
-                                var spot = _player.RocketLaunchSpots[Random.Range(0, _player.RocketLaunchSpots.Length)];
                                 _bulletFactory.Create(new BulletParams
                                 {
-                                    Position = spot.position,
+                                    Position = _player.Chopper.position,
                                     Rotation = Quaternion.LookRotation(dir),
                                     Layer = Layers.PlayerAmmunition
                                 });
+
+                                var damagable = (IDamagable)enemy.GetComponent(typeof(IDamagable));
+                                damagable?.TakeDamage(5);
                             } 
                         } 
                     }
 
                     if(!enemies.Any())
                     {
-                        var spot = _player.RocketLaunchSpots[Random.Range(0, _player.RocketLaunchSpots.Length)];
                         _bulletFactory.Create(new BulletParams
                         {
-                            Position = spot.position,
+                            Position = _player.Chopper.position,
                             Rotation = _player.Chopper.rotation,
                             Layer = Layers.PlayerAmmunition
                         });

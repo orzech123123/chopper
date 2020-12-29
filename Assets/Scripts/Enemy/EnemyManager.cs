@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using Zenject;
 
@@ -23,7 +24,7 @@ namespace Assets.Scripts.Enemy
 
         public void Tick()
         {
-            //Debug.Log(_enemies.Count);
+            Debug.Log($"Healthy: {_enemies.Count(e => !e.IsFullyDamaged)} | Damaged: {_enemies.Count(e => e.IsFullyDamaged)}");
         }
     }
 }

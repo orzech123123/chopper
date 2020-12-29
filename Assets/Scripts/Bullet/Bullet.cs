@@ -1,4 +1,5 @@
 ﻿using Assets.Scripts.Effects;
+using Assets.Scripts.Interfaces;
 using System;
 using UnityEngine;
 using Zenject;
@@ -48,11 +49,6 @@ namespace Assets.Scripts.Bullet
             {
                 Destroy(gameObject);
             }
-        }
-
-        void OnCollisionEnter(Collision collision)
-        {
-            Debug.Log("KOLIZJA");
         }
     }
 }

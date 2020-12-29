@@ -8,14 +8,15 @@ public class RangeArea : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if(!_collidingObjects.Contains(other.gameObject))
+        //TODO to moze nie dzialac dobrze jak obiekt bedzie zagniezdzony (Enemy sa w pierwszym poziomie root wiec dziala!!!)
+        if(!_collidingObjects.Contains(other.transform.root.gameObject))
         {
-            _collidingObjects.Add(other.gameObject);
+            _collidingObjects.Add(other.transform.root.gameObject);
         }
     }
 
     void OnTriggerExit(Collider other)
     {
-        _collidingObjects.Remove(other.gameObject);
+        _collidingObjects.Remove(other.transform.root.gameObject);
     }
 }

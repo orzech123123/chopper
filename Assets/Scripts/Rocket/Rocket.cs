@@ -1,4 +1,5 @@
 ﻿using Assets.Scripts.Effects;
+using Assets.Scripts.Interfaces;
 using System;
 using UnityEngine;
 using Zenject;
@@ -62,6 +63,13 @@ namespace Assets.Scripts.Rocket
                 return;
             }
 
+            RunEffects(other);
+
+            Destroy(gameObject);
+        }
+
+        private void RunEffects(GameObject other)
+        {
             _smokeParticles.Stop();
             _smokePrefab.transform.parent = null;
             Destroy(_smokePrefab.gameObject, 5f);
@@ -74,8 +82,6 @@ namespace Assets.Scripts.Rocket
             {
                 Position = other.transform.position
             });
-
-            Destroy(gameObject);
         }
     }
 }

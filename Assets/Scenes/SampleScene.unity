@@ -560,7 +560,7 @@ PrefabInstance:
     - target: {fileID: 6236967036185637737, guid: 68386e34805cc8b4f977bdf76c94e265,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 74.92
+      value: 36.248264
       objectReference: {fileID: 0}
     - target: {fileID: 6236967036185637737, guid: 68386e34805cc8b4f977bdf76c94e265,
         type: 3}
@@ -570,7 +570,7 @@ PrefabInstance:
     - target: {fileID: 6236967036185637737, guid: 68386e34805cc8b4f977bdf76c94e265,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 10.8
+      value: -27.600002
       objectReference: {fileID: 0}
     - target: {fileID: 6236967036185637737, guid: 68386e34805cc8b4f977bdf76c94e265,
         type: 3}
@@ -639,7 +639,7 @@ PrefabInstance:
     - target: {fileID: 6236967036185637737, guid: 68386e34805cc8b4f977bdf76c94e265,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 73.47173
+      value: 34.8
       objectReference: {fileID: 0}
     - target: {fileID: 6236967036185637737, guid: 68386e34805cc8b4f977bdf76c94e265,
         type: 3}
@@ -649,7 +649,7 @@ PrefabInstance:
     - target: {fileID: 6236967036185637737, guid: 68386e34805cc8b4f977bdf76c94e265,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -15.6
+      value: -54
       objectReference: {fileID: 0}
     - target: {fileID: 6236967036185637737, guid: 68386e34805cc8b4f977bdf76c94e265,
         type: 3}
@@ -926,7 +926,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rangeArea: {fileID: 1241068398}
-  _shotLockPeriod: 0.3
+  _shotLockPeriod: 0.1
   _gunAudio: {fileID: 0}
 --- !u!114 &111989735
 MonoBehaviour:
