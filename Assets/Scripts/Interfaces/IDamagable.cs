@@ -3,6 +3,7 @@
     public interface IDamagable
     {
         void TakeDamage(int damage);
-        bool IsFullyDamaged { get; }
+        int CurrentHealth { get; }
+        int TotalHealth { get; }
     }
 }

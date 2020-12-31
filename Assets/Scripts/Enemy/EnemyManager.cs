@@ -22,9 +22,17 @@ namespace Assets.Scripts.Enemy
             _enemies.Add(enemy);
         }
 
+        public void Destroy(Enemy enemy)
+        {
+            _enemies.Remove(enemy);
+            Object.Destroy(enemy.gameObject);
+        }
+
         public void Tick()
         {
-            Debug.Log($"Healthy: {_enemies.Count(e => !e.IsFullyDamaged)} | Damaged: {_enemies.Count(e => e.IsFullyDamaged)}");
+            Debug.Log($"Healthy: {_enemies.Count(e => e.CurrentHealth > 0)} | Damaged: {_enemies.Count(e => e.CurrentHealth <= 0)}");
         }
+
+        public IEnumerable<Enemy> Enemies => _enemies;
     }
 }

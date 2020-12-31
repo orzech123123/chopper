@@ -1,9 +1,10 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class RangeArea : MonoBehaviour
 {
-    private ICollection<GameObject> _collidingObjects = new List<GameObject>();
+    private List<GameObject> _collidingObjects = new List<GameObject>();
     public IEnumerable<GameObject> CollidingObjects => _collidingObjects;
 
     void OnTriggerEnter(Collider other)
@@ -18,5 +19,10 @@ public class RangeArea : MonoBehaviour
     void OnTriggerExit(Collider other)
     {
         _collidingObjects.Remove(other.transform.root.gameObject);
+    }
+
+    private void Update()
+    {
+        _collidingObjects = _collidingObjects.Where(co => co != null).ToList();
     }
 }

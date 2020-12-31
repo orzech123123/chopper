@@ -19,13 +19,15 @@ namespace Assets.Scripts.Enemy
         private ChopperPlayer _player;
 
         [SerializeField]
-        private int _health = 100;
-
-        public bool IsFullyDamaged => _health <= 0;
+        private int _totalHealth = 100;
+        private int _currentHealth;
+        public int CurrentHealth => _currentHealth;
+        public int TotalHealth => _totalHealth;
 
         [Inject]
         public void Construct([InjectOptional] EnemyParams @params, ChopperPlayer player)
         {
+            _currentHealth = _totalHealth;
             transform.position = @params?.Position ?? transform.position;
             _player = player;
         }
@@ -38,13 +40,13 @@ namespace Assets.Scripts.Enemy
 
         public void TakeDamage(int damage)
         {
-            _health -= damage;
+            _currentHealth -= damage;
         }
 
         void Update()
         {
             //TODO!!
-            if(!IsFullyDamaged)
+            if(CurrentHealth > 0)
             {
                 _agent.SetDestination(new Vector3(_player.Chopper.position.x, 0, _player.Chopper.position.z));
             }
