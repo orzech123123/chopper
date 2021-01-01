@@ -14,7 +14,7 @@ namespace Assets.Scripts.Installers
         {
             Container.BindFactory<EnemyParams, Enemy.Enemy, EnemyFactory>().FromComponentInNewPrefab(_settings.EnemyPrafab);
             Container.BindInterfacesAndSelfTo<EnemyManager>().AsSingle();
-            Container.BindInterfacesTo<EnemyHealthController>().AsSingle();
+            Container.BindInterfacesTo<EnemyLifeController>().AsSingle();
 
             Container.BindInterfacesTo<EnemySpawner>().AsSingle(); //TODO remove
         }

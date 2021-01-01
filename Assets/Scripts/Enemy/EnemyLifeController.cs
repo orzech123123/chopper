@@ -4,12 +4,12 @@ using Zenject;
 
 namespace Assets.Scripts.Enemy
 {
-    public class EnemyHealthController : ITickable
+    public class EnemyLifeController : ITickable
     {
         private readonly EnemyManager _enemyManager;
         private readonly EffectFactories _effectFactories;
 
-        public EnemyHealthController(EnemyManager enemyManager, EffectFactories effectFactories)
+        public EnemyLifeController(EnemyManager enemyManager, EffectFactories effectFactories)
         {
             _enemyManager = enemyManager;
             _effectFactories = effectFactories;
