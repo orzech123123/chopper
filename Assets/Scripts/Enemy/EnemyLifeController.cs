@@ -17,7 +17,7 @@ namespace Assets.Scripts.Enemy
 
         public void Tick()
         {
-            foreach (var enemy in _enemyManager.Enemies.Where(e => e.CurrentHealth < 0))
+            foreach (var enemy in _enemyManager.Enemies.Where(e => e.CurrentHealth < 0).ToList())
             {
                 _enemyManager.Destroy(enemy);
                 _effectFactories.ExplosionFactory.Create(new ExplosionParams

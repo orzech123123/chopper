@@ -9,6 +9,8 @@ namespace Assets.Scripts.Utils
         {
             //var x = PrefabUtility.GetOutermostPrefabInstanceRoot(collider.gameObject);
             //return x;
+
+            //TODO ULEPSZ TO bo to działa przez przypadek
             return collider.gameObject.transform.root.gameObject;
         }
 

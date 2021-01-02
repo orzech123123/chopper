@@ -45,17 +45,9 @@ namespace Assets.Scripts.Enemy
 
         void Update()
         {
-            //TODO!!
             if(CurrentHealth > 0)
             {
                 _agent.SetDestination(new Vector3(_player.Chopper.position.x, 0, _player.Chopper.position.z));
-            }
-            else
-            {
-                if(GetComponent<NavMeshAgent>() != null)
-                {
-                    Destroy(GetComponent<NavMeshAgent>());
-                }
             }
         }
     }
