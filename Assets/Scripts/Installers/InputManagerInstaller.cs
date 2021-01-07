@@ -13,7 +13,11 @@ namespace Assets.Scripts.Installers
 
         public override void InstallBindings()
         {
-            Container.Bind<IInputManager>().FromInstance(new MobileInputManager(_leftJoystick, _rightJoystick));
+            #if UNITY_EDITOR
+                Container.Bind<IInputManager>().FromInstance(new UiInputManager(_leftJoystick, _rightJoystick));
+            #else
+                 Container.Bind<IInputManager>().FromInstance(new AccelerometerInputManager(_leftJoystick, _rightJoystick));
+            #endif
         }
     }
 }

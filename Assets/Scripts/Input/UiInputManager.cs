@@ -2,14 +2,14 @@
 
 namespace Assets.Scripts.Input
 {
-    public class MobileInputManager : IInputManager
+    public class UiInputManager : IInputManager
     {
         private Joystick _leftJoystick;
         private Joystick _rightJoystick;
 
         private float _inertnessValue = 0.01f;
 
-        public MobileInputManager(Joystick leftJoystick, Joystick rightJoystick)
+        public UiInputManager(Joystick leftJoystick, Joystick rightJoystick)
         {
             _leftJoystick = leftJoystick;
             _rightJoystick = rightJoystick;
