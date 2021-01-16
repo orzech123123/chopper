@@ -1,5 +1,6 @@
 @echo off
 adb kill-server
+adb start-server
 adb tcpip 5555
 adb connect %1
 adb logcat | findstr %2

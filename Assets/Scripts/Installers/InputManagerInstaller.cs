@@ -16,7 +16,10 @@ namespace Assets.Scripts.Installers
             #if UNITY_EDITOR
                 Container.Bind<IInputManager>().FromInstance(new UiInputManager(_leftJoystick, _rightJoystick));
             #else
-                 Container.Bind<IInputManager>().FromInstance(new AccelerometerInputManager(_leftJoystick, _rightJoystick));
+                var manager = new AccelerometerInputManager(_leftJoystick, _rightJoystick);
+                Container.Bind<IInputManager>().FromInstance(manager);
+                Container.Bind<IInitializable>().FromInstance(manager);
+                Container.Bind<ITickable>().FromInstance(manager);
             #endif
         }
     }

@@ -1,24 +1,27 @@
 ﻿using System;
 using UnityEngine;
+using Zenject;
 
 namespace Assets.Scripts.Input
 {
-    public class AccelerometerInputManager : IInputManager
+    public class AccelerometerInputManager : IInputManager, IInitializable, ITickable
     {
         private Joystick _leftJoystick;
         private Joystick _rightJoystick;
 
+        Vector3 zeroAc;
+        Vector3 curAc;
+        float sensH = 10;
+        float sensV = 10;
+        float smooth = 0.5f;
+        float GetAxisH = 0;
+        float GetAxisV = 0;
         private float _inertnessValue = 0.01f;
-
-        private Vector3 _initAccelerometerPosition;
-        private float _accelerometerMaxAnglesDiff = 0.3f;
 
         public AccelerometerInputManager(Joystick leftJoystick, Joystick rightJoystick)
         {
             _leftJoystick = leftJoystick;
             _rightJoystick = rightJoystick;
-            _initAccelerometerPosition = UnityEngine.Input.acceleration;
-            Debug.Log("upsztr " + _initAccelerometerPosition);
         }
 
         public float LeftRightValue => _leftJoystick.Horizontal;
@@ -29,11 +32,7 @@ namespace Assets.Scripts.Input
         { 
             get
             {
-                var min = _initAccelerometerPosition.y - _accelerometerMaxAnglesDiff;
-                var max = _initAccelerometerPosition.y + _accelerometerMaxAnglesDiff;
-                var value = Mathf.Clamp(min, max, UnityEngine.Input.acceleration.y);
-                value /= _accelerometerMaxAnglesDiff;
-                return value;
+                return GetAxisV;
             } 
         }
 
@@ -46,6 +45,19 @@ namespace Assets.Scripts.Input
         public bool IsVerticalActive => IsNotInert(VerticalValue);
 
         public bool IsTurnActive => IsNotInert(TurnValue);
+
+        public void Initialize()
+        {
+            zeroAc = UnityEngine.Input.acceleration;
+            curAc = Vector3.zero;
+        }
+
+        public void Tick()
+        {
+            curAc = Vector3.Lerp(curAc, UnityEngine.Input.acceleration - zeroAc, Time.deltaTime / smooth);
+            GetAxisV = Mathf.Clamp(curAc.y * sensV, -1, 1);
+            GetAxisH = Mathf.Clamp(curAc.x * sensH, -1, 1);
+        }
 
         private bool IsNotInert(float value) => Math.Abs(value) > _inertnessValue;
     }

@@ -41,7 +41,7 @@ namespace Assets.Scripts.Chopper
             }
 
 
-            if (Math.Abs(UnityEngine.Input.acceleration.z) > 0/*_inputManager.IsVerticalActive && Math.Abs(_chopperPlayer.UpVelocity) < _settings.MaxVelocity*/)
+            if (Math.Abs(_inputManager.VerticalValue) > 0/*_inputManager.IsVerticalActive && Math.Abs(_chopperPlayer.UpVelocity) < _settings.MaxVelocity*/)
             {
                 //TODO zrobic obracanie wg smiglowca, a nie osi X bo jak jest obrocony to nie dziala dobrze!!!
                 // var _targetRotation = Quaternion.AngleAxis(20 * _inputManager.VerticalValue, _chopperPlayer.transform.right) * _chopperPlayer.transform.rotation;
