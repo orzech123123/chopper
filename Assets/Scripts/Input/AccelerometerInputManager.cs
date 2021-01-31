@@ -36,7 +36,14 @@ namespace Assets.Scripts.Input
             } 
         }
 
-        public float TurnValue => _rightJoystick.Horizontal;
+        public float TurnValue //=> _rightJoystick.Horizontal;
+        {
+            get
+            {
+                return GetAxisH;
+            }
+        }
+
 
         public bool IsLeftRightActive => IsNotInert(LeftRightValue);
 
@@ -57,6 +64,7 @@ namespace Assets.Scripts.Input
             curAc = Vector3.Lerp(curAc, UnityEngine.Input.acceleration - zeroAc, Time.deltaTime / smooth);
             GetAxisV = Mathf.Clamp(curAc.y * sensV, -1, 1);
             GetAxisH = Mathf.Clamp(curAc.x * sensH, -1, 1);
+            Debug.Log("Krajne (V-H): " + GetAxisV + ":" + GetAxisH);
         }
 
         private bool IsNotInert(float value) => Math.Abs(value) > _inertnessValue;
