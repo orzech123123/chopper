@@ -11,9 +11,9 @@ namespace Assets.Scripts.Input
 
         Vector3 zeroAc;
         Vector3 curAc;
-        float sensH = 10;
-        float sensV = 10;
-        float smooth = 0.5f;
+        float sensH = 5f;
+        float sensV = 5f;
+        float smooth = 1f;
         float GetAxisH = 0;
         float GetAxisV = 0;
         private float _inertnessValue = 0.01f;

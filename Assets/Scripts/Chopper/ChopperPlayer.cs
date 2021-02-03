@@ -45,7 +45,13 @@ namespace Assets.Scripts.Chopper
 
         public void RotateOnYAxis(float powerFactor)
         {
-            _rigidbody.AddTorque(_rigidbody.transform.up * 0.2f * powerFactor, ForceMode.Acceleration);
+            //var angles = _rigidbody.transform.localEulerAngles;
+            //_rigidbody.transform.localEulerAngles = new Vector3(0, angles.y, 0);
+            //_rigidbody.AddTorque(Vector3.up * 0.2f * powerFactor, ForceMode.Acceleration);
+            //_rigidbody.transform.localEulerAngles = new Vector3(angles.x, _rigidbody.transform.localEulerAngles.y, angles.z);
+            //TODO zrob to na AddTorque
+            _rigidbody.transform.Rotate(0, powerFactor * 0.6f, 0, Space.World);
+
             _rotationSlowDownDiffTime = 0f;
         }
 
