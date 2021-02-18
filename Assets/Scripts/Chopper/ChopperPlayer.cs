@@ -45,6 +45,8 @@ namespace Assets.Scripts.Chopper
 
         public void RotateOnYAxis(float powerFactor)
         {
+            //TODO zmien to
+
             //var angles = _rigidbody.transform.localEulerAngles;
             //_rigidbody.transform.localEulerAngles = new Vector3(0, angles.y, 0);
             //_rigidbody.AddTorque(Vector3.up * 0.2f * powerFactor, ForceMode.Acceleration);
@@ -55,10 +57,27 @@ namespace Assets.Scripts.Chopper
             _rotationSlowDownDiffTime = 0f;
         }
 
-        public void MoveVertically(float powerFactor)
+        public void RotateOnXAxis(float powerFactor)
         {
-            _rigidbody.AddForce(_rigidbody.transform.up * _maxVerticalForce * powerFactor, ForceMode.Acceleration);
-            _verticalSlowDownDiffTime = 0f;
+            //TODO zmien to
+            Quaternion rotationRight = Quaternion.AngleAxis(30 * powerFactor * Time.deltaTime, Vector3.right);
+            Quaternion targetRotation = _rigidbody.transform.rotation * rotationRight;
+
+            var rotX = targetRotation.eulerAngles.x;
+            if (rotX > 180)
+            {
+                rotX -= 360;
+            }
+            else if (rotX < -180)
+            {
+                rotX += 360;
+            }
+
+            Debug.Log("rr " + rotX);
+            if (Math.Abs(rotX) <= 25)
+            {
+                _rigidbody.transform.rotation = targetRotation;
+            }
         }
 
         public void MoveForward(float powerFactor)
@@ -83,7 +102,7 @@ namespace Assets.Scripts.Chopper
             _rigidbody.AddForce(_rigidbody.transform.right * counterRightVelocity, ForceMode.VelocityChange);
         }
 
-        public void SlowDownVertically()
+        public void SlowDownXRotation()
         {
             _verticalSlowDownDiffTime += Time.deltaTime / _slowDownTotalTime;
             var factor = Mathf.Lerp(0, 1, _verticalSlowDownDiffTime);
@@ -103,7 +122,7 @@ namespace Assets.Scripts.Chopper
             _rigidbody.AddForce(_rigidbody.transform.forward * counterForwardVelocity, ForceMode.VelocityChange);
         }
 
-        public void SlowDownRotation()
+        public void SlowDownYRotation()
         {
             _rotationSlowDownDiffTime += Time.deltaTime / _slowDownTotalTime;
             var factor = Mathf.Lerp(0, 1, _rotationSlowDownDiffTime);

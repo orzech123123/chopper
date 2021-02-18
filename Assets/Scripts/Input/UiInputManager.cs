@@ -19,17 +19,17 @@ namespace Assets.Scripts.Input
 
         public float ForwardValue => _rightJoystick.Vertical;
 
-        public float VerticalValue => _leftJoystick.Vertical;
+        public float TurnOnXValue => _leftJoystick.Vertical;
 
-        public float TurnValue => _rightJoystick.Horizontal;
+        public float TurnOnYValue => _rightJoystick.Horizontal;
 
         public bool IsLeftRightActive => IsNotInert(LeftRightValue);
 
         public bool IsForwardActive => IsNotInert(ForwardValue);
 
-        public bool IsVerticalActive => IsNotInert(VerticalValue);
+        public bool IsTurnOnXActive => IsNotInert(TurnOnXValue);
 
-        public bool IsTurnActive => IsNotInert(TurnValue);
+        public bool IsTurnOnYActive => IsNotInert(TurnOnYValue);
 
         private bool IsNotInert(float value) => Math.Abs(value) > _inertnessValue;
     }

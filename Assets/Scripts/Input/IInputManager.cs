@@ -4,11 +4,11 @@
     {
         float LeftRightValue { get; }
         float ForwardValue { get; }
-        float VerticalValue { get; }
-        float TurnValue { get; }
+        float TurnOnXValue { get; }
+        float TurnOnYValue { get; }
         bool IsLeftRightActive { get; }
         bool IsForwardActive { get; }
-        bool IsVerticalActive { get; }
-        bool IsTurnActive { get; }
+        bool IsTurnOnXActive { get; }
+        bool IsTurnOnYActive { get; }
     }
 }

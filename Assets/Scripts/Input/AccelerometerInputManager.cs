@@ -28,30 +28,17 @@ namespace Assets.Scripts.Input
 
         public float ForwardValue => _rightJoystick.Vertical;
 
-        public float VerticalValue 
-        { 
-            get
-            {
-                return GetAxisV;
-            } 
-        }
+        public float TurnOnXValue => GetAxisV;
 
-        public float TurnValue //=> _rightJoystick.Horizontal;
-        {
-            get
-            {
-                return GetAxisH;
-            }
-        }
-
+        public float TurnOnYValue => GetAxisH;
 
         public bool IsLeftRightActive => IsNotInert(LeftRightValue);
 
         public bool IsForwardActive => IsNotInert(ForwardValue);
 
-        public bool IsVerticalActive => IsNotInert(VerticalValue);
+        public bool IsTurnOnXActive => IsNotInert(TurnOnXValue);
 
-        public bool IsTurnActive => IsNotInert(TurnValue);
+        public bool IsTurnOnYActive => IsNotInert(TurnOnYValue);
 
         public void Initialize()
         {
