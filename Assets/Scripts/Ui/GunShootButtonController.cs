@@ -7,6 +7,7 @@ using Assets.Scripts.Utils;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 using Zenject;
 
 namespace Assets.Scripts.Ui
@@ -15,9 +16,7 @@ namespace Assets.Scripts.Ui
     public class GunShootButtonController : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, ITickable
     {
         private bool _isHeld;
-        private RocketFactory _rocketFactory;
         private ChopperPlayer _player;
-        private EnemyManager _enemyManager;
         private float _nextShotTime;
 
         [SerializeField]
@@ -28,6 +27,10 @@ namespace Assets.Scripts.Ui
         private BulletFactory _bulletFactory;
         [SerializeField]
         private AudioSource _gunAudio;
+        [SerializeField]
+        private UnityEngine.Camera _camera;
+        [SerializeField]
+        private Image _aimImage;
 
         private GameObject _enemy;
 
@@ -38,14 +41,10 @@ namespace Assets.Scripts.Ui
 
         [Inject]
         public void Construct(
-            RocketFactory rocketFactory,
             BulletFactory bulletFactory,
-            ChopperPlayer player,
-            EnemyManager enemyManager)
+            ChopperPlayer player)
         {
-            _rocketFactory = rocketFactory;
             _bulletFactory = bulletFactory;
-            _enemyManager = enemyManager;
             _player = player;
         }
 
@@ -68,6 +67,35 @@ namespace Assets.Scripts.Ui
                 if (Time.time > _nextShotTime)
                 {
                     _nextShotTime = Time.time + _shotLockPeriod;
+
+
+
+                    Ray ray = _camera.ScreenPointToRay(UnityEngine.Input.mousePosition);
+
+                    var position = new Vector2(Screen.width * _aimImage.rectTransform.anchorMin.x + _aimImage.rectTransform.anchoredPosition.x,
+                                               Screen.height * _aimImage.rectTransform.anchorMin.y + _aimImage.rectTransform.anchoredPosition.y);
+
+                    RaycastHit hit;
+                    Ray r = _camera.ScreenPointToRay(position);
+                    if (Physics.Raycast(r, out hit, float.MaxValue, LayerMask.GetMask(LayerMask.LayerToName(Layers.Enemy)) | LayerMask.GetMask(LayerMask.LayerToName(Layers.Terrain))))
+                    {
+                        var dir = (hit.point - _player.Chopper.position).normalized;
+
+                        if(hit.collider.gameObject.layer == Layers.Enemy)
+                        {
+                            var damagable = (IDamagable)hit.rigidbody.GetComponent(typeof(IDamagable));
+                            damagable?.TakeDamage(5);
+                        }
+
+                        _bulletFactory.Create(new BulletParams
+                        {
+                            Position = _player.Chopper.position,
+                            Rotation = Quaternion.LookRotation(dir),
+                            Layer = Layers.PlayerAmmunition
+                        });
+                    }
+
+                    return;
 
                     _enemy = _rangeArea.CollidingObjects.Contains(_enemy) ?
                         _enemy :

@@ -5,4 +5,5 @@ public class Layers {
     public static LayerMask EnemyAmmunition = LayerMask.NameToLayer(nameof(EnemyAmmunition));
     public static LayerMask Enemy = LayerMask.NameToLayer(nameof(Enemy));
     public static LayerMask Player = LayerMask.NameToLayer(nameof(Player));
+    public static LayerMask Terrain = LayerMask.NameToLayer(nameof(Terrain));
 }
