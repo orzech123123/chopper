@@ -38,6 +38,13 @@ namespace Assets.Scripts.Chopper
 
         public float UpVelocity => Vector3.Dot(_rigidbody.velocity, _rigidbody.transform.up);
         public float ForwardVelocity => Vector3.Dot(_rigidbody.velocity, _rigidbody.transform.forward);
+
+        public void MoveVertically(float verticalValue)
+        {
+            _rigidbody.AddForce(transform.up * 15f * verticalValue, ForceMode.Acceleration);
+            _verticalSlowDownDiffTime = 0;
+        }
+
         public float LeftRightVelocity => Vector3.Dot(_rigidbody.velocity, _rigidbody.transform.right);
 
         public Transform[] RocketLaunchSpots => _rocketLaunchSpots;
@@ -102,7 +109,7 @@ namespace Assets.Scripts.Chopper
             _rigidbody.AddForce(_rigidbody.transform.right * counterRightVelocity, ForceMode.VelocityChange);
         }
 
-        public void SlowDownXRotation()
+        public void SlowDownVertically()
         {
             _verticalSlowDownDiffTime += Time.deltaTime / _slowDownTotalTime;
             var factor = Mathf.Lerp(0, 1, _verticalSlowDownDiffTime);

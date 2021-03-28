@@ -2,14 +2,14 @@
 
 namespace Assets.Scripts.Input
 {
-    public class UiInputManager : IInputManager
+    public class PcInputManager : IInputManager
     {
         private Joystick _leftJoystick;
         private Joystick _rightJoystick;
 
         private float _inertnessValue = 0.01f;
 
-        public UiInputManager(Joystick leftJoystick, Joystick rightJoystick)
+        public PcInputManager(Joystick leftJoystick, Joystick rightJoystick)
         {
             _leftJoystick = leftJoystick;
             _rightJoystick = rightJoystick;
@@ -30,6 +30,10 @@ namespace Assets.Scripts.Input
         public bool IsTurnOnXActive => IsNotInert(TurnOnXValue);
 
         public bool IsTurnOnYActive => IsNotInert(TurnOnYValue);
+
+        public float VerticalValue => _leftJoystick.Vertical;
+
+        public bool IsVerticalActive => IsNotInert(VerticalValue);
 
         private bool IsNotInert(float value) => Math.Abs(value) > _inertnessValue;
     }

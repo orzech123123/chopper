@@ -37,12 +37,20 @@ namespace Assets.Scripts.Chopper
                 _chopperPlayer.SlowDownForward();
             }
 
+            if (_inputManager.IsVerticalActive)
+            {
+                _chopperPlayer.MoveVertically(_inputManager.VerticalValue);
+            }
+            else
+            {
+                _chopperPlayer.SlowDownVertically(); //to musi byc zawsze przy rotacie bo inaczej zmienia sie tez wysokosc smiglowca :/
+            }
+
 
             if (_inputManager.IsTurnOnXActive)
             {
                 _chopperPlayer.RotateOnXAxis(_inputManager.TurnOnXValue);
             }
-            _chopperPlayer.SlowDownXRotation(); //to musi byc zawsze przy rotacie bo inaczej zmienia sie tez wysokosc smiglowca :/
 
 
             if (_inputManager.IsLeftRightActive && Math.Abs(_chopperPlayer.LeftRightVelocity) < _settings.MaxVelocity)

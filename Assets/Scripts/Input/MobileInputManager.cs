@@ -4,7 +4,7 @@ using Zenject;
 
 namespace Assets.Scripts.Input
 {
-    public class AccelerometerInputManager : IInputManager, IInitializable, ITickable
+    public class MobileInputManager : IInputManager, IInitializable, ITickable
     {
         private Joystick _leftJoystick;
         private Joystick _rightJoystick;
@@ -18,21 +18,25 @@ namespace Assets.Scripts.Input
         float GetAxisV = 0;
         private float _inertnessValue = 0.01f;
 
-        public AccelerometerInputManager(Joystick leftJoystick, Joystick rightJoystick)
+        public MobileInputManager(Joystick leftJoystick, Joystick rightJoystick)
         {
             _leftJoystick = leftJoystick;
             _rightJoystick = rightJoystick;
         }
 
-        public float LeftRightValue => _leftJoystick.Horizontal;
+        public float LeftRightValue => _rightJoystick.Horizontal;
 
-        public float ForwardValue => _rightJoystick.Vertical;
+        public float ForwardValue => _leftJoystick.Vertical;
 
         public float TurnOnXValue => GetAxisV;
 
         public float TurnOnYValue => GetAxisH;
 
+        public float VerticalValue => _rightJoystick.Vertical;
+
         public bool IsLeftRightActive => IsNotInert(LeftRightValue);
+
+        public bool IsVerticalActive => IsNotInert(VerticalValue);
 
         public bool IsForwardActive => IsNotInert(ForwardValue);
 

@@ -14,9 +14,9 @@ namespace Assets.Scripts.Installers
         public override void InstallBindings()
         {
             #if UNITY_EDITOR
-                Container.Bind<IInputManager>().FromInstance(new UiInputManager(_leftJoystick, _rightJoystick));
+                Container.Bind<IInputManager>().FromInstance(new PcInputManager(_leftJoystick, _rightJoystick));
             #else
-                var manager = new AccelerometerInputManager(_leftJoystick, _rightJoystick);
+                var manager = new MobileInputManager(_leftJoystick, _rightJoystick);
                 Container.Bind<IInputManager>().FromInstance(manager);
                 Container.Bind<IInitializable>().FromInstance(manager);
                 Container.Bind<ITickable>().FromInstance(manager);
