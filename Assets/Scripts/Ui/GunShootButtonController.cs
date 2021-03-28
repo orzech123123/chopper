@@ -84,7 +84,7 @@ namespace Assets.Scripts.Ui
                         if(hit.collider.gameObject.layer == Layers.Enemy)
                         {
                             var damagable = (IDamagable)hit.rigidbody.GetComponent(typeof(IDamagable));
-                            damagable?.TakeDamage(5);
+                            damagable?.TakeDamage(20);
                         }
 
                         _bulletFactory.Create(new BulletParams

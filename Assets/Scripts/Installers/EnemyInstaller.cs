@@ -16,13 +16,14 @@ namespace Assets.Scripts.Installers
             Container.BindInterfacesAndSelfTo<EnemyManager>().AsSingle();
             Container.BindInterfacesTo<EnemyLifeController>().AsSingle();
 
-            Container.BindInterfacesTo<EnemySpawner>().AsSingle(); //TODO remove
+            Container.BindInterfacesTo<EnemySpawner>().AsSingle().WithArguments(_settings.SpawnPoint);
         }
 
         [Serializable]
         public class Settings
         {
             public GameObject EnemyPrafab;
+            public Transform SpawnPoint;
         }
     }
 }
