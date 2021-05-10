@@ -16,6 +16,8 @@ namespace Assets.Scripts.Installers
             Container.BindInterfacesAndSelfTo<EnemyManager>().AsSingle();
             Container.BindInterfacesTo<EnemyLifeController>().AsSingle();
 
+            Container.BindFactory<RocketRadarParams, Enemy.RocketRadar, RocketRadarFactory>().FromComponentInNewPrefab(_settings.RocketRadarPrafab);
+
             Container.BindInterfacesTo<EnemySpawner>().AsSingle().WithArguments(_settings.SpawnPoint);
         }
 
@@ -23,6 +25,8 @@ namespace Assets.Scripts.Installers
         public class Settings
         {
             public GameObject EnemyPrafab;
+            public GameObject RocketRadarPrafab;
+
             public Transform SpawnPoint;
         }
     }

@@ -10,18 +10,15 @@ namespace Assets.Scripts.Ui
     {
         [SerializeField]
         private Transform _target;
-        [SerializeField]
-        private float _launchLockPeriod;
 
         private bool _isHeld;
-        private RocketFactory _rocketFactory;
+        private RocketLauncher _rocketLauncher;
         private ChopperPlayer _player;
-        private float _nextLaunchTime;
 
         [Inject]
-        public void Construct(RocketFactory rocketFactory, ChopperPlayer player)
+        public void Construct(RocketLauncher rocketLauncher, ChopperPlayer player)
         {
-            _rocketFactory = rocketFactory;
+            _rocketLauncher = rocketLauncher;
             _player = player;
         }
 
@@ -39,27 +36,8 @@ namespace Assets.Scripts.Ui
         {
             if (_isHeld)
             {
-                if (Time.time > _nextLaunchTime)
-                {
-                    _nextLaunchTime = Time.time + _launchLockPeriod;
-                    var spot = _player.RocketLaunchSpots[Random.Range(0, _player.RocketLaunchSpots.Length)];
-                    _rocketFactory.Create(new RocketParams
-                    {
-                        Position = spot.position, 
-                        Rotation = spot.rotation, 
-                        Target = _target,
-                        Layer = Layers.PlayerAmmunition
-                    });
-
-                    ////TODO tests:
-                    //_rocketFactory.Create(new RocketParams
-                    //{
-                    //    Position = new Vector3(0, 100f, 0),
-                    //    Rotation = Quaternion.identity,
-                    //    Target = _player.Chopper,
-                    //    Layer = Layers.EnemyAmmunition
-                    //});
-                }
+                var spot = _player.RocketLaunchSpots[Random.Range(0, _player.RocketLaunchSpots.Length)];
+                _rocketLauncher.Launch(spot, _target, Layers.PlayerAmmunition);   
             }
         }
     }

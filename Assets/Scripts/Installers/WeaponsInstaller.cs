@@ -13,6 +13,8 @@ namespace Assets.Scripts.Installers
 
         public override void InstallBindings()
         {
+            Container.BindInterfacesAndSelfTo<RocketLauncher>().AsTransient();
+
             Container.BindFactory<RocketParams, Rocket.Rocket, RocketFactory>().FromComponentInNewPrefab(_settings.RocketPrafab);
             Container.BindFactory<BulletParams, Bullet.Bullet, BulletFactory>().FromComponentInNewPrefab(_settings.BulletPrefab);
         }
