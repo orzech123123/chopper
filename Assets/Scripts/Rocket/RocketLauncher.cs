@@ -1,24 +1,31 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace Assets.Scripts.Rocket
 {
+    [Serializable]
+    public class RocketLauncherSettings
+    {
+        public float LaunchLockPeriod = 2f;
+    }
+
     public class RocketLauncher
     {
         private readonly RocketFactory factory;
-        [SerializeField]
-        private float _launchLockPeriod = 2f;
+        private readonly RocketLauncherSettings settings;
         private float _nextLaunchTime;
 
-        public RocketLauncher(RocketFactory factory)
+        public RocketLauncher(RocketFactory factory, RocketLauncherSettings settings)
         {
             this.factory = factory;
+            this.settings = settings;
         }
 
         public void Launch(Transform spot, Transform target, LayerMask layer)
         {
             if (Time.time > _nextLaunchTime)
             {
-                _nextLaunchTime = Time.time + _launchLockPeriod;
+                _nextLaunchTime = Time.time + settings.LaunchLockPeriod;
                 factory.Create(new RocketParams
                 {
                     Position = spot.position,

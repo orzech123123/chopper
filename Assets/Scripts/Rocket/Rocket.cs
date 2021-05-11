@@ -55,10 +55,10 @@ namespace Assets.Scripts.Rocket
             _rigidBody.MoveRotation(Quaternion.RotateTowards(transform.rotation, rocketTargetRotation, _turn));
         }
 
-        void OnCollisionEnter(Collision collision)
+        void OnTriggerEnter(Collider collider)
         {
-            var other = collision.gameObject;
-            if(other.layer != _params.Target.gameObject.layer)
+            var other = collider.gameObject;
+            if (other.layer != _params.Target.gameObject.layer)
             {
                 return;
             }

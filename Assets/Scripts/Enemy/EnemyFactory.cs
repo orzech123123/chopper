@@ -2,7 +2,7 @@
 
 namespace Assets.Scripts.Enemy
 {
-    public class RocketRadarFactory : PlaceholderFactory<RocketRadarParams, RocketRadar>
+    public class EnemyFactory : PlaceholderFactory<EnemyParams, Enemy>
     {
     }
 }
