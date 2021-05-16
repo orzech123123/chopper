@@ -30,6 +30,7 @@ namespace Assets.Scripts.Rocket
         private Rigidbody _rigidBody;
         private ParticleSystem _smokeParticles;
         private EffectFactories _effectFactories;
+        private float _startTime;
 
         [Inject]
         public void Construct(RocketParams @params, EffectFactories effectFactories)
@@ -39,6 +40,7 @@ namespace Assets.Scripts.Rocket
             _params = @params;
             _effectFactories = effectFactories;
             gameObject.layer = @params.Layer;
+            _startTime = Time.time;
         }
 
         void Start()
@@ -54,6 +56,17 @@ namespace Assets.Scripts.Rocket
             var rocketTargetRotation = Quaternion.LookRotation(_params.Target.position - transform.position);
 
             _rigidBody.MoveRotation(Quaternion.RotateTowards(transform.rotation, rocketTargetRotation, _turn));
+
+            if(Time.time > _startTime + 5f)
+            {
+                DestroyWithEffects();
+            }
+        }
+
+        private void DestroyWithEffects()
+        {
+            RunEffects();
+            Destroy(gameObject);
         }
 
         void OnTriggerEnter(Collider collider)
@@ -64,12 +77,10 @@ namespace Assets.Scripts.Rocket
                 return;
             }
 
-            RunEffects(other);
-
-            Destroy(gameObject);
+            DestroyWithEffects();
         }
 
-        private void RunEffects(GameObject other)
+        private void RunEffects()
         {
             _smokeParticles.Stop();
             _smokePrefab.transform.parent = null;
@@ -77,7 +88,7 @@ namespace Assets.Scripts.Rocket
 
             _effectFactories.ExplosionFactory.Create(new ExplosionParams
             {
-                Position = other.transform.position
+                Position = transform.position
             });
 
             if(!_params.ExplosionWithFire)
@@ -87,7 +98,7 @@ namespace Assets.Scripts.Rocket
 
             _effectFactories.FireFactory.Create(new FireParams
             {
-                Position = other.transform.position
+                Position = transform.position
             });
         }
     }
