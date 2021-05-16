@@ -16,9 +16,12 @@ namespace Assets.Scripts.Ui
         private ChopperPlayer _player;
 
         [Inject]
-        public void Construct(RocketLauncher rocketLauncher, ChopperPlayer player)
+        public void Construct(RocketLauncherFactory rocketLauncherFactory, ChopperPlayer player)
         {
-            _rocketLauncher = rocketLauncher;
+            _rocketLauncher = rocketLauncherFactory.Create(new RocketLauncherParams
+            {
+                RocketExplosionWithFire = true
+            });
             _player = player;
         }
 

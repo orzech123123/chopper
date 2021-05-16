@@ -26,10 +26,13 @@ namespace Assets.Scripts.Enemy
         private Transform[] _rocketLaunchSpots;
 
         [Inject]
-        public void Construct([InjectOptional] RocketRadarParams @params, ChopperPlayer player, RocketLauncher rocketLauncher)
+        public void Construct([InjectOptional] RocketRadarParams @params, ChopperPlayer player, RocketLauncherFactory rocketLauncherFactory)
         {
             _currentHealth = _totalHealth;
-            _rocketLauncher = rocketLauncher;
+            _rocketLauncher = rocketLauncherFactory.Create(new RocketLauncherParams
+            {
+                RocketExplosionWithFire = false
+            });
             transform.position = @params?.Position ?? transform.position;
             _player = player;
         }

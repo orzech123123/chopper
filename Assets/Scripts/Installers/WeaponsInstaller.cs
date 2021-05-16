@@ -13,11 +13,7 @@ namespace Assets.Scripts.Installers
 
         public override void InstallBindings()
         {
-            Container
-                .BindInterfacesAndSelfTo<RocketLauncher>()
-                .AsTransient()
-                .WithArguments(_settings.RocketLauncherSettings);
-
+            Container.BindFactory<RocketLauncherParams, Rocket.RocketLauncher, RocketLauncherFactory>();
             Container.BindFactory<RocketParams, Rocket.Rocket, RocketFactory>().FromComponentInNewPrefab(_settings.RocketPrafab);
             Container.BindFactory<BulletParams, Bullet.Bullet, BulletFactory>().FromComponentInNewPrefab(_settings.BulletPrefab);
         }
@@ -25,7 +21,7 @@ namespace Assets.Scripts.Installers
         [Serializable]
         public class Settings
         {
-            public RocketLauncherSettings RocketLauncherSettings;
+            public RocketLauncherParams RocketLauncherSettings;
             public GameObject RocketPrafab;
             public GameObject BulletPrefab;
         }

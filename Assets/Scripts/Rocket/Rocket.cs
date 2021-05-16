@@ -13,6 +13,7 @@ namespace Assets.Scripts.Rocket
         public Quaternion Rotation;
         public LayerMask Layer;
         public Transform Target;
+        public bool ExplosionWithFire;
     }
 
     [RequireComponent(typeof(Rigidbody))]
@@ -78,6 +79,12 @@ namespace Assets.Scripts.Rocket
             {
                 Position = other.transform.position
             });
+
+            if(!_params.ExplosionWithFire)
+            {
+                return;
+            }
+
             _effectFactories.FireFactory.Create(new FireParams
             {
                 Position = other.transform.position
