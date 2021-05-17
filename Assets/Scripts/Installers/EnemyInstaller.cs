@@ -17,6 +17,8 @@ namespace Assets.Scripts.Installers
             Container.BindInterfacesTo<EnemyLifeController>().AsSingle();
 
             Container.BindFactory<RocketRadarParams, Enemy.RocketRadar, RocketRadarFactory>().FromComponentInNewPrefab(_settings.RocketRadarPrafab);
+            Container.BindInterfacesAndSelfTo<RocketRadarManager>().AsSingle();
+            Container.BindInterfacesTo<RocketRadarLifeController>().AsSingle();
 
             Container.BindInterfacesTo<EnemySpawner>().AsSingle().WithArguments(_settings.SpawnPoint);
         }

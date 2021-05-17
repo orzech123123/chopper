@@ -1,6 +1,5 @@
 ﻿using Assets.Scripts.Effects;
 using System.Linq;
-using UnityEngine;
 using Zenject;
 
 namespace Assets.Scripts.Enemy
@@ -18,7 +17,7 @@ namespace Assets.Scripts.Enemy
 
         public void Tick()
         {
-            foreach (var enemy in _enemyManager.Enemies.Where(e => e.CurrentHealth < 0).ToList())
+            foreach (var enemy in _enemyManager.Entities.Where(e => e.CurrentHealth < 0).ToList())
             {
                 _enemyManager.Destroy(enemy);
                 _effectFactories.ExplosionFactory.Create(new ExplosionParams

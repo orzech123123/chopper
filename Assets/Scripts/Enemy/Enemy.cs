@@ -15,19 +15,19 @@ namespace Assets.Scripts.Enemy
     [RequireComponent(typeof(NavMeshAgent))]
     public class Enemy : MonoBehaviour, IInitializable, IDamagable
     {
-        private NavMeshAgent _agent; 
-        private ChopperPlayer _player;
-
         [SerializeField]
         private int _totalHealth = 100;
-        private int _currentHealth;
-        public int CurrentHealth => _currentHealth;
+
+        public int CurrentHealth { get; private set; }
         public int TotalHealth => _totalHealth;
+
+        private NavMeshAgent _agent;
+        private ChopperPlayer _player;
 
         [Inject]
         public void Construct([InjectOptional] EnemyParams @params, ChopperPlayer player)
         {
-            _currentHealth = _totalHealth;
+            CurrentHealth = _totalHealth;
             transform.position = @params?.Position ?? transform.position;
             _player = player;
         }
@@ -40,7 +40,7 @@ namespace Assets.Scripts.Enemy
 
         public void TakeDamage(int damage)
         {
-            _currentHealth -= damage;
+            CurrentHealth -= damage;
         }
 
         void Update()

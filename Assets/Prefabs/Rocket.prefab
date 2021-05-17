@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2460762611043392283}
   - component: {fileID: 252970922056105277}
   m_Layer: 0
-  m_Name: RocketWithSyntyParticle
+  m_Name: Rocket
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -77,7 +77,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 5d4c9857fbb80ab47a5d0819e663919a, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.304
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -173,7 +173,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0f75ed22918fd84fad1d1c5127ae5af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _turn: 0.6
   _rocketVelocity: 60
   _smokePrefab: {fileID: 1556998590173551681}
 --- !u!1 &4163862181855850427

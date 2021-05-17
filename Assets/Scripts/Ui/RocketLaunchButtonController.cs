@@ -10,6 +10,8 @@ namespace Assets.Scripts.Ui
     {
         [SerializeField]
         private Transform _target;
+        [SerializeField]
+        private float _rocketTurn = 2f;
 
         private bool _isHeld;
         private RocketLauncher _rocketLauncher;
@@ -20,8 +22,9 @@ namespace Assets.Scripts.Ui
         {
             _rocketLauncher = rocketLauncherFactory.Create(new RocketLauncherParams
             {
-                RocketExplosionWithFire = true
-            });
+                RocketExplosionWithFire = true,
+                RocketTurn = _rocketTurn
+            }); ;
             _player = player;
         }
 

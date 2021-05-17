@@ -8,6 +8,7 @@ namespace Assets.Scripts.Rocket
     {
         public float LaunchLockPeriod = 2f;
         public bool RocketExplosionWithFire = true;
+        public float RocketTurn = 0.6f;
     }
 
     public class RocketLauncher
@@ -33,7 +34,8 @@ namespace Assets.Scripts.Rocket
                     Rotation = spot.rotation,
                     Target = target,
                     Layer = layer,
-                    ExplosionWithFire = @params.RocketExplosionWithFire
+                    ExplosionWithFire = @params.RocketExplosionWithFire,
+                    Turn = @params.RocketTurn
                 });
 
                 ////TODO tests:

@@ -14,19 +14,19 @@ namespace Assets.Scripts.Rocket
         public LayerMask Layer;
         public Transform Target;
         public bool ExplosionWithFire;
+        public float Turn;
     }
 
     [RequireComponent(typeof(Rigidbody))]
     public class Rocket : MonoBehaviour
     {
         [SerializeField]
-        private float _turn = 2f;
-        [SerializeField]
         private float _rocketVelocity = 60f;
         [SerializeField]
         private GameObject _smokePrefab;
 
         private RocketParams _params;
+
         private Rigidbody _rigidBody;
         private ParticleSystem _smokeParticles;
         private EffectFactories _effectFactories;
@@ -55,7 +55,7 @@ namespace Assets.Scripts.Rocket
 
             var rocketTargetRotation = Quaternion.LookRotation(_params.Target.position - transform.position);
 
-            _rigidBody.MoveRotation(Quaternion.RotateTowards(transform.rotation, rocketTargetRotation, _turn));
+            _rigidBody.MoveRotation(Quaternion.RotateTowards(transform.rotation, rocketTargetRotation, _params.Turn));
 
             if(Time.time > _startTime + 5f)
             {
