@@ -7,7 +7,7 @@ namespace Assets.Scripts.Input
         private Joystick _leftJoystick;
         private Joystick _rightJoystick;
 
-        private float _inertnessValue = 0.01f;
+        private float _inertnessValue = 0.3f;
 
         public PcInputManager(Joystick leftJoystick, Joystick rightJoystick)
         {
