@@ -35,3 +35,6 @@ sysinfo.txt
 # Builds
 *.apk
 *.unitypackage
+
+
+Assets/Editor/x64/Bakery/cudnn64_7.dll
