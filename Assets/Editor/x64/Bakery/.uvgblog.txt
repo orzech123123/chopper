@@ -1,0 +1,985 @@
+2021-5-22
+Rendering UV GBuffer for SampleScene_LM0 179
+RGBA32F...RGBA8...RGBA8_SRGB...RGBA16F...states...
+Rendering UV normal...
+Rendering faceted UV normal...
+Rendering UV pos...
+Rendering smooth UV pos...
+Rendering UV GBuffer for SampleScene_LMA1 179
+RGBA32F...RGBA8...RGBA8_SRGB...RGBA16F...states...
+Rendering UV normal...
+Rendering faceted UV normal...
+Rendering UV pos...
+Rendering smooth UV pos...
+Done
+Done
+Running ftrace fixpos12 "C:\Users\orzech\AppData\Local\Temp\frender" "uvpos_SampleScene_LM0.lz4" 2 0 0 0
+Running ftrace fixpos12 "C:\Users\orzech\AppData\Local\Temp\frender" "uvpos_SampleScene_LMA1.lz4" 2 0 1 0
+Running ftrace skydir "C:\Users\orzech\AppData\Local\Temp\frender" "light_-770300465_0" 68 0 0 sky0.bin
+Running ftrace sun "C:\Users\orzech\AppData\Local\Temp\frender" "light_1776477962_0" 68 0 0 direct0.bin
+Running ftrace addmul "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LM0" 4 0 0 comp_0.bin
+Running ftrace diradd "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LM0_lights_Dir.lz4" 64 0 0 dircomp_0.bin
+Running ftrace batchpointlight "C:\Users\orzech\AppData\Local\Temp\frender" "PointBatch_1_0_0" 68 0 1 batchpointlight_1_0_0.bin
+Running ftrace skydir "C:\Users\orzech\AppData\Local\Temp\frender" "light_-770300465_1" 68 0 1 sky0.bin
+Loaded vertex shader: quad.vso
+Loaded pixel shader: skyOutput.pso
+Loaded pixel shader: cookieOutput.pso
+initShaders done
+initScene done
+Num alphas of 128x128: 1
+Done
+Rendering UV GBuffer for SampleScene_LM0 51
+RGBA32F...RGBA8...RGBA8_SRGB...RGBA16F...states...
+Rendering UV normal...
+Rendering faceted UV normal...
+Rendering UV pos...
+Rendering smooth UV pos...
+Done
+Done
+Running ftrace fixpos12 "C:\Users\orzech\AppData\Local\Temp\frender" "uvpos_SampleScene_LM0.lz4" 2 0 0 0
+Running ftrace batchpointlight "C:\Users\orzech\AppData\Local\Temp\frender" "PointBatch_0_0_0" 68 0 0 batchpointlight_0_0_0.bin
+Running ftrace skydir "C:\Users\orzech\AppData\Local\Temp\frender" "light_1796679302_0" 68 0 0 sky0.bin
+Running ftrace sun "C:\Users\orzech\AppData\Local\Temp\frender" "light_1776477962_0" 68 0 0 direct0.bin
+Running ftrace addmul "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LM0" 4 0 0 comp_0.bin
+Running ftrace diradd "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LM0_lights_Dir.lz4" 64 0 0 dircomp_0.bin
+Running ftrace texgi "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LM0_diffuse" 4 16 0 "gi_SampleScene_LM00.bin" "SampleScene_LM0_diffuse0_HDR.lz4" vbTraceTex.bin
+Running ftrace texgi "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LM0_diffuse" 4 16 0 "gi_SampleScene_LM01.bin" "SampleScene_LM0_diffuse0_HDR.lz4" vbTraceTex.bin
+Running ftrace texgi "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LM0_diffuse" 4 16 0 "gi_SampleScene_LM02.bin" "SampleScene_LM0_diffuse0_HDR.lz4" vbTraceTex.bin
+Running ftrace texgi "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LM0_diffuse" 4 16 0 "gi_SampleScene_LM03.bin" "SampleScene_LM0_diffuse0_HDR.lz4" vbTraceTex.bin
+Running ftrace texgidir "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LM0_final" 84 16 0 "gi_SampleScene_LM04.bin" "SampleScene_LM0_lights_HDR.lz4" vbTraceTex.bin
+Running ftrace add "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LM0_final_HDR.lz4" 4 0 0 comp_indirect0.bin
+Running ftrace diradd "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LM0_final_Dir.lz4" 64 0 0 dircomp_indirect0.bin
+Running denoiserOIDN D "C:\Users\orzech\AppData\Local\Temp\frender/SampleScene_LM0_final_Dir.lz4" "C:\Users\orzech\AppData\Local\Temp\frender/SampleScene_LM0_final_Dir.lz4" 2048 0
+Running denoiserOIDN c "C:\Users\orzech\AppData\Local\Temp\frender/SampleScene_LM0_final_HDR.lz4" "C:\Users\orzech\AppData\Local\Temp\frender/SampleScene_LM0_final_HDR.lz4" 2048 1
+Running seamfixer "C:\Users\orzech\AppData\Local\Temp\frender" "0" "SampleScene_LM0_final_HDR.lz4" "SampleScene_LM0_final_Dir.lz4
+Running halffloat2hdr "C:\Users\orzech\AppData\Local\Temp\frender/SampleScene_LM0_final_HDR.lz4" "C:/Projects/chopper/Assets/BakeryLightmaps/SampleScene_LM0_final.hdr"
+Running rgba2tga "C:\Users\orzech\AppData\Local\Temp\frender/SampleScene_LM0_final_Dir.lz4" "C:/Projects/chopper/Assets/BakeryLightmaps/SampleScene_LM0_dir.tga" 
+Running ftraceRTX.exe /sun hwtestdata light 4 0 0 direct0.bin
+Running ftrace.exe /sun hwtestdata light 4 0 0 direct0.bin
+Running denoiserLegacy c hwtestdata/image.lz4 hwtestdata/image.lz4 16 0
+Running denoiser c hwtestdata/image.lz4 hwtestdata/image.lz4 16 0
+Running denoiser72 c hwtestdata/image.lz4 hwtestdata/image.lz4 16 0
+Running denoiserOIDN c hwtestdata/image.lz4 hwtestdata/image.lz4 16 0
+Loaded vertex shader: quad.vso
+Loaded pixel shader: skyOutput.pso
+Loaded pixel shader: cookieOutput.pso
+initShaders done
+initScene done
+Num alphas of 128x128: 1
+Num alphas of 1024x1024: 1
+Done
+Rendering UV GBuffer for SampleScene_LM0 179
+RGBA32F...RGBA8...RGBA8_SRGB...RGBA16F...states...
+Rendering UV normal...
+Rendering faceted UV normal...
+Rendering UV pos...
+Rendering smooth UV pos...
+Rendering UV GBuffer for SampleScene_LMA1 179
+RGBA32F...RGBA8...RGBA8_SRGB...RGBA16F...states...
+Rendering UV normal...
+Rendering faceted UV normal...
+Rendering UV pos...
+Rendering smooth UV pos...
+Rendering UV GBuffer for SampleScene_LMA2 179
+RGBA32F...RGBA8...RGBA8_SRGB...RGBA16F...states...
+Rendering UV normal...
+Rendering faceted UV normal...
+Rendering UV pos...
+Rendering smooth UV pos...
+Rendering UV GBuffer for SampleScene_LMA3 179
+RGBA32F...RGBA8...RGBA8_SRGB...RGBA16F...states...
+Rendering UV normal...
+Rendering faceted UV normal...
+Rendering UV pos...
+Rendering smooth UV pos...
+Rendering UV GBuffer for SampleScene_LMA4 179
+RGBA32F...RGBA8...RGBA8_SRGB...RGBA16F...states...
+Rendering UV normal...
+Rendering faceted UV normal...
+Rendering UV pos...
+Rendering smooth UV pos...
+Done
+Done
+Running ftrace fixpos12 "C:\Users\orzech\AppData\Local\Temp\frender" "uvpos_SampleScene_LM0.lz4" 2 0 0 0
+Running ftrace fixpos12 "C:\Users\orzech\AppData\Local\Temp\frender" "uvpos_SampleScene_LMA2.lz4" 2 0 2 0
+Running ftrace fixpos12 "C:\Users\orzech\AppData\Local\Temp\frender" "uvpos_SampleScene_LMA1.lz4" 2 0 1 0
+Running ftrace fixpos12 "C:\Users\orzech\AppData\Local\Temp\frender" "uvpos_SampleScene_LMA3.lz4" 2 0 3 0
+Running ftrace fixpos12 "C:\Users\orzech\AppData\Local\Temp\frender" "uvpos_SampleScene_LMA4.lz4" 2 0 4 0
+Running ftrace addmul "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LM0" 4 0 0 comp_0.bin
+Running ftrace addmul "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LMA2" 4 0 2 comp_2.bin
+Running ftrace addmul "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LMA1" 4 0 1 comp_1.bin
+Running ftrace addmul "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LMA3" 4 0 3 comp_3.bin
+Running ftrace addmul "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LMA4" 4 0 4 comp_4.bin
+Running ftrace texgi "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LM0_diffuse" 4 16 0 "gi_SampleScene_LM00.bin" "SampleScene_LM0_diffuse0_HDR.lz4" vbTraceTex.bin
+Running ftrace texgi "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LMA2_diffuse" 4 16 2 "gi_SampleScene_LMA20.bin" "SampleScene_LMA2_diffuse0_HDR.lz4" vbTraceTex.bin
+Loaded vertex shader: quad.vso
+Loaded pixel shader: skyOutput.pso
+Loaded pixel shader: cookieOutput.pso
+initShaders done
+initScene done
+Num alphas of 128x128: 1
+Num alphas of 1024x1024: 1
+Done
+Rendering UV GBuffer for SampleScene_LM0 179
+RGBA32F...RGBA8...RGBA8_SRGB...RGBA16F...states...
+Rendering UV normal...
+Rendering faceted UV normal...
+Rendering UV pos...
+Rendering smooth UV pos...
+Rendering UV GBuffer for SampleScene_LMA1 179
+RGBA32F...RGBA8...RGBA8_SRGB...RGBA16F...states...
+Rendering UV normal...
+Rendering faceted UV normal...
+Rendering UV pos...
+Rendering smooth UV pos...
+Rendering UV GBuffer for SampleScene_LMA2 179
+RGBA32F...RGBA8...RGBA8_SRGB...RGBA16F...states...
+Rendering UV normal...
+Rendering faceted UV normal...
+Rendering UV pos...
+Rendering smooth UV pos...
+Rendering UV GBuffer for SampleScene_LMA3 179
+RGBA32F...RGBA8...RGBA8_SRGB...RGBA16F...states...
+Rendering UV normal...
+Rendering faceted UV normal...
+Rendering UV pos...
+Rendering smooth UV pos...
+Done
+Done
+Running ftrace fixpos12 "C:\Users\orzech\AppData\Local\Temp\frender" "uvpos_SampleScene_LMA2.lz4" 2 0 2 0
+Running ftrace fixpos12 "C:\Users\orzech\AppData\Local\Temp\frender" "uvpos_SampleScene_LM0.lz4" 2 0 0 0
+Running ftrace fixpos12 "C:\Users\orzech\AppData\Local\Temp\frender" "uvpos_SampleScene_LMA3.lz4" 2 0 3 0
+Running ftrace fixpos12 "C:\Users\orzech\AppData\Local\Temp\frender" "uvpos_SampleScene_LMA1.lz4" 2 0 1 0
+Running ftrace sun "C:\Users\orzech\AppData\Local\Temp\frender" "light_-1606917739_2" 68 0 2 direct0.bin
+Running ftrace addmul "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LMA2" 4 0 2 comp_2.bin
+Running ftrace diradd "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LMA2_lights_Dir.lz4" 64 0 2 dircomp_2.bin
+Running ftrace sun "C:\Users\orzech\AppData\Local\Temp\frender" "light_-1606917739_0" 68 0 0 direct0.bin
+Running ftrace addmul "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LM0" 4 0 0 comp_0.bin
+Running ftrace diradd "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LM0_lights_Dir.lz4" 64 0 0 dircomp_0.bin
+Running ftrace sun "C:\Users\orzech\AppData\Local\Temp\frender" "light_-1606917739_3" 68 0 3 direct0.bin
+Running ftrace addmul "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LMA3" 4 0 3 comp_3.bin
+Running ftrace diradd "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LMA3_lights_Dir.lz4" 64 0 3 dircomp_3.bin
+Running ftrace sun "C:\Users\orzech\AppData\Local\Temp\frender" "light_-1606917739_1" 68 0 1 direct0.bin
+Running ftrace addmul "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LMA1" 4 0 1 comp_1.bin
+Running ftrace diradd "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LMA1_lights_Dir.lz4" 64 0 1 dircomp_1.bin
+Running ftrace texgi "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LMA2_diffuse" 4 16 2 "gi_SampleScene_LMA20.bin" "SampleScene_LMA2_diffuse0_HDR.lz4" vbTraceTex.bin
+Running ftrace texgi "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LM0_diffuse" 4 16 0 "gi_SampleScene_LM00.bin" "SampleScene_LM0_diffuse0_HDR.lz4" vbTraceTex.bin
+Loaded vertex shader: quad.vso
+Loaded pixel shader: skyOutput.pso
+Loaded pixel shader: cookieOutput.pso
+initShaders done
+initScene done
+Num alphas of 128x128: 1
+Num alphas of 1024x1024: 1
+Done
+Rendering UV GBuffer for SampleScene_LM0 179
+RGBA32F...RGBA8...RGBA8_SRGB...RGBA16F...states...
+Rendering UV normal...
+Rendering faceted UV normal...
+Rendering UV pos...
+Rendering smooth UV pos...
+Rendering UV GBuffer for SampleScene_LMA1 179
+RGBA32F...RGBA8...RGBA8_SRGB...RGBA16F...states...
+Rendering UV normal...
+Rendering faceted UV normal...
+Rendering UV pos...
+Rendering smooth UV pos...
+Rendering UV GBuffer for SampleScene_LMA2 179
+RGBA32F...RGBA8...RGBA8_SRGB...RGBA16F...states...
+Rendering UV normal...
+Rendering faceted UV normal...
+Rendering UV pos...
+Rendering smooth UV pos...
+Done
+Done
+Running ftrace fixpos12 "C:\Users\orzech\AppData\Local\Temp\frender" "uvpos_SampleScene_LMA2.lz4" 2 0 2 0
+Running ftrace fixpos12 "C:\Users\orzech\AppData\Local\Temp\frender" "uvpos_SampleScene_LM0.lz4" 2 0 0 0
+Running ftrace fixpos12 "C:\Users\orzech\AppData\Local\Temp\frender" "uvpos_SampleScene_LMA1.lz4" 2 0 1 0
+Running ftrace sun "C:\Users\orzech\AppData\Local\Temp\frender" "light_-1606917739_2" 68 0 2 direct0.bin
+Running ftrace addmul "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LMA2" 4 0 2 comp_2.bin
+Running ftrace diradd "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LMA2_lights_Dir.lz4" 64 0 2 dircomp_2.bin
+Running ftrace sun "C:\Users\orzech\AppData\Local\Temp\frender" "light_-1606917739_0" 68 0 0 direct0.bin
+Running ftrace addmul "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LM0" 4 0 0 comp_0.bin
+Running ftrace diradd "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LM0_lights_Dir.lz4" 64 0 0 dircomp_0.bin
+Running ftrace sun "C:\Users\orzech\AppData\Local\Temp\frender" "light_-1606917739_1" 68 0 1 direct0.bin
+Running ftrace addmul "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LMA1" 4 0 1 comp_1.bin
+Running ftrace diradd "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LMA1_lights_Dir.lz4" 64 0 1 dircomp_1.bin
+Running ftrace texgi "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LMA2_diffuse" 4 16 2 "gi_SampleScene_LMA20.bin" "SampleScene_LMA2_diffuse0_HDR.lz4" vbTraceTex.bin
+Running ftrace texgi "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LM0_diffuse" 4 16 0 "gi_SampleScene_LM00.bin" "SampleScene_LM0_diffuse0_HDR.lz4" vbTraceTex.bin
+Running ftrace texgi "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LMA1_diffuse" 4 16 1 "gi_SampleScene_LMA10.bin" "SampleScene_LMA1_diffuse0_HDR.lz4" vbTraceTex.bin
+Running ftrace texgi "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LMA2_diffuse" 4 16 2 "gi_SampleScene_LMA21.bin" "SampleScene_LMA2_diffuse0_HDR.lz4" vbTraceTex.bin
+Running ftrace texgi "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LM0_diffuse" 4 16 0 "gi_SampleScene_LM01.bin" "SampleScene_LM0_diffuse0_HDR.lz4" vbTraceTex.bin
+Running ftrace texgi "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LMA1_diffuse" 4 16 1 "gi_SampleScene_LMA11.bin" "SampleScene_LMA1_diffuse0_HDR.lz4" vbTraceTex.bin
+Running ftrace texgi "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LMA2_diffuse" 4 16 2 "gi_SampleScene_LMA22.bin" "SampleScene_LMA2_diffuse0_HDR.lz4" vbTraceTex.bin
+Running ftrace texgi "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LM0_diffuse" 4 16 0 "gi_SampleScene_LM02.bin" "SampleScene_LM0_diffuse0_HDR.lz4" vbTraceTex.bin
+Running ftrace texgi "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LMA1_diffuse" 4 16 1 "gi_SampleScene_LMA12.bin" "SampleScene_LMA1_diffuse0_HDR.lz4" vbTraceTex.bin
+Running ftrace texgi "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LMA2_diffuse" 4 16 2 "gi_SampleScene_LMA23.bin" "SampleScene_LMA2_diffuse0_HDR.lz4" vbTraceTex.bin
+Running ftrace texgi "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LM0_diffuse" 4 16 0 "gi_SampleScene_LM03.bin" "SampleScene_LM0_diffuse0_HDR.lz4" vbTraceTex.bin
+Running ftrace texgi "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LMA1_diffuse" 4 16 1 "gi_SampleScene_LMA13.bin" "SampleScene_LMA1_diffuse0_HDR.lz4" vbTraceTex.bin
+Running ftrace texgidir "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LMA2_final" 84 16 2 "gi_SampleScene_LMA24.bin" "SampleScene_LMA2_lights_HDR.lz4" vbTraceTex.bin
+Running ftrace texgidir "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LM0_final" 84 16 0 "gi_SampleScene_LM04.bin" "SampleScene_LM0_lights_HDR.lz4" vbTraceTex.bin
+Running ftrace texgidir "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LMA1_final" 84 16 1 "gi_SampleScene_LMA14.bin" "SampleScene_LMA1_lights_HDR.lz4" vbTraceTex.bin
+Running ftrace add "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LMA2_final_HDR.lz4" 4 0 2 comp_indirect2.bin
+Running ftrace diradd "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LMA2_final_Dir.lz4" 64 0 2 dircomp_indirect2.bin
+Running ftrace add "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LM0_final_HDR.lz4" 4 0 0 comp_indirect0.bin
+Running ftrace diradd "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LM0_final_Dir.lz4" 64 0 0 dircomp_indirect0.bin
+Running ftrace add "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LMA1_final_HDR.lz4" 4 0 1 comp_indirect1.bin
+Running ftrace diradd "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LMA1_final_Dir.lz4" 64 0 1 dircomp_indirect1.bin
+Running denoiserOIDN D "C:\Users\orzech\AppData\Local\Temp\frender/SampleScene_LMA2_final_Dir.lz4" "C:\Users\orzech\AppData\Local\Temp\frender/SampleScene_LMA2_final_Dir.lz4" 512 0
+Running denoiserOIDN c "C:\Users\orzech\AppData\Local\Temp\frender/SampleScene_LMA2_final_HDR.lz4" "C:\Users\orzech\AppData\Local\Temp\frender/SampleScene_LMA2_final_HDR.lz4" 512 1
+Running seamfixer "C:\Users\orzech\AppData\Local\Temp\frender" "2" "SampleScene_LMA2_final_HDR.lz4" "SampleScene_LMA2_final_Dir.lz4
+Running denoiserOIDN D "C:\Users\orzech\AppData\Local\Temp\frender/SampleScene_LM0_final_Dir.lz4" "C:\Users\orzech\AppData\Local\Temp\frender/SampleScene_LM0_final_Dir.lz4" 512 0
+Running denoiserOIDN c "C:\Users\orzech\AppData\Local\Temp\frender/SampleScene_LM0_final_HDR.lz4" "C:\Users\orzech\AppData\Local\Temp\frender/SampleScene_LM0_final_HDR.lz4" 512 1
+Running seamfixer "C:\Users\orzech\AppData\Local\Temp\frender" "0" "SampleScene_LM0_final_HDR.lz4" "SampleScene_LM0_final_Dir.lz4
+Running denoiserOIDN D "C:\Users\orzech\AppData\Local\Temp\frender/SampleScene_LMA1_final_Dir.lz4" "C:\Users\orzech\AppData\Local\Temp\frender/SampleScene_LMA1_final_Dir.lz4" 512 0
+Running denoiserOIDN c "C:\Users\orzech\AppData\Local\Temp\frender/SampleScene_LMA1_final_HDR.lz4" "C:\Users\orzech\AppData\Local\Temp\frender/SampleScene_LMA1_final_HDR.lz4" 512 1
+Running seamfixer "C:\Users\orzech\AppData\Local\Temp\frender" "1" "SampleScene_LMA1_final_HDR.lz4" "SampleScene_LMA1_final_Dir.lz4
+Running halffloat2hdr "C:\Users\orzech\AppData\Local\Temp\frender/SampleScene_LMA2_final_HDR.lz4" "C:/Projects/chopper/Assets/BakeryLightmaps/SampleScene_LMA2_final.hdr"
+Running rgba2tga "C:\Users\orzech\AppData\Local\Temp\frender/SampleScene_LMA2_final_Dir.lz4" "C:/Projects/chopper/Assets/BakeryLightmaps/SampleScene_LMA2_dir.tga" 
+Running halffloat2hdr "C:\Users\orzech\AppData\Local\Temp\frender/SampleScene_LM0_final_HDR.lz4" "C:/Projects/chopper/Assets/BakeryLightmaps/SampleScene_LM0_final.hdr"
+Running rgba2tga "C:\Users\orzech\AppData\Local\Temp\frender/SampleScene_LM0_final_Dir.lz4" "C:/Projects/chopper/Assets/BakeryLightmaps/SampleScene_LM0_dir.tga" 
+Running halffloat2hdr "C:\Users\orzech\AppData\Local\Temp\frender/SampleScene_LMA1_final_HDR.lz4" "C:/Projects/chopper/Assets/BakeryLightmaps/SampleScene_LMA1_final.hdr"
+Running rgba2tga "C:\Users\orzech\AppData\Local\Temp\frender/SampleScene_LMA1_final_Dir.lz4" "C:/Projects/chopper/Assets/BakeryLightmaps/SampleScene_LMA1_dir.tga" 
+Loaded vertex shader: quad.vso
+Loaded pixel shader: skyOutput.pso
+Loaded pixel shader: cookieOutput.pso
+initShaders done
+initScene done
+Num alphas of 128x128: 1
+Num alphas of 1024x1024: 1
+Done
+Rendering UV GBuffer for SampleScene_LM0 179
+RGBA32F...RGBA8...RGBA8_SRGB...RGBA16F...states...
+Rendering UV normal...
+Rendering faceted UV normal...
+Rendering UV pos...
+Rendering smooth UV pos...
+Rendering UV GBuffer for SampleScene_LMA1 179
+RGBA32F...RGBA8...RGBA8_SRGB...RGBA16F...states...
+Rendering UV normal...
+Rendering faceted UV normal...
+Rendering UV pos...
+Rendering smooth UV pos...
+Rendering UV GBuffer for SampleScene_LMA2 179
+RGBA32F...RGBA8...RGBA8_SRGB...RGBA16F...states...
+Rendering UV normal...
+Rendering faceted UV normal...
+Rendering UV pos...
+Rendering smooth UV pos...
+Done
+Done
+Running ftrace fixpos12 "C:\Users\orzech\AppData\Local\Temp\frender" "uvpos_SampleScene_LMA2.lz4" 2 0 2 0
+Running ftrace fixpos12 "C:\Users\orzech\AppData\Local\Temp\frender" "uvpos_SampleScene_LM0.lz4" 2 0 0 0
+Running ftrace fixpos12 "C:\Users\orzech\AppData\Local\Temp\frender" "uvpos_SampleScene_LMA1.lz4" 2 0 1 0
+Running ftrace sun "C:\Users\orzech\AppData\Local\Temp\frender" "light_-1606917739_2" 68 0 2 direct0.bin
+Running ftrace addmul "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LMA2" 4 0 2 comp_2.bin
+Running ftrace diradd "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LMA2_lights_Dir.lz4" 64 0 2 dircomp_2.bin
+Running ftrace sun "C:\Users\orzech\AppData\Local\Temp\frender" "light_-1606917739_0" 68 0 0 direct0.bin
+Running ftrace addmul "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LM0" 4 0 0 comp_0.bin
+Running ftrace diradd "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LM0_lights_Dir.lz4" 64 0 0 dircomp_0.bin
+Running ftrace sun "C:\Users\orzech\AppData\Local\Temp\frender" "light_-1606917739_1" 68 0 1 direct0.bin
+Running ftrace addmul "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LMA1" 4 0 1 comp_1.bin
+Running ftrace diradd "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LMA1_lights_Dir.lz4" 64 0 1 dircomp_1.bin
+Running ftrace texgi "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LMA2_diffuse" 4 16 2 "gi_SampleScene_LMA20.bin" "SampleScene_LMA2_diffuse0_HDR.lz4" vbTraceTex.bin
+Running ftrace texgi "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LM0_diffuse" 4 16 0 "gi_SampleScene_LM00.bin" "SampleScene_LM0_diffuse0_HDR.lz4" vbTraceTex.bin
+Running ftrace texgi "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LMA1_diffuse" 4 16 1 "gi_SampleScene_LMA10.bin" "SampleScene_LMA1_diffuse0_HDR.lz4" vbTraceTex.bin
+Running ftrace texgi "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LMA2_diffuse" 4 16 2 "gi_SampleScene_LMA21.bin" "SampleScene_LMA2_diffuse0_HDR.lz4" vbTraceTex.bin
+Running ftrace texgi "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LM0_diffuse" 4 16 0 "gi_SampleScene_LM01.bin" "SampleScene_LM0_diffuse0_HDR.lz4" vbTraceTex.bin
+Running ftrace texgi "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LMA1_diffuse" 4 16 1 "gi_SampleScene_LMA11.bin" "SampleScene_LMA1_diffuse0_HDR.lz4" vbTraceTex.bin
+Running ftrace texgi "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LMA2_diffuse" 4 16 2 "gi_SampleScene_LMA22.bin" "SampleScene_LMA2_diffuse0_HDR.lz4" vbTraceTex.bin
+Running ftrace texgi "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LM0_diffuse" 4 16 0 "gi_SampleScene_LM02.bin" "SampleScene_LM0_diffuse0_HDR.lz4" vbTraceTex.bin
+Running ftrace texgi "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LMA1_diffuse" 4 16 1 "gi_SampleScene_LMA12.bin" "SampleScene_LMA1_diffuse0_HDR.lz4" vbTraceTex.bin
+Running ftrace texgi "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LMA2_diffuse" 4 16 2 "gi_SampleScene_LMA23.bin" "SampleScene_LMA2_diffuse0_HDR.lz4" vbTraceTex.bin
+Running ftrace texgi "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LM0_diffuse" 4 16 0 "gi_SampleScene_LM03.bin" "SampleScene_LM0_diffuse0_HDR.lz4" vbTraceTex.bin
+Running ftrace texgi "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LMA1_diffuse" 4 16 1 "gi_SampleScene_LMA13.bin" "SampleScene_LMA1_diffuse0_HDR.lz4" vbTraceTex.bin
+Running ftrace texgidir "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LMA2_final" 84 16 2 "gi_SampleScene_LMA24.bin" "SampleScene_LMA2_lights_HDR.lz4" vbTraceTex.bin
+Running ftrace texgidir "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LM0_final" 84 16 0 "gi_SampleScene_LM04.bin" "SampleScene_LM0_lights_HDR.lz4" vbTraceTex.bin
+Running ftrace texgidir "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LMA1_final" 84 16 1 "gi_SampleScene_LMA14.bin" "SampleScene_LMA1_lights_HDR.lz4" vbTraceTex.bin
+Running ftrace add "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LMA2_final_HDR.lz4" 4 0 2 comp_indirect2.bin
+Running ftrace diradd "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LMA2_final_Dir.lz4" 64 0 2 dircomp_indirect2.bin
+Running ftrace add "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LM0_final_HDR.lz4" 4 0 0 comp_indirect0.bin
+Running ftrace diradd "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LM0_final_Dir.lz4" 64 0 0 dircomp_indirect0.bin
+Running ftrace add "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LMA1_final_HDR.lz4" 4 0 1 comp_indirect1.bin
+Running ftrace diradd "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LMA1_final_Dir.lz4" 64 0 1 dircomp_indirect1.bin
+Running denoiserOIDN D "C:\Users\orzech\AppData\Local\Temp\frender/SampleScene_LMA2_final_Dir.lz4" "C:\Users\orzech\AppData\Local\Temp\frender/SampleScene_LMA2_final_Dir.lz4" 512 0
+Running denoiserOIDN c "C:\Users\orzech\AppData\Local\Temp\frender/SampleScene_LMA2_final_HDR.lz4" "C:\Users\orzech\AppData\Local\Temp\frender/SampleScene_LMA2_final_HDR.lz4" 512 1
+Running seamfixer "C:\Users\orzech\AppData\Local\Temp\frender" "2" "SampleScene_LMA2_final_HDR.lz4" "SampleScene_LMA2_final_Dir.lz4
+Running denoiserOIDN D "C:\Users\orzech\AppData\Local\Temp\frender/SampleScene_LM0_final_Dir.lz4" "C:\Users\orzech\AppData\Local\Temp\frender/SampleScene_LM0_final_Dir.lz4" 512 0
+Running denoiserOIDN c "C:\Users\orzech\AppData\Local\Temp\frender/SampleScene_LM0_final_HDR.lz4" "C:\Users\orzech\AppData\Local\Temp\frender/SampleScene_LM0_final_HDR.lz4" 512 1
+Running seamfixer "C:\Users\orzech\AppData\Local\Temp\frender" "0" "SampleScene_LM0_final_HDR.lz4" "SampleScene_LM0_final_Dir.lz4
+Running denoiserOIDN D "C:\Users\orzech\AppData\Local\Temp\frender/SampleScene_LMA1_final_Dir.lz4" "C:\Users\orzech\AppData\Local\Temp\frender/SampleScene_LMA1_final_Dir.lz4" 512 0
+Running denoiserOIDN c "C:\Users\orzech\AppData\Local\Temp\frender/SampleScene_LMA1_final_HDR.lz4" "C:\Users\orzech\AppData\Local\Temp\frender/SampleScene_LMA1_final_HDR.lz4" 512 1
+Running seamfixer "C:\Users\orzech\AppData\Local\Temp\frender" "1" "SampleScene_LMA1_final_HDR.lz4" "SampleScene_LMA1_final_Dir.lz4
+Running halffloat2hdr "C:\Users\orzech\AppData\Local\Temp\frender/SampleScene_LMA2_final_HDR.lz4" "C:/Projects/chopper/Assets/BakeryLightmaps/SampleScene_LMA2_final.hdr"
+Running rgba2tga "C:\Users\orzech\AppData\Local\Temp\frender/SampleScene_LMA2_final_Dir.lz4" "C:/Projects/chopper/Assets/BakeryLightmaps/SampleScene_LMA2_dir.tga" 
+Running halffloat2hdr "C:\Users\orzech\AppData\Local\Temp\frender/SampleScene_LM0_final_HDR.lz4" "C:/Projects/chopper/Assets/BakeryLightmaps/SampleScene_LM0_final.hdr"
+Running rgba2tga "C:\Users\orzech\AppData\Local\Temp\frender/SampleScene_LM0_final_Dir.lz4" "C:/Projects/chopper/Assets/BakeryLightmaps/SampleScene_LM0_dir.tga" 
+Running halffloat2hdr "C:\Users\orzech\AppData\Local\Temp\frender/SampleScene_LMA1_final_HDR.lz4" "C:/Projects/chopper/Assets/BakeryLightmaps/SampleScene_LMA1_final.hdr"
+Running rgba2tga "C:\Users\orzech\AppData\Local\Temp\frender/SampleScene_LMA1_final_Dir.lz4" "C:/Projects/chopper/Assets/BakeryLightmaps/SampleScene_LMA1_dir.tga" 
+Loaded vertex shader: quad.vso
+Loaded pixel shader: skyOutput.pso
+Loaded pixel shader: cookieOutput.pso
+initShaders done
+initScene done
+Num alphas of 128x128: 1
+Num alphas of 1024x1024: 1
+Done
+Rendering UV GBuffer for SampleScene_LM0 179
+RGBA32F...RGBA8...RGBA8_SRGB...RGBA16F...states...
+Rendering UV normal...
+Rendering faceted UV normal...
+Rendering UV pos...
+Rendering smooth UV pos...
+Rendering UV GBuffer for SampleScene_LMA1 179
+RGBA32F...RGBA8...RGBA8_SRGB...RGBA16F...states...
+Rendering UV normal...
+Rendering faceted UV normal...
+Rendering UV pos...
+Rendering smooth UV pos...
+Rendering UV GBuffer for SampleScene_LMA2 179
+RGBA32F...RGBA8...RGBA8_SRGB...RGBA16F...states...
+Rendering UV normal...
+Rendering faceted UV normal...
+Rendering UV pos...
+Rendering smooth UV pos...
+Done
+Done
+Running ftrace fixpos12 "C:\Users\orzech\AppData\Local\Temp\frender" "uvpos_SampleScene_LMA2.lz4" 2 0 2 0
+Running ftrace fixpos12 "C:\Users\orzech\AppData\Local\Temp\frender" "uvpos_SampleScene_LM0.lz4" 2 0 0 0
+Running ftrace fixpos12 "C:\Users\orzech\AppData\Local\Temp\frender" "uvpos_SampleScene_LMA1.lz4" 2 0 1 0
+Running ftrace sun "C:\Users\orzech\AppData\Local\Temp\frender" "light_-1606917739_2" 68 0 2 direct0.bin
+Running ftrace addmul "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LMA2" 4 0 2 comp_2.bin
+Running ftrace diradd "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LMA2_lights_Dir.lz4" 64 0 2 dircomp_2.bin
+Running ftrace sun "C:\Users\orzech\AppData\Local\Temp\frender" "light_-1606917739_0" 68 0 0 direct0.bin
+Running ftrace addmul "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LM0" 4 0 0 comp_0.bin
+Running ftrace diradd "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LM0_lights_Dir.lz4" 64 0 0 dircomp_0.bin
+Running ftrace sun "C:\Users\orzech\AppData\Local\Temp\frender" "light_-1606917739_1" 68 0 1 direct0.bin
+Running ftrace addmul "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LMA1" 4 0 1 comp_1.bin
+Running ftrace diradd "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LMA1_lights_Dir.lz4" 64 0 1 dircomp_1.bin
+Running ftrace texgi "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LMA2_diffuse" 4 16 2 "gi_SampleScene_LMA20.bin" "SampleScene_LMA2_diffuse0_HDR.lz4" vbTraceTex.bin
+Running ftrace texgi "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LM0_diffuse" 4 16 0 "gi_SampleScene_LM00.bin" "SampleScene_LM0_diffuse0_HDR.lz4" vbTraceTex.bin
+Running ftrace texgi "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LMA1_diffuse" 4 16 1 "gi_SampleScene_LMA10.bin" "SampleScene_LMA1_diffuse0_HDR.lz4" vbTraceTex.bin
+Running ftrace texgi "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LMA2_diffuse" 4 16 2 "gi_SampleScene_LMA21.bin" "SampleScene_LMA2_diffuse0_HDR.lz4" vbTraceTex.bin
+Running ftrace texgi "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LM0_diffuse" 4 16 0 "gi_SampleScene_LM01.bin" "SampleScene_LM0_diffuse0_HDR.lz4" vbTraceTex.bin
+Running ftrace texgi "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LMA1_diffuse" 4 16 1 "gi_SampleScene_LMA11.bin" "SampleScene_LMA1_diffuse0_HDR.lz4" vbTraceTex.bin
+Running ftrace texgi "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LMA2_diffuse" 4 16 2 "gi_SampleScene_LMA22.bin" "SampleScene_LMA2_diffuse0_HDR.lz4" vbTraceTex.bin
+Running ftrace texgi "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LM0_diffuse" 4 16 0 "gi_SampleScene_LM02.bin" "SampleScene_LM0_diffuse0_HDR.lz4" vbTraceTex.bin
+Running ftrace texgi "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LMA1_diffuse" 4 16 1 "gi_SampleScene_LMA12.bin" "SampleScene_LMA1_diffuse0_HDR.lz4" vbTraceTex.bin
+Running ftrace texgi "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LMA2_diffuse" 4 16 2 "gi_SampleScene_LMA23.bin" "SampleScene_LMA2_diffuse0_HDR.lz4" vbTraceTex.bin
+Running ftrace texgi "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LM0_diffuse" 4 16 0 "gi_SampleScene_LM03.bin" "SampleScene_LM0_diffuse0_HDR.lz4" vbTraceTex.bin
+Running ftrace texgi "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LMA1_diffuse" 4 16 1 "gi_SampleScene_LMA13.bin" "SampleScene_LMA1_diffuse0_HDR.lz4" vbTraceTex.bin
+Running ftrace texgidir "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LMA2_final" 84 16 2 "gi_SampleScene_LMA24.bin" "SampleScene_LMA2_lights_HDR.lz4" vbTraceTex.bin
+Running ftrace texgidir "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LM0_final" 84 16 0 "gi_SampleScene_LM04.bin" "SampleScene_LM0_lights_HDR.lz4" vbTraceTex.bin
+Running ftrace texgidir "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LMA1_final" 84 16 1 "gi_SampleScene_LMA14.bin" "SampleScene_LMA1_lights_HDR.lz4" vbTraceTex.bin
+Running ftrace add "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LMA2_final_HDR.lz4" 4 0 2 comp_indirect2.bin
+Running ftrace diradd "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LMA2_final_Dir.lz4" 64 0 2 dircomp_indirect2.bin
+Running ftrace add "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LM0_final_HDR.lz4" 4 0 0 comp_indirect0.bin
+Running ftrace diradd "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LM0_final_Dir.lz4" 64 0 0 dircomp_indirect0.bin
+Running ftrace add "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LMA1_final_HDR.lz4" 4 0 1 comp_indirect1.bin
+Running ftrace diradd "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LMA1_final_Dir.lz4" 64 0 1 dircomp_indirect1.bin
+Running denoiserOIDN D "C:\Users\orzech\AppData\Local\Temp\frender/SampleScene_LMA2_final_Dir.lz4" "C:\Users\orzech\AppData\Local\Temp\frender/SampleScene_LMA2_final_Dir.lz4" 512 0
+Running denoiserOIDN c "C:\Users\orzech\AppData\Local\Temp\frender/SampleScene_LMA2_final_HDR.lz4" "C:\Users\orzech\AppData\Local\Temp\frender/SampleScene_LMA2_final_HDR.lz4" 512 1
+Running seamfixer "C:\Users\orzech\AppData\Local\Temp\frender" "2" "SampleScene_LMA2_final_HDR.lz4" "SampleScene_LMA2_final_Dir.lz4
+Running denoiserOIDN D "C:\Users\orzech\AppData\Local\Temp\frender/SampleScene_LM0_final_Dir.lz4" "C:\Users\orzech\AppData\Local\Temp\frender/SampleScene_LM0_final_Dir.lz4" 512 0
+Running denoiserOIDN c "C:\Users\orzech\AppData\Local\Temp\frender/SampleScene_LM0_final_HDR.lz4" "C:\Users\orzech\AppData\Local\Temp\frender/SampleScene_LM0_final_HDR.lz4" 512 1
+Running seamfixer "C:\Users\orzech\AppData\Local\Temp\frender" "0" "SampleScene_LM0_final_HDR.lz4" "SampleScene_LM0_final_Dir.lz4
+Running denoiserOIDN D "C:\Users\orzech\AppData\Local\Temp\frender/SampleScene_LMA1_final_Dir.lz4" "C:\Users\orzech\AppData\Local\Temp\frender/SampleScene_LMA1_final_Dir.lz4" 512 0
+Running denoiserOIDN c "C:\Users\orzech\AppData\Local\Temp\frender/SampleScene_LMA1_final_HDR.lz4" "C:\Users\orzech\AppData\Local\Temp\frender/SampleScene_LMA1_final_HDR.lz4" 512 1
+Running seamfixer "C:\Users\orzech\AppData\Local\Temp\frender" "1" "SampleScene_LMA1_final_HDR.lz4" "SampleScene_LMA1_final_Dir.lz4
+Running halffloat2hdr "C:\Users\orzech\AppData\Local\Temp\frender/SampleScene_LMA2_final_HDR.lz4" "C:/Projects/chopper/Assets/BakeryLightmaps/SampleScene_LMA2_final.hdr"
+Running rgba2tga "C:\Users\orzech\AppData\Local\Temp\frender/SampleScene_LMA2_final_Dir.lz4" "C:/Projects/chopper/Assets/BakeryLightmaps/SampleScene_LMA2_dir.tga" 
+Running halffloat2hdr "C:\Users\orzech\AppData\Local\Temp\frender/SampleScene_LM0_final_HDR.lz4" "C:/Projects/chopper/Assets/BakeryLightmaps/SampleScene_LM0_final.hdr"
+Running rgba2tga "C:\Users\orzech\AppData\Local\Temp\frender/SampleScene_LM0_final_Dir.lz4" "C:/Projects/chopper/Assets/BakeryLightmaps/SampleScene_LM0_dir.tga" 
+Running halffloat2hdr "C:\Users\orzech\AppData\Local\Temp\frender/SampleScene_LMA1_final_HDR.lz4" "C:/Projects/chopper/Assets/BakeryLightmaps/SampleScene_LMA1_final.hdr"
+Running rgba2tga "C:\Users\orzech\AppData\Local\Temp\frender/SampleScene_LMA1_final_Dir.lz4" "C:/Projects/chopper/Assets/BakeryLightmaps/SampleScene_LMA1_dir.tga" 
+Loaded vertex shader: quad.vso
+Loaded pixel shader: skyOutput.pso
+Loaded pixel shader: cookieOutput.pso
+initShaders done
+initScene done
+Num alphas of 128x128: 1
+Num alphas of 1024x1024: 1
+Done
+Rendering UV GBuffer for SampleScene_LM0 179
+RGBA32F...RGBA8...RGBA8_SRGB...RGBA16F...states...
+Rendering UV normal...
+Rendering faceted UV normal...
+Rendering UV pos...
+Rendering smooth UV pos...
+Done
+Done
+Running ftrace fixpos12 "C:\Users\orzech\AppData\Local\Temp\frender" "uvpos_SampleScene_LM0.lz4" 2 0 0 0
+Running ftrace sun "C:\Users\orzech\AppData\Local\Temp\frender" "light_-1606917739_0" 68 0 0 direct0.bin
+Running ftrace addmul "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LM0" 4 0 0 comp_0.bin
+Running ftrace diradd "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LM0_lights_Dir.lz4" 64 0 0 dircomp_0.bin
+Running ftrace texgi "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LM0_diffuse" 4 16 0 "gi_SampleScene_LM00.bin" "SampleScene_LM0_diffuse0_HDR.lz4" vbTraceTex.bin
+Running ftrace texgi "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LM0_diffuse" 4 16 0 "gi_SampleScene_LM01.bin" "SampleScene_LM0_diffuse0_HDR.lz4" vbTraceTex.bin
+Running ftrace texgi "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LM0_diffuse" 4 16 0 "gi_SampleScene_LM02.bin" "SampleScene_LM0_diffuse0_HDR.lz4" vbTraceTex.bin
+Running ftrace texgi "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LM0_diffuse" 4 16 0 "gi_SampleScene_LM03.bin" "SampleScene_LM0_diffuse0_HDR.lz4" vbTraceTex.bin
+Running ftrace texgidir "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LM0_final" 84 16 0 "gi_SampleScene_LM04.bin" "SampleScene_LM0_lights_HDR.lz4" vbTraceTex.bin
+Running ftrace add "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LM0_final_HDR.lz4" 4 0 0 comp_indirect0.bin
+Running ftrace diradd "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LM0_final_Dir.lz4" 64 0 0 dircomp_indirect0.bin
+Running denoiserOIDN D "C:\Users\orzech\AppData\Local\Temp\frender/SampleScene_LM0_final_Dir.lz4" "C:\Users\orzech\AppData\Local\Temp\frender/SampleScene_LM0_final_Dir.lz4" 1024 0
+Running denoiserOIDN c "C:\Users\orzech\AppData\Local\Temp\frender/SampleScene_LM0_final_HDR.lz4" "C:\Users\orzech\AppData\Local\Temp\frender/SampleScene_LM0_final_HDR.lz4" 1024 1
+Running seamfixer "C:\Users\orzech\AppData\Local\Temp\frender" "0" "SampleScene_LM0_final_HDR.lz4" "SampleScene_LM0_final_Dir.lz4
+Running halffloat2hdr "C:\Users\orzech\AppData\Local\Temp\frender/SampleScene_LM0_final_HDR.lz4" "C:/Projects/chopper/Assets/BakeryLightmaps/SampleScene_LM0_final.hdr"
+Running rgba2tga "C:\Users\orzech\AppData\Local\Temp\frender/SampleScene_LM0_final_Dir.lz4" "C:/Projects/chopper/Assets/BakeryLightmaps/SampleScene_LM0_dir.tga" 
+Loaded vertex shader: quad.vso
+Loaded pixel shader: skyOutput.pso
+Loaded pixel shader: cookieOutput.pso
+initShaders done
+initScene done
+Num alphas of 128x128: 1
+Num alphas of 1024x1024: 1
+Done
+Rendering UV GBuffer for SampleScene_LM0 179
+RGBA32F...RGBA8...RGBA8_SRGB...RGBA16F...states...
+Rendering UV normal...
+Rendering faceted UV normal...
+Rendering UV pos...
+Rendering smooth UV pos...
+Rendering UV GBuffer for SampleScene_LMA1 179
+RGBA32F...RGBA8...RGBA8_SRGB...RGBA16F...states...
+Rendering UV normal...
+Rendering faceted UV normal...
+Rendering UV pos...
+Rendering smooth UV pos...
+Done
+Done
+Running ftrace fixpos12 "C:\Users\orzech\AppData\Local\Temp\frender" "uvpos_SampleScene_LM0.lz4" 2 0 0 0
+Running ftrace fixpos12 "C:\Users\orzech\AppData\Local\Temp\frender" "uvpos_SampleScene_LMA1.lz4" 2 0 1 0
+Running ftrace sun "C:\Users\orzech\AppData\Local\Temp\frender" "light_-1606917739_0" 68 0 0 direct0.bin
+Running ftrace addmul "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LM0" 4 0 0 comp_0.bin
+Running ftrace diradd "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LM0_lights_Dir.lz4" 64 0 0 dircomp_0.bin
+Running ftrace sun "C:\Users\orzech\AppData\Local\Temp\frender" "light_-1606917739_1" 68 0 1 direct0.bin
+Running ftrace addmul "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LMA1" 4 0 1 comp_1.bin
+Running ftrace diradd "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LMA1_lights_Dir.lz4" 64 0 1 dircomp_1.bin
+Running ftrace texgi "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LM0_diffuse" 4 16 0 "gi_SampleScene_LM00.bin" "SampleScene_LM0_diffuse0_HDR.lz4" vbTraceTex.bin
+Running ftrace texgi "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LMA1_diffuse" 4 16 1 "gi_SampleScene_LMA10.bin" "SampleScene_LMA1_diffuse0_HDR.lz4" vbTraceTex.bin
+Loaded vertex shader: quad.vso
+Loaded pixel shader: skyOutput.pso
+Loaded pixel shader: cookieOutput.pso
+initShaders done
+initScene done
+Num alphas of 128x128: 1
+Num alphas of 1024x1024: 1
+Done
+Rendering UV GBuffer for SampleScene_LM0 179
+RGBA32F...RGBA8...RGBA8_SRGB...RGBA16F...states...
+Rendering UV normal...
+Rendering faceted UV normal...
+Rendering UV pos...
+Rendering smooth UV pos...
+Rendering UV GBuffer for SampleScene_LMA1 179
+RGBA32F...RGBA8...RGBA8_SRGB...RGBA16F...states...
+Rendering UV normal...
+Rendering faceted UV normal...
+Rendering UV pos...
+Rendering smooth UV pos...
+Done
+Done
+Running ftrace fixpos12 "C:\Users\orzech\AppData\Local\Temp\frender" "uvpos_SampleScene_LM0.lz4" 2 0 0 0
+Running ftrace fixpos12 "C:\Users\orzech\AppData\Local\Temp\frender" "uvpos_SampleScene_LMA1.lz4" 2 0 1 0
+Running ftrace sun "C:\Users\orzech\AppData\Local\Temp\frender" "light_-1606917739_0" 68 0 0 direct0.bin
+Running ftrace addmul "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LM0" 4 0 0 comp_0.bin
+Running ftrace diradd "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LM0_lights_Dir.lz4" 64 0 0 dircomp_0.bin
+Running ftrace sun "C:\Users\orzech\AppData\Local\Temp\frender" "light_-1606917739_1" 68 0 1 direct0.bin
+Running ftrace addmul "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LMA1" 4 0 1 comp_1.bin
+Running ftrace diradd "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LMA1_lights_Dir.lz4" 64 0 1 dircomp_1.bin
+Running ftrace texgi "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LM0_diffuse" 4 16 0 "gi_SampleScene_LM00.bin" "SampleScene_LM0_diffuse0_HDR.lz4" vbTraceTex.bin
+Running ftrace texgi "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LMA1_diffuse" 4 16 1 "gi_SampleScene_LMA10.bin" "SampleScene_LMA1_diffuse0_HDR.lz4" vbTraceTex.bin
+Running ftrace texgi "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LM0_diffuse" 4 16 0 "gi_SampleScene_LM01.bin" "SampleScene_LM0_diffuse0_HDR.lz4" vbTraceTex.bin
+Running ftrace texgi "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LMA1_diffuse" 4 16 1 "gi_SampleScene_LMA11.bin" "SampleScene_LMA1_diffuse0_HDR.lz4" vbTraceTex.bin
+Running ftrace texgi "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LM0_diffuse" 4 16 0 "gi_SampleScene_LM02.bin" "SampleScene_LM0_diffuse0_HDR.lz4" vbTraceTex.bin
+Running ftrace texgi "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LMA1_diffuse" 4 16 1 "gi_SampleScene_LMA12.bin" "SampleScene_LMA1_diffuse0_HDR.lz4" vbTraceTex.bin
+Running ftrace texgi "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LM0_diffuse" 4 16 0 "gi_SampleScene_LM03.bin" "SampleScene_LM0_diffuse0_HDR.lz4" vbTraceTex.bin
+Running ftrace texgi "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LMA1_diffuse" 4 16 1 "gi_SampleScene_LMA13.bin" "SampleScene_LMA1_diffuse0_HDR.lz4" vbTraceTex.bin
+Running ftrace texgidir "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LM0_final" 84 16 0 "gi_SampleScene_LM04.bin" "SampleScene_LM0_lights_HDR.lz4" vbTraceTex.bin
+Running ftrace texgidir "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LMA1_final" 84 16 1 "gi_SampleScene_LMA14.bin" "SampleScene_LMA1_lights_HDR.lz4" vbTraceTex.bin
+Running ftrace add "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LM0_final_HDR.lz4" 4 0 0 comp_indirect0.bin
+Running ftrace diradd "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LM0_final_Dir.lz4" 64 0 0 dircomp_indirect0.bin
+Running ftrace add "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LMA1_final_HDR.lz4" 4 0 1 comp_indirect1.bin
+Running ftrace diradd "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LMA1_final_Dir.lz4" 64 0 1 dircomp_indirect1.bin
+Running denoiserOIDN D "C:\Users\orzech\AppData\Local\Temp\frender/SampleScene_LM0_final_Dir.lz4" "C:\Users\orzech\AppData\Local\Temp\frender/SampleScene_LM0_final_Dir.lz4" 1024 0
+Running denoiserOIDN c "C:\Users\orzech\AppData\Local\Temp\frender/SampleScene_LM0_final_HDR.lz4" "C:\Users\orzech\AppData\Local\Temp\frender/SampleScene_LM0_final_HDR.lz4" 1024 1
+Running seamfixer "C:\Users\orzech\AppData\Local\Temp\frender" "0" "SampleScene_LM0_final_HDR.lz4" "SampleScene_LM0_final_Dir.lz4
+Running denoiserOIDN D "C:\Users\orzech\AppData\Local\Temp\frender/SampleScene_LMA1_final_Dir.lz4" "C:\Users\orzech\AppData\Local\Temp\frender/SampleScene_LMA1_final_Dir.lz4" 1024 0
+Running denoiserOIDN c "C:\Users\orzech\AppData\Local\Temp\frender/SampleScene_LMA1_final_HDR.lz4" "C:\Users\orzech\AppData\Local\Temp\frender/SampleScene_LMA1_final_HDR.lz4" 1024 1
+Running seamfixer "C:\Users\orzech\AppData\Local\Temp\frender" "1" "SampleScene_LMA1_final_HDR.lz4" "SampleScene_LMA1_final_Dir.lz4
+Running ftrace postadd "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LM0_final_HDR.lz4" 4 0 0 comp_addbuckets0.bin
+Running ftrace postdiradd "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LM0_final_Dir.lz4" 64 0 0 dircomp_addbuckets0.bin
+Running halffloat2hdr "C:\Users\orzech\AppData\Local\Temp\frender/SampleScene_LM0_final_HDR.lz4" "C:/Projects/chopper/Assets/BakeryLightmaps/SampleScene_LM0_final.hdr"
+Running rgba2tga "C:\Users\orzech\AppData\Local\Temp\frender/SampleScene_LM0_final_Dir.lz4" "C:/Projects/chopper/Assets/BakeryLightmaps/SampleScene_LM0_dir.tga" 
+Loaded vertex shader: quad.vso
+Loaded pixel shader: skyOutput.pso
+Loaded pixel shader: cookieOutput.pso
+initShaders done
+initScene done
+Num alphas of 128x128: 1
+Num alphas of 1024x1024: 1
+Done
+Rendering UV GBuffer for SampleScene_LM0 179
+RGBA32F...RGBA8...RGBA8_SRGB...RGBA16F...states...
+Rendering UV normal...
+Rendering faceted UV normal...
+Rendering UV pos...
+Rendering smooth UV pos...
+Done
+Done
+Running ftrace fixpos12 "C:\Users\orzech\AppData\Local\Temp\frender" "uvpos_SampleScene_LM0.lz4" 2 0 0 0
+Running ftrace sun "C:\Users\orzech\AppData\Local\Temp\frender" "light_-1606917739_0" 68 0 0 direct0.bin
+Running ftrace addmul "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LM0" 4 0 0 comp_0.bin
+Running ftrace diradd "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LM0_lights_Dir.lz4" 64 0 0 dircomp_0.bin
+Running ftrace texgi "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LM0_diffuse" 4 16 0 "gi_SampleScene_LM00.bin" "SampleScene_LM0_diffuse0_HDR.lz4" vbTraceTex.bin
+Running ftrace texgi "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LM0_diffuse" 4 16 0 "gi_SampleScene_LM01.bin" "SampleScene_LM0_diffuse0_HDR.lz4" vbTraceTex.bin
+Running ftrace texgi "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LM0_diffuse" 4 16 0 "gi_SampleScene_LM02.bin" "SampleScene_LM0_diffuse0_HDR.lz4" vbTraceTex.bin
+Running ftrace texgi "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LM0_diffuse" 4 16 0 "gi_SampleScene_LM03.bin" "SampleScene_LM0_diffuse0_HDR.lz4" vbTraceTex.bin
+Running ftrace texgidir "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LM0_final" 84 16 0 "gi_SampleScene_LM04.bin" "SampleScene_LM0_lights_HDR.lz4" vbTraceTex.bin
+Running ftrace add "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LM0_final_HDR.lz4" 4 0 0 comp_indirect0.bin
+Running ftrace diradd "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LM0_final_Dir.lz4" 64 0 0 dircomp_indirect0.bin
+Running denoiserOIDN D "C:\Users\orzech\AppData\Local\Temp\frender/SampleScene_LM0_final_Dir.lz4" "C:\Users\orzech\AppData\Local\Temp\frender/SampleScene_LM0_final_Dir.lz4" 1024 0
+Running denoiserOIDN c "C:\Users\orzech\AppData\Local\Temp\frender/SampleScene_LM0_final_HDR.lz4" "C:\Users\orzech\AppData\Local\Temp\frender/SampleScene_LM0_final_HDR.lz4" 1024 1
+Running seamfixer "C:\Users\orzech\AppData\Local\Temp\frender" "0" "SampleScene_LM0_final_HDR.lz4" "SampleScene_LM0_final_Dir.lz4
+Running halffloat2hdr "C:\Users\orzech\AppData\Local\Temp\frender/SampleScene_LM0_final_HDR.lz4" "C:/Projects/chopper/Assets/BakeryLightmaps/SampleScene_LM0_final.hdr"
+Running rgba2tga "C:\Users\orzech\AppData\Local\Temp\frender/SampleScene_LM0_final_Dir.lz4" "C:/Projects/chopper/Assets/BakeryLightmaps/SampleScene_LM0_dir.tga" 
+Loaded vertex shader: quad.vso
+Loaded pixel shader: skyOutput.pso
+Loaded pixel shader: cookieOutput.pso
+initShaders done
+initScene done
+Num alphas of 128x128: 1
+Num alphas of 1024x1024: 1
+Done
+Rendering UV GBuffer for SampleScene_LM0 179
+RGBA32F...RGBA8...RGBA8_SRGB...RGBA16F...states...
+Rendering UV normal...
+Rendering faceted UV normal...
+Rendering UV pos...
+Rendering smooth UV pos...
+Rendering UV GBuffer for SampleScene_LMA1 179
+RGBA32F...RGBA8...RGBA8_SRGB...RGBA16F...states...
+Rendering UV normal...
+Rendering faceted UV normal...
+Rendering UV pos...
+Rendering smooth UV pos...
+Rendering UV GBuffer for SampleScene_LMA2 179
+RGBA32F...RGBA8...RGBA8_SRGB...RGBA16F...states...
+Rendering UV normal...
+Rendering faceted UV normal...
+Rendering UV pos...
+Rendering smooth UV pos...
+Rendering UV GBuffer for SampleScene_LMA3 179
+RGBA32F...RGBA8...RGBA8_SRGB...RGBA16F...states...
+Rendering UV normal...
+Rendering faceted UV normal...
+Rendering UV pos...
+Rendering smooth UV pos...
+Rendering UV GBuffer for SampleScene_LMA4 179
+RGBA32F...RGBA8...RGBA8_SRGB...RGBA16F...states...
+Rendering UV normal...
+Rendering faceted UV normal...
+Rendering UV pos...
+Rendering smooth UV pos...
+Rendering UV GBuffer for SampleScene_LMA5 179
+RGBA32F...RGBA8...RGBA8_SRGB...RGBA16F...states...
+Rendering UV normal...
+Rendering faceted UV normal...
+Rendering UV pos...
+Rendering smooth UV pos...
+Rendering UV GBuffer for SampleScene_LMA6 179
+RGBA32F...RGBA8...RGBA8_SRGB...RGBA16F...states...
+Rendering UV normal...
+Rendering faceted UV normal...
+Rendering UV pos...
+Rendering smooth UV pos...
+Rendering UV GBuffer for SampleScene_LMA7 179
+RGBA32F...RGBA8...RGBA8_SRGB...RGBA16F...states...
+Rendering UV normal...
+Rendering faceted UV normal...
+Rendering UV pos...
+Rendering smooth UV pos...
+Rendering UV GBuffer for SampleScene_LMA8 179
+RGBA32F...RGBA8...RGBA8_SRGB...RGBA16F...states...
+Rendering UV normal...
+Rendering faceted UV normal...
+Rendering UV pos...
+Rendering smooth UV pos...
+Rendering UV GBuffer for SampleScene_LMA9 179
+RGBA32F...RGBA8...RGBA8_SRGB...RGBA16F...states...
+Rendering UV normal...
+Rendering faceted UV normal...
+Rendering UV pos...
+Rendering smooth UV pos...
+Rendering UV GBuffer for SampleScene_LMA10 179
+RGBA32F...RGBA8...RGBA8_SRGB...RGBA16F...states...
+Rendering UV normal...
+Rendering faceted UV normal...
+Rendering UV pos...
+Rendering smooth UV pos...
+Rendering UV GBuffer for SampleScene_LMA11 179
+RGBA32F...RGBA8...RGBA8_SRGB...RGBA16F...states...
+Rendering UV normal...
+Rendering faceted UV normal...
+Rendering UV pos...
+Rendering smooth UV pos...
+Done
+Done
+Running ftrace fixpos12 "C:\Users\orzech\AppData\Local\Temp\frender" "uvpos_SampleScene_LMA8.lz4" 2 0 8 0
+Running ftrace fixpos12 "C:\Users\orzech\AppData\Local\Temp\frender" "uvpos_SampleScene_LM0.lz4" 2 0 0 0
+Running ftrace fixpos12 "C:\Users\orzech\AppData\Local\Temp\frender" "uvpos_SampleScene_LMA10.lz4" 2 0 10 0
+Running ftrace fixpos12 "C:\Users\orzech\AppData\Local\Temp\frender" "uvpos_SampleScene_LMA11.lz4" 2 0 11 0
+Running ftrace fixpos12 "C:\Users\orzech\AppData\Local\Temp\frender" "uvpos_SampleScene_LMA9.lz4" 2 0 9 0
+Running ftrace fixpos12 "C:\Users\orzech\AppData\Local\Temp\frender" "uvpos_SampleScene_LMA7.lz4" 2 0 7 0
+Running ftrace fixpos12 "C:\Users\orzech\AppData\Local\Temp\frender" "uvpos_SampleScene_LMA5.lz4" 2 0 5 0
+Running ftrace fixpos12 "C:\Users\orzech\AppData\Local\Temp\frender" "uvpos_SampleScene_LMA6.lz4" 2 0 6 0
+Running ftrace fixpos12 "C:\Users\orzech\AppData\Local\Temp\frender" "uvpos_SampleScene_LMA1.lz4" 2 0 1 0
+Running ftrace fixpos12 "C:\Users\orzech\AppData\Local\Temp\frender" "uvpos_SampleScene_LMA3.lz4" 2 0 3 0
+Running ftrace fixpos12 "C:\Users\orzech\AppData\Local\Temp\frender" "uvpos_SampleScene_LMA4.lz4" 2 0 4 0
+Running ftrace fixpos12 "C:\Users\orzech\AppData\Local\Temp\frender" "uvpos_SampleScene_LMA2.lz4" 2 0 2 0
+Running ftrace sun "C:\Users\orzech\AppData\Local\Temp\frender" "light_-1606917739_8" 68 0 8 direct0.bin
+Running ftrace addmul "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LMA8" 4 0 8 comp_8.bin
+Running ftrace diradd "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LMA8_lights_Dir.lz4" 64 0 8 dircomp_8.bin
+Running ftrace sun "C:\Users\orzech\AppData\Local\Temp\frender" "light_-1606917739_0" 68 0 0 direct0.bin
+Running ftrace addmul "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LM0" 4 0 0 comp_0.bin
+Running ftrace diradd "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LM0_lights_Dir.lz4" 64 0 0 dircomp_0.bin
+Running ftrace sun "C:\Users\orzech\AppData\Local\Temp\frender" "light_-1606917739_10" 68 0 10 direct0.bin
+Running ftrace addmul "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LMA10" 4 0 10 comp_10.bin
+Running ftrace diradd "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LMA10_lights_Dir.lz4" 64 0 10 dircomp_10.bin
+Running ftrace sun "C:\Users\orzech\AppData\Local\Temp\frender" "light_-1606917739_11" 68 0 11 direct0.bin
+Running ftrace addmul "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LMA11" 4 0 11 comp_11.bin
+Running ftrace diradd "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LMA11_lights_Dir.lz4" 64 0 11 dircomp_11.bin
+Running ftrace sun "C:\Users\orzech\AppData\Local\Temp\frender" "light_-1606917739_9" 68 0 9 direct0.bin
+Running ftrace addmul "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LMA9" 4 0 9 comp_9.bin
+Running ftrace diradd "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LMA9_lights_Dir.lz4" 64 0 9 dircomp_9.bin
+Running ftrace sun "C:\Users\orzech\AppData\Local\Temp\frender" "light_-1606917739_7" 68 0 7 direct0.bin
+Loaded vertex shader: quad.vso
+Loaded pixel shader: skyOutput.pso
+Loaded pixel shader: cookieOutput.pso
+initShaders done
+initScene done
+Num alphas of 128x128: 1
+Num alphas of 1024x1024: 1
+Done
+Rendering UV GBuffer for SampleScene_LM0 179
+RGBA32F...RGBA8...RGBA8_SRGB...RGBA16F...states...
+Rendering UV normal...
+Rendering faceted UV normal...
+Rendering UV pos...
+Rendering smooth UV pos...
+Rendering UV GBuffer for SampleScene_LMA1 179
+RGBA32F...RGBA8...RGBA8_SRGB...RGBA16F...states...
+Rendering UV normal...
+Rendering faceted UV normal...
+Rendering UV pos...
+Rendering smooth UV pos...
+Rendering UV GBuffer for SampleScene_LMA2 179
+RGBA32F...RGBA8...RGBA8_SRGB...RGBA16F...states...
+Rendering UV normal...
+Rendering faceted UV normal...
+Rendering UV pos...
+Rendering smooth UV pos...
+Done
+Done
+Running ftrace fixpos12 "C:\Users\orzech\AppData\Local\Temp\frender" "uvpos_SampleScene_LMA2.lz4" 2 0 2 0
+Running ftrace fixpos12 "C:\Users\orzech\AppData\Local\Temp\frender" "uvpos_SampleScene_LM0.lz4" 2 0 0 0
+Running ftrace fixpos12 "C:\Users\orzech\AppData\Local\Temp\frender" "uvpos_SampleScene_LMA1.lz4" 2 0 1 0
+Running ftrace sun "C:\Users\orzech\AppData\Local\Temp\frender" "light_-1606917739_2" 68 0 2 direct0.bin
+Running ftrace addmul "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LMA2" 4 0 2 comp_2.bin
+Running ftrace diradd "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LMA2_lights_Dir.lz4" 64 0 2 dircomp_2.bin
+Running ftrace sun "C:\Users\orzech\AppData\Local\Temp\frender" "light_-1606917739_0" 68 0 0 direct0.bin
+Running ftrace addmul "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LM0" 4 0 0 comp_0.bin
+Running ftrace diradd "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LM0_lights_Dir.lz4" 64 0 0 dircomp_0.bin
+Running ftrace sun "C:\Users\orzech\AppData\Local\Temp\frender" "light_-1606917739_1" 68 0 1 direct0.bin
+Running ftrace addmul "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LMA1" 4 0 1 comp_1.bin
+Running ftrace diradd "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LMA1_lights_Dir.lz4" 64 0 1 dircomp_1.bin
+Running ftrace texgi "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LMA2_diffuse" 4 16 2 "gi_SampleScene_LMA20.bin" "SampleScene_LMA2_diffuse0_HDR.lz4" vbTraceTex.bin
+Running ftrace texgi "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LM0_diffuse" 4 16 0 "gi_SampleScene_LM00.bin" "SampleScene_LM0_diffuse0_HDR.lz4" vbTraceTex.bin
+Running ftrace texgi "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LMA1_diffuse" 4 16 1 "gi_SampleScene_LMA10.bin" "SampleScene_LMA1_diffuse0_HDR.lz4" vbTraceTex.bin
+Running ftrace texgi "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LMA2_diffuse" 4 16 2 "gi_SampleScene_LMA21.bin" "SampleScene_LMA2_diffuse0_HDR.lz4" vbTraceTex.bin
+Running ftrace texgi "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LM0_diffuse" 4 16 0 "gi_SampleScene_LM01.bin" "SampleScene_LM0_diffuse0_HDR.lz4" vbTraceTex.bin
+Running ftrace texgi "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LMA1_diffuse" 4 16 1 "gi_SampleScene_LMA11.bin" "SampleScene_LMA1_diffuse0_HDR.lz4" vbTraceTex.bin
+Running ftrace texgi "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LMA2_diffuse" 4 16 2 "gi_SampleScene_LMA22.bin" "SampleScene_LMA2_diffuse0_HDR.lz4" vbTraceTex.bin
+Running ftrace texgi "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LM0_diffuse" 4 16 0 "gi_SampleScene_LM02.bin" "SampleScene_LM0_diffuse0_HDR.lz4" vbTraceTex.bin
+Running ftrace texgi "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LMA1_diffuse" 4 16 1 "gi_SampleScene_LMA12.bin" "SampleScene_LMA1_diffuse0_HDR.lz4" vbTraceTex.bin
+Running ftrace texgi "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LMA2_diffuse" 4 16 2 "gi_SampleScene_LMA23.bin" "SampleScene_LMA2_diffuse0_HDR.lz4" vbTraceTex.bin
+Running ftrace texgi "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LM0_diffuse" 4 16 0 "gi_SampleScene_LM03.bin" "SampleScene_LM0_diffuse0_HDR.lz4" vbTraceTex.bin
+Running ftrace texgi "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LMA1_diffuse" 4 16 1 "gi_SampleScene_LMA13.bin" "SampleScene_LMA1_diffuse0_HDR.lz4" vbTraceTex.bin
+Running ftrace texgidir "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LMA2_final" 84 16 2 "gi_SampleScene_LMA24.bin" "SampleScene_LMA2_lights_HDR.lz4" vbTraceTex.bin
+Running ftrace texgidir "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LM0_final" 84 16 0 "gi_SampleScene_LM04.bin" "SampleScene_LM0_lights_HDR.lz4" vbTraceTex.bin
+Running ftrace texgidir "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LMA1_final" 84 16 1 "gi_SampleScene_LMA14.bin" "SampleScene_LMA1_lights_HDR.lz4" vbTraceTex.bin
+Running ftrace add "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LMA2_final_HDR.lz4" 4 0 2 comp_indirect2.bin
+Running ftrace diradd "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LMA2_final_Dir.lz4" 64 0 2 dircomp_indirect2.bin
+Running ftrace add "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LM0_final_HDR.lz4" 4 0 0 comp_indirect0.bin
+Running ftrace diradd "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LM0_final_Dir.lz4" 64 0 0 dircomp_indirect0.bin
+Running ftrace add "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LMA1_final_HDR.lz4" 4 0 1 comp_indirect1.bin
+Running ftrace diradd "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LMA1_final_Dir.lz4" 64 0 1 dircomp_indirect1.bin
+Running denoiserOIDN D "C:\Users\orzech\AppData\Local\Temp\frender/SampleScene_LMA2_final_Dir.lz4" "C:\Users\orzech\AppData\Local\Temp\frender/SampleScene_LMA2_final_Dir.lz4" 1024 0
+Running denoiserOIDN c "C:\Users\orzech\AppData\Local\Temp\frender/SampleScene_LMA2_final_HDR.lz4" "C:\Users\orzech\AppData\Local\Temp\frender/SampleScene_LMA2_final_HDR.lz4" 1024 1
+Running seamfixer "C:\Users\orzech\AppData\Local\Temp\frender" "2" "SampleScene_LMA2_final_HDR.lz4" "SampleScene_LMA2_final_Dir.lz4
+Running denoiserOIDN D "C:\Users\orzech\AppData\Local\Temp\frender/SampleScene_LM0_final_Dir.lz4" "C:\Users\orzech\AppData\Local\Temp\frender/SampleScene_LM0_final_Dir.lz4" 1024 0
+Running denoiserOIDN c "C:\Users\orzech\AppData\Local\Temp\frender/SampleScene_LM0_final_HDR.lz4" "C:\Users\orzech\AppData\Local\Temp\frender/SampleScene_LM0_final_HDR.lz4" 1024 1
+Running seamfixer "C:\Users\orzech\AppData\Local\Temp\frender" "0" "SampleScene_LM0_final_HDR.lz4" "SampleScene_LM0_final_Dir.lz4
+Running denoiserOIDN D "C:\Users\orzech\AppData\Local\Temp\frender/SampleScene_LMA1_final_Dir.lz4" "C:\Users\orzech\AppData\Local\Temp\frender/SampleScene_LMA1_final_Dir.lz4" 1024 0
+Running denoiserOIDN c "C:\Users\orzech\AppData\Local\Temp\frender/SampleScene_LMA1_final_HDR.lz4" "C:\Users\orzech\AppData\Local\Temp\frender/SampleScene_LMA1_final_HDR.lz4" 1024 1
+Running seamfixer "C:\Users\orzech\AppData\Local\Temp\frender" "1" "SampleScene_LMA1_final_HDR.lz4" "SampleScene_LMA1_final_Dir.lz4
+Running halffloat2hdr "C:\Users\orzech\AppData\Local\Temp\frender/SampleScene_LMA2_final_HDR.lz4" "C:/Projects/chopper/Assets/BakeryLightmaps/SampleScene_LMA2_final.hdr"
+Running rgba2tga "C:\Users\orzech\AppData\Local\Temp\frender/SampleScene_LMA2_final_Dir.lz4" "C:/Projects/chopper/Assets/BakeryLightmaps/SampleScene_LMA2_dir.tga" 
+Running halffloat2hdr "C:\Users\orzech\AppData\Local\Temp\frender/SampleScene_LM0_final_HDR.lz4" "C:/Projects/chopper/Assets/BakeryLightmaps/SampleScene_LM0_final.hdr"
+Running rgba2tga "C:\Users\orzech\AppData\Local\Temp\frender/SampleScene_LM0_final_Dir.lz4" "C:/Projects/chopper/Assets/BakeryLightmaps/SampleScene_LM0_dir.tga" 
+Running halffloat2hdr "C:\Users\orzech\AppData\Local\Temp\frender/SampleScene_LMA1_final_HDR.lz4" "C:/Projects/chopper/Assets/BakeryLightmaps/SampleScene_LMA1_final.hdr"
+Running rgba2tga "C:\Users\orzech\AppData\Local\Temp\frender/SampleScene_LMA1_final_Dir.lz4" "C:/Projects/chopper/Assets/BakeryLightmaps/SampleScene_LMA1_dir.tga" 
+Loaded vertex shader: quad.vso
+Loaded pixel shader: skyOutput.pso
+Loaded pixel shader: cookieOutput.pso
+initShaders done
+initScene done
+Num alphas of 128x128: 1
+Num alphas of 1024x1024: 1
+Done
+Rendering UV GBuffer for SampleScene_LM0 179
+RGBA32F...RGBA8...RGBA8_SRGB...RGBA16F...states...
+Rendering UV normal...
+Rendering faceted UV normal...
+Rendering UV pos...
+Rendering smooth UV pos...
+Rendering UV GBuffer for SampleScene_LMA1 179
+RGBA32F...RGBA8...RGBA8_SRGB...RGBA16F...states...
+Rendering UV normal...
+Rendering faceted UV normal...
+Rendering UV pos...
+Rendering smooth UV pos...
+Rendering UV GBuffer for SampleScene_LMA2 179
+RGBA32F...RGBA8...RGBA8_SRGB...RGBA16F...states...
+Rendering UV normal...
+Rendering faceted UV normal...
+Rendering UV pos...
+Rendering smooth UV pos...
+Done
+Done
+Running ftrace fixpos12 "C:\Users\orzech\AppData\Local\Temp\frender" "uvpos_SampleScene_LMA2.lz4" 2 0 2 0
+Running ftrace fixpos12 "C:\Users\orzech\AppData\Local\Temp\frender" "uvpos_SampleScene_LM0.lz4" 2 0 0 0
+Running ftrace fixpos12 "C:\Users\orzech\AppData\Local\Temp\frender" "uvpos_SampleScene_LMA1.lz4" 2 0 1 0
+Running ftrace sun "C:\Users\orzech\AppData\Local\Temp\frender" "light_-1606917739_2" 68 0 2 direct0.bin
+Running ftrace addmul "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LMA2" 4 0 2 comp_2.bin
+Loaded vertex shader: quad.vso
+Loaded pixel shader: skyOutput.pso
+Loaded pixel shader: cookieOutput.pso
+initShaders done
+initScene done
+Num alphas of 128x128: 1
+Num alphas of 1024x1024: 1
+Done
+Rendering UV GBuffer for SampleScene_LM0 179
+RGBA32F...RGBA8...RGBA8_SRGB...RGBA16F...states...
+Rendering UV normal...
+Rendering faceted UV normal...
+Rendering UV pos...
+Rendering smooth UV pos...
+Rendering UV GBuffer for SampleScene_LMA1 179
+RGBA32F...RGBA8...RGBA8_SRGB...RGBA16F...states...
+Rendering UV normal...
+Rendering faceted UV normal...
+Rendering UV pos...
+Rendering smooth UV pos...
+Rendering UV GBuffer for SampleScene_LMA2 179
+RGBA32F...RGBA8...RGBA8_SRGB...RGBA16F...states...
+Rendering UV normal...
+Rendering faceted UV normal...
+Rendering UV pos...
+Rendering smooth UV pos...
+Done
+Done
+Running ftrace fixpos12 "C:\Users\orzech\AppData\Local\Temp\frender" "uvpos_SampleScene_LMA2.lz4" 2 0 2 0
+Running ftrace fixpos12 "C:\Users\orzech\AppData\Local\Temp\frender" "uvpos_SampleScene_LM0.lz4" 2 0 0 0
+Running ftrace fixpos12 "C:\Users\orzech\AppData\Local\Temp\frender" "uvpos_SampleScene_LMA1.lz4" 2 0 1 0
+Running ftrace sun "C:\Users\orzech\AppData\Local\Temp\frender" "light_-1606917739_2" 12 0 2 direct0.bin
+Running ftrace addmul "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LMA2" 4 0 2 comp_2.bin
+Running ftrace diradd "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LMA2_lights_Dir.lz4" 64 0 2 dircomp_2.bin
+Running ftrace sun "C:\Users\orzech\AppData\Local\Temp\frender" "light_-1606917739_0" 12 0 0 direct0.bin
+Running ftrace addmul "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LM0" 4 0 0 comp_0.bin
+Running ftrace diradd "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LM0_lights_Dir.lz4" 64 0 0 dircomp_0.bin
+Running ftrace sun "C:\Users\orzech\AppData\Local\Temp\frender" "light_-1606917739_1" 12 0 1 direct0.bin
+Running ftrace addmul "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LMA1" 4 0 1 comp_1.bin
+Running ftrace diradd "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LMA1_lights_Dir.lz4" 64 0 1 dircomp_1.bin
+Running ftrace texgi "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LMA2_diffuse" 4 16 2 "gi_SampleScene_LMA20.bin" "SampleScene_LMA2_diffuse0_HDR.lz4" vbTraceTex.bin
+Running ftrace texgi "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LM0_diffuse" 4 16 0 "gi_SampleScene_LM00.bin" "SampleScene_LM0_diffuse0_HDR.lz4" vbTraceTex.bin
+Running ftrace texgi "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LMA1_diffuse" 4 16 1 "gi_SampleScene_LMA10.bin" "SampleScene_LMA1_diffuse0_HDR.lz4" vbTraceTex.bin
+Running ftrace texgi "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LMA2_diffuse" 4 16 2 "gi_SampleScene_LMA21.bin" "SampleScene_LMA2_diffuse0_HDR.lz4" vbTraceTex.bin
+Running ftrace texgi "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LM0_diffuse" 4 16 0 "gi_SampleScene_LM01.bin" "SampleScene_LM0_diffuse0_HDR.lz4" vbTraceTex.bin
+Running ftrace texgi "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LMA1_diffuse" 4 16 1 "gi_SampleScene_LMA11.bin" "SampleScene_LMA1_diffuse0_HDR.lz4" vbTraceTex.bin
+Running ftrace texgi "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LMA2_diffuse" 4 16 2 "gi_SampleScene_LMA22.bin" "SampleScene_LMA2_diffuse0_HDR.lz4" vbTraceTex.bin
+Running ftrace texgi "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LM0_diffuse" 4 16 0 "gi_SampleScene_LM02.bin" "SampleScene_LM0_diffuse0_HDR.lz4" vbTraceTex.bin
+Running ftrace texgi "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LMA1_diffuse" 4 16 1 "gi_SampleScene_LMA12.bin" "SampleScene_LMA1_diffuse0_HDR.lz4" vbTraceTex.bin
+Running ftrace texgi "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LMA2_diffuse" 4 16 2 "gi_SampleScene_LMA23.bin" "SampleScene_LMA2_diffuse0_HDR.lz4" vbTraceTex.bin
+Running ftrace texgi "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LM0_diffuse" 4 16 0 "gi_SampleScene_LM03.bin" "SampleScene_LM0_diffuse0_HDR.lz4" vbTraceTex.bin
+Running ftrace texgi "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LMA1_diffuse" 4 16 1 "gi_SampleScene_LMA13.bin" "SampleScene_LMA1_diffuse0_HDR.lz4" vbTraceTex.bin
+Running ftrace texgidir "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LMA2_final" 84 16 2 "gi_SampleScene_LMA24.bin" "SampleScene_LMA2_lights_HDR.lz4" vbTraceTex.bin
+Running ftrace texgidir "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LM0_final" 84 16 0 "gi_SampleScene_LM04.bin" "SampleScene_LM0_lights_HDR.lz4" vbTraceTex.bin
+Running ftrace texgidir "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LMA1_final" 84 16 1 "gi_SampleScene_LMA14.bin" "SampleScene_LMA1_lights_HDR.lz4" vbTraceTex.bin
+Running ftrace add "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LMA2_final_HDR.lz4" 4 0 2 comp_indirect2.bin
+Running ftrace diradd "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LMA2_final_Dir.lz4" 64 0 2 dircomp_indirect2.bin
+Running ftrace add "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LM0_final_HDR.lz4" 4 0 0 comp_indirect0.bin
+Running ftrace diradd "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LM0_final_Dir.lz4" 64 0 0 dircomp_indirect0.bin
+Running ftrace add "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LMA1_final_HDR.lz4" 4 0 1 comp_indirect1.bin
+Running ftrace diradd "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LMA1_final_Dir.lz4" 64 0 1 dircomp_indirect1.bin
+Running denoiserOIDN D "C:\Users\orzech\AppData\Local\Temp\frender/SampleScene_LMA2_final_Dir.lz4" "C:\Users\orzech\AppData\Local\Temp\frender/SampleScene_LMA2_final_Dir.lz4" 1024 0
+Running denoiserOIDN m "C:\Users\orzech\AppData\Local\Temp\frender/light_-1606917739_2_Mask.lz4" "C:\Users\orzech\AppData\Local\Temp\frender/light_-1606917739_2_Mask.lz4" 1024 0
+Running combineMasks "C:/Projects/chopper/Assets/BakeryLightmaps/SampleScene_LMA2_mask.tga" "C:\Users\orzech\AppData\Local\Temp\frender/masks_2.bin" "C:\Users\orzech\AppData\Local\Temp\frender/"
+Running denoiserOIDN c "C:\Users\orzech\AppData\Local\Temp\frender/SampleScene_LMA2_final_HDR.lz4" "C:\Users\orzech\AppData\Local\Temp\frender/SampleScene_LMA2_final_HDR.lz4" 1024 1
+Running seamfixer "C:\Users\orzech\AppData\Local\Temp\frender" "2" "SampleScene_LMA2_final_HDR.lz4" "SampleScene_LMA2_final_Dir.lz4
+Running denoiserOIDN D "C:\Users\orzech\AppData\Local\Temp\frender/SampleScene_LM0_final_Dir.lz4" "C:\Users\orzech\AppData\Local\Temp\frender/SampleScene_LM0_final_Dir.lz4" 1024 0
+Running denoiserOIDN m "C:\Users\orzech\AppData\Local\Temp\frender/light_-1606917739_0_Mask.lz4" "C:\Users\orzech\AppData\Local\Temp\frender/light_-1606917739_0_Mask.lz4" 1024 0
+Running combineMasks "C:/Projects/chopper/Assets/BakeryLightmaps/SampleScene_LM0_mask.tga" "C:\Users\orzech\AppData\Local\Temp\frender/masks_0.bin" "C:\Users\orzech\AppData\Local\Temp\frender/"
+Running denoiserOIDN c "C:\Users\orzech\AppData\Local\Temp\frender/SampleScene_LM0_final_HDR.lz4" "C:\Users\orzech\AppData\Local\Temp\frender/SampleScene_LM0_final_HDR.lz4" 1024 1
+Running seamfixer "C:\Users\orzech\AppData\Local\Temp\frender" "0" "SampleScene_LM0_final_HDR.lz4" "SampleScene_LM0_final_Dir.lz4
+Running denoiserOIDN D "C:\Users\orzech\AppData\Local\Temp\frender/SampleScene_LMA1_final_Dir.lz4" "C:\Users\orzech\AppData\Local\Temp\frender/SampleScene_LMA1_final_Dir.lz4" 1024 0
+Running denoiserOIDN m "C:\Users\orzech\AppData\Local\Temp\frender/light_-1606917739_1_Mask.lz4" "C:\Users\orzech\AppData\Local\Temp\frender/light_-1606917739_1_Mask.lz4" 1024 0
+Running combineMasks "C:/Projects/chopper/Assets/BakeryLightmaps/SampleScene_LMA1_mask.tga" "C:\Users\orzech\AppData\Local\Temp\frender/masks_1.bin" "C:\Users\orzech\AppData\Local\Temp\frender/"
+Running denoiserOIDN c "C:\Users\orzech\AppData\Local\Temp\frender/SampleScene_LMA1_final_HDR.lz4" "C:\Users\orzech\AppData\Local\Temp\frender/SampleScene_LMA1_final_HDR.lz4" 1024 1
+Running seamfixer "C:\Users\orzech\AppData\Local\Temp\frender" "1" "SampleScene_LMA1_final_HDR.lz4" "SampleScene_LMA1_final_Dir.lz4
+Running halffloat2hdr "C:\Users\orzech\AppData\Local\Temp\frender/SampleScene_LMA2_final_HDR.lz4" "C:/Projects/chopper/Assets/BakeryLightmaps/SampleScene_LMA2_final.hdr"
+Running rgba2tga "C:\Users\orzech\AppData\Local\Temp\frender/SampleScene_LMA2_final_Dir.lz4" "C:/Projects/chopper/Assets/BakeryLightmaps/SampleScene_LMA2_dir.tga" 
+Running halffloat2hdr "C:\Users\orzech\AppData\Local\Temp\frender/SampleScene_LM0_final_HDR.lz4" "C:/Projects/chopper/Assets/BakeryLightmaps/SampleScene_LM0_final.hdr"
+Running rgba2tga "C:\Users\orzech\AppData\Local\Temp\frender/SampleScene_LM0_final_Dir.lz4" "C:/Projects/chopper/Assets/BakeryLightmaps/SampleScene_LM0_dir.tga" 
+Running halffloat2hdr "C:\Users\orzech\AppData\Local\Temp\frender/SampleScene_LMA1_final_HDR.lz4" "C:/Projects/chopper/Assets/BakeryLightmaps/SampleScene_LMA1_final.hdr"
+Running rgba2tga "C:\Users\orzech\AppData\Local\Temp\frender/SampleScene_LMA1_final_Dir.lz4" "C:/Projects/chopper/Assets/BakeryLightmaps/SampleScene_LMA1_dir.tga" 
+Loaded vertex shader: quad.vso
+Loaded pixel shader: skyOutput.pso
+Loaded pixel shader: cookieOutput.pso
+initShaders done
+initScene done
+Num alphas of 128x128: 1
+Num alphas of 1024x1024: 1
+Done
+Rendering UV GBuffer for SampleScene_LM0 179
+RGBA32F...RGBA8...RGBA8_SRGB...RGBA16F...states...
+Rendering UV normal...
+Rendering faceted UV normal...
+Rendering UV pos...
+Rendering smooth UV pos...
+Rendering UV GBuffer for SampleScene_LMA1 179
+RGBA32F...RGBA8...RGBA8_SRGB...RGBA16F...states...
+Rendering UV normal...
+Rendering faceted UV normal...
+Rendering UV pos...
+Rendering smooth UV pos...
+Rendering UV GBuffer for SampleScene_LMA2 179
+RGBA32F...RGBA8...RGBA8_SRGB...RGBA16F...states...
+Rendering UV normal...
+Rendering faceted UV normal...
+Rendering UV pos...
+Rendering smooth UV pos...
+Done
+Done
+Running ftrace fixpos12 "C:\Users\orzech\AppData\Local\Temp\frender" "uvpos_SampleScene_LMA2.lz4" 2 0 2 0
+Running ftrace fixpos12 "C:\Users\orzech\AppData\Local\Temp\frender" "uvpos_SampleScene_LM0.lz4" 2 0 0 0
+Running ftrace fixpos12 "C:\Users\orzech\AppData\Local\Temp\frender" "uvpos_SampleScene_LMA1.lz4" 2 0 1 0
+Running ftrace sun "C:\Users\orzech\AppData\Local\Temp\frender" "light_-1606917739_2" 4 0 2 direct0.bin
+Running ftrace addmul "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LMA2" 4 0 2 comp_2.bin
+Running ftrace diradd "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LMA2_lights_Dir.lz4" 64 0 2 dircomp_2.bin
+Running ftrace sun "C:\Users\orzech\AppData\Local\Temp\frender" "light_-1606917739_0" 4 0 0 direct0.bin
+Running ftrace addmul "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LM0" 4 0 0 comp_0.bin
+Running ftrace diradd "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LM0_lights_Dir.lz4" 64 0 0 dircomp_0.bin
+Running ftrace sun "C:\Users\orzech\AppData\Local\Temp\frender" "light_-1606917739_1" 4 0 1 direct0.bin
+Running ftrace addmul "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LMA1" 4 0 1 comp_1.bin
+Running ftrace diradd "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LMA1_lights_Dir.lz4" 64 0 1 dircomp_1.bin
+Running ftrace texgi "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LMA2_diffuse" 4 16 2 "gi_SampleScene_LMA20.bin" "SampleScene_LMA2_diffuse0_HDR.lz4" vbTraceTex.bin
+Running ftrace texgi "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LM0_diffuse" 4 16 0 "gi_SampleScene_LM00.bin" "SampleScene_LM0_diffuse0_HDR.lz4" vbTraceTex.bin
+Running ftrace texgi "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LMA1_diffuse" 4 16 1 "gi_SampleScene_LMA10.bin" "SampleScene_LMA1_diffuse0_HDR.lz4" vbTraceTex.bin
+Running ftrace texgi "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LMA2_diffuse" 4 16 2 "gi_SampleScene_LMA21.bin" "SampleScene_LMA2_diffuse0_HDR.lz4" vbTraceTex.bin
+Running ftrace texgi "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LM0_diffuse" 4 16 0 "gi_SampleScene_LM01.bin" "SampleScene_LM0_diffuse0_HDR.lz4" vbTraceTex.bin
+Running ftrace texgi "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LMA1_diffuse" 4 16 1 "gi_SampleScene_LMA11.bin" "SampleScene_LMA1_diffuse0_HDR.lz4" vbTraceTex.bin
+Running ftrace texgi "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LMA2_diffuse" 4 16 2 "gi_SampleScene_LMA22.bin" "SampleScene_LMA2_diffuse0_HDR.lz4" vbTraceTex.bin
+Running ftrace texgi "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LM0_diffuse" 4 16 0 "gi_SampleScene_LM02.bin" "SampleScene_LM0_diffuse0_HDR.lz4" vbTraceTex.bin
+Running ftrace texgi "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LMA1_diffuse" 4 16 1 "gi_SampleScene_LMA12.bin" "SampleScene_LMA1_diffuse0_HDR.lz4" vbTraceTex.bin
+Running ftrace texgi "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LMA2_diffuse" 4 16 2 "gi_SampleScene_LMA23.bin" "SampleScene_LMA2_diffuse0_HDR.lz4" vbTraceTex.bin
+Running ftrace texgi "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LM0_diffuse" 4 16 0 "gi_SampleScene_LM03.bin" "SampleScene_LM0_diffuse0_HDR.lz4" vbTraceTex.bin
+Running ftrace texgi "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LMA1_diffuse" 4 16 1 "gi_SampleScene_LMA13.bin" "SampleScene_LMA1_diffuse0_HDR.lz4" vbTraceTex.bin
+Running ftrace texgidir "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LMA2_final" 84 16 2 "gi_SampleScene_LMA24.bin" "SampleScene_LMA2_lights_HDR.lz4" vbTraceTex.bin
+Running ftrace texgidir "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LM0_final" 84 16 0 "gi_SampleScene_LM04.bin" "SampleScene_LM0_lights_HDR.lz4" vbTraceTex.bin
+Running ftrace texgidir "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LMA1_final" 84 16 1 "gi_SampleScene_LMA14.bin" "SampleScene_LMA1_lights_HDR.lz4" vbTraceTex.bin
+Running ftrace add "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LMA2_final_HDR.lz4" 4 0 2 comp_indirect2.bin
+Running ftrace diradd "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LMA2_final_Dir.lz4" 64 0 2 dircomp_indirect2.bin
+Running ftrace add "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LM0_final_HDR.lz4" 4 0 0 comp_indirect0.bin
+Running ftrace diradd "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LM0_final_Dir.lz4" 64 0 0 dircomp_indirect0.bin
+Running ftrace add "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LMA1_final_HDR.lz4" 4 0 1 comp_indirect1.bin
+Running ftrace diradd "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LMA1_final_Dir.lz4" 64 0 1 dircomp_indirect1.bin
+Running denoiserOIDN D "C:\Users\orzech\AppData\Local\Temp\frender/SampleScene_LMA2_final_Dir.lz4" "C:\Users\orzech\AppData\Local\Temp\frender/SampleScene_LMA2_final_Dir.lz4" 1024 0
+Running denoiserOIDN c "C:\Users\orzech\AppData\Local\Temp\frender/SampleScene_LMA2_final_HDR.lz4" "C:\Users\orzech\AppData\Local\Temp\frender/SampleScene_LMA2_final_HDR.lz4" 1024 1
+Running seamfixer "C:\Users\orzech\AppData\Local\Temp\frender" "2" "SampleScene_LMA2_final_HDR.lz4" "SampleScene_LMA2_final_Dir.lz4
+Running denoiserOIDN D "C:\Users\orzech\AppData\Local\Temp\frender/SampleScene_LM0_final_Dir.lz4" "C:\Users\orzech\AppData\Local\Temp\frender/SampleScene_LM0_final_Dir.lz4" 1024 0
+Running denoiserOIDN c "C:\Users\orzech\AppData\Local\Temp\frender/SampleScene_LM0_final_HDR.lz4" "C:\Users\orzech\AppData\Local\Temp\frender/SampleScene_LM0_final_HDR.lz4" 1024 1
+Running seamfixer "C:\Users\orzech\AppData\Local\Temp\frender" "0" "SampleScene_LM0_final_HDR.lz4" "SampleScene_LM0_final_Dir.lz4
+Running denoiserOIDN D "C:\Users\orzech\AppData\Local\Temp\frender/SampleScene_LMA1_final_Dir.lz4" "C:\Users\orzech\AppData\Local\Temp\frender/SampleScene_LMA1_final_Dir.lz4" 1024 0
+Running denoiserOIDN c "C:\Users\orzech\AppData\Local\Temp\frender/SampleScene_LMA1_final_HDR.lz4" "C:\Users\orzech\AppData\Local\Temp\frender/SampleScene_LMA1_final_HDR.lz4" 1024 1
+Running seamfixer "C:\Users\orzech\AppData\Local\Temp\frender" "1" "SampleScene_LMA1_final_HDR.lz4" "SampleScene_LMA1_final_Dir.lz4
+Running halffloat2hdr "C:\Users\orzech\AppData\Local\Temp\frender/SampleScene_LMA2_final_HDR.lz4" "C:/Projects/chopper/Assets/BakeryLightmaps/SampleScene_LMA2_final.hdr"
+Running rgba2tga "C:\Users\orzech\AppData\Local\Temp\frender/SampleScene_LMA2_final_Dir.lz4" "C:/Projects/chopper/Assets/BakeryLightmaps/SampleScene_LMA2_dir.tga" 
+Running halffloat2hdr "C:\Users\orzech\AppData\Local\Temp\frender/SampleScene_LM0_final_HDR.lz4" "C:/Projects/chopper/Assets/BakeryLightmaps/SampleScene_LM0_final.hdr"
+Running rgba2tga "C:\Users\orzech\AppData\Local\Temp\frender/SampleScene_LM0_final_Dir.lz4" "C:/Projects/chopper/Assets/BakeryLightmaps/SampleScene_LM0_dir.tga" 
+Running halffloat2hdr "C:\Users\orzech\AppData\Local\Temp\frender/SampleScene_LMA1_final_HDR.lz4" "C:/Projects/chopper/Assets/BakeryLightmaps/SampleScene_LMA1_final.hdr"
+Running rgba2tga "C:\Users\orzech\AppData\Local\Temp\frender/SampleScene_LMA1_final_Dir.lz4" "C:/Projects/chopper/Assets/BakeryLightmaps/SampleScene_LMA1_dir.tga" 
+Loaded vertex shader: quad.vso
+Loaded pixel shader: skyOutput.pso
+Loaded pixel shader: cookieOutput.pso
+initShaders done
+initScene done
+Num alphas of 128x128: 1
+Num alphas of 1024x1024: 1
+Done
+Rendering UV GBuffer for SampleScene_LM0 179
+RGBA32F...RGBA8...RGBA8_SRGB...RGBA16F...states...
+Rendering UV normal...
+Rendering faceted UV normal...
+Rendering UV pos...
+Rendering smooth UV pos...
+Done
+Done
+Running ftrace fixpos12 "C:\Users\orzech\AppData\Local\Temp\frender" "uvpos_SampleScene_LM0.lz4" 2 0 0 0
+Running ftrace sun "C:\Users\orzech\AppData\Local\Temp\frender" "light_-1606917739_0" 4 0 0 direct0.bin
+Running ftrace addmul "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LM0" 4 0 0 comp_0.bin
+Running ftrace diradd "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LM0_lights_Dir.lz4" 64 0 0 dircomp_0.bin
+Running ftrace texgi "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LM0_diffuse" 4 16 0 "gi_SampleScene_LM00.bin" "SampleScene_LM0_diffuse0_HDR.lz4" vbTraceTex.bin
+Running ftrace texgi "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LM0_diffuse" 4 16 0 "gi_SampleScene_LM01.bin" "SampleScene_LM0_diffuse0_HDR.lz4" vbTraceTex.bin
+Running ftrace texgi "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LM0_diffuse" 4 16 0 "gi_SampleScene_LM02.bin" "SampleScene_LM0_diffuse0_HDR.lz4" vbTraceTex.bin
+Running ftrace texgi "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LM0_diffuse" 4 16 0 "gi_SampleScene_LM03.bin" "SampleScene_LM0_diffuse0_HDR.lz4" vbTraceTex.bin
+Running ftrace texgidir "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LM0_final" 84 16 0 "gi_SampleScene_LM04.bin" "SampleScene_LM0_lights_HDR.lz4" vbTraceTex.bin
+Running ftrace add "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LM0_final_HDR.lz4" 4 0 0 comp_indirect0.bin
+Running ftrace diradd "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LM0_final_Dir.lz4" 64 0 0 dircomp_indirect0.bin
+Running denoiserOIDN D "C:\Users\orzech\AppData\Local\Temp\frender/SampleScene_LM0_final_Dir.lz4" "C:\Users\orzech\AppData\Local\Temp\frender/SampleScene_LM0_final_Dir.lz4" 1024 0
+Running denoiserOIDN c "C:\Users\orzech\AppData\Local\Temp\frender/SampleScene_LM0_final_HDR.lz4" "C:\Users\orzech\AppData\Local\Temp\frender/SampleScene_LM0_final_HDR.lz4" 1024 1
+Running seamfixer "C:\Users\orzech\AppData\Local\Temp\frender" "0" "SampleScene_LM0_final_HDR.lz4" "SampleScene_LM0_final_Dir.lz4
+Running halffloat2hdr "C:\Users\orzech\AppData\Local\Temp\frender/SampleScene_LM0_final_HDR.lz4" "C:/Projects/chopper/Assets/BakeryLightmaps/SampleScene_LM0_final.hdr"
+Running rgba2tga "C:\Users\orzech\AppData\Local\Temp\frender/SampleScene_LM0_final_Dir.lz4" "C:/Projects/chopper/Assets/BakeryLightmaps/SampleScene_LM0_dir.tga" 
+Loaded vertex shader: quad.vso
+Loaded pixel shader: skyOutput.pso
+Loaded pixel shader: cookieOutput.pso
+initShaders done
+initScene done
+Num alphas of 128x128: 1
+Num alphas of 1024x1024: 1
+Done
+Rendering UV GBuffer for SampleScene_LM0 179
+RGBA32F...RGBA8...RGBA8_SRGB...RGBA16F...states...
+Rendering UV normal...
+Rendering faceted UV normal...
+Rendering UV pos...
+Rendering smooth UV pos...
+Done
+Done
+Running ftrace fixpos12 "C:\Users\orzech\AppData\Local\Temp\frender" "uvpos_SampleScene_LM0.lz4" 2 0 0 0
+Running ftrace sun "C:\Users\orzech\AppData\Local\Temp\frender" "light_-1606917739_0" 68 0 0 direct0.bin
+Running ftrace addmul "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LM0" 4 0 0 comp_0.bin
+Running ftrace diradd "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LM0_lights_Dir.lz4" 64 0 0 dircomp_0.bin
+Running ftrace texgi "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LM0_diffuse" 4 16 0 "gi_SampleScene_LM00.bin" "SampleScene_LM0_diffuse0_HDR.lz4" vbTraceTex.bin
+Running ftrace texgi "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LM0_diffuse" 4 16 0 "gi_SampleScene_LM01.bin" "SampleScene_LM0_diffuse0_HDR.lz4" vbTraceTex.bin
+Running ftrace texgi "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LM0_diffuse" 4 16 0 "gi_SampleScene_LM02.bin" "SampleScene_LM0_diffuse0_HDR.lz4" vbTraceTex.bin
+Running ftrace texgi "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LM0_diffuse" 4 16 0 "gi_SampleScene_LM03.bin" "SampleScene_LM0_diffuse0_HDR.lz4" vbTraceTex.bin
+Running ftrace texgidir "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LM0_final" 84 16 0 "gi_SampleScene_LM04.bin" "SampleScene_LM0_lights_HDR.lz4" vbTraceTex.bin
+Running ftrace add "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LM0_final_HDR.lz4" 4 0 0 comp_indirect0.bin
+Running ftrace diradd "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LM0_final_Dir.lz4" 64 0 0 dircomp_indirect0.bin
+Running denoiserOIDN D "C:\Users\orzech\AppData\Local\Temp\frender/SampleScene_LM0_final_Dir.lz4" "C:\Users\orzech\AppData\Local\Temp\frender/SampleScene_LM0_final_Dir.lz4" 1024 0
+Running denoiserOIDN c "C:\Users\orzech\AppData\Local\Temp\frender/SampleScene_LM0_final_HDR.lz4" "C:\Users\orzech\AppData\Local\Temp\frender/SampleScene_LM0_final_HDR.lz4" 1024 1
+Running seamfixer "C:\Users\orzech\AppData\Local\Temp\frender" "0" "SampleScene_LM0_final_HDR.lz4" "SampleScene_LM0_final_Dir.lz4
+Running halffloat2hdr "C:\Users\orzech\AppData\Local\Temp\frender/SampleScene_LM0_final_HDR.lz4" "C:/Projects/chopper/Assets/BakeryLightmaps/SampleScene_LM0_final.hdr"
+Running rgba2tga "C:\Users\orzech\AppData\Local\Temp\frender/SampleScene_LM0_final_Dir.lz4" "C:/Projects/chopper/Assets/BakeryLightmaps/SampleScene_LM0_dir.tga" 
