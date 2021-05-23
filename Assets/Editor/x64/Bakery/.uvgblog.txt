@@ -983,3 +983,38 @@ Running denoiserOIDN c "C:\Users\orzech\AppData\Local\Temp\frender/SampleScene_L
 Running seamfixer "C:\Users\orzech\AppData\Local\Temp\frender" "0" "SampleScene_LM0_final_HDR.lz4" "SampleScene_LM0_final_Dir.lz4
 Running halffloat2hdr "C:\Users\orzech\AppData\Local\Temp\frender/SampleScene_LM0_final_HDR.lz4" "C:/Projects/chopper/Assets/BakeryLightmaps/SampleScene_LM0_final.hdr"
 Running rgba2tga "C:\Users\orzech\AppData\Local\Temp\frender/SampleScene_LM0_final_Dir.lz4" "C:/Projects/chopper/Assets/BakeryLightmaps/SampleScene_LM0_dir.tga" 
+Loaded vertex shader: quad.vso
+Loaded pixel shader: skyOutput.pso
+Loaded pixel shader: cookieOutput.pso
+initShaders done
+initScene done
+Num alphas of 128x128: 1
+Num alphas of 1024x1024: 1
+Done
+Rendering UV GBuffer for SampleScene_LM0 179
+RGBA32F...RGBA8...RGBA8_SRGB...RGBA16F...states...
+Rendering UV normal...
+Rendering faceted UV normal...
+Rendering UV pos...
+Rendering smooth UV pos...
+Done
+Done
+Running ftrace fixpos12 "C:\Users\orzech\AppData\Local\Temp\frender" "uvpos_SampleScene_LM0.lz4" 2 0 0 0
+Running ftrace sun "C:\Users\orzech\AppData\Local\Temp\frender" "light_-1606917739_0" 12 0 0 direct0.bin
+Running ftrace addmul "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LM0" 4 0 0 comp_0.bin
+Running ftrace diradd "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LM0_lights_Dir.lz4" 64 0 0 dircomp_0.bin
+Running ftrace texgi "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LM0_diffuse" 4 16 0 "gi_SampleScene_LM00.bin" "SampleScene_LM0_diffuse0_HDR.lz4" vbTraceTex.bin
+Running ftrace texgi "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LM0_diffuse" 4 16 0 "gi_SampleScene_LM01.bin" "SampleScene_LM0_diffuse0_HDR.lz4" vbTraceTex.bin
+Running ftrace texgi "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LM0_diffuse" 4 16 0 "gi_SampleScene_LM02.bin" "SampleScene_LM0_diffuse0_HDR.lz4" vbTraceTex.bin
+Running ftrace texgi "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LM0_diffuse" 4 16 0 "gi_SampleScene_LM03.bin" "SampleScene_LM0_diffuse0_HDR.lz4" vbTraceTex.bin
+Running ftrace texgidir "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LM0_final" 84 16 0 "gi_SampleScene_LM04.bin" "SampleScene_LM0_lights_HDR.lz4" vbTraceTex.bin
+Running ftrace add "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LM0_final_HDR.lz4" 4 0 0 comp_indirect0.bin
+Running ftrace diradd "C:\Users\orzech\AppData\Local\Temp\frender" "SampleScene_LM0_final_Dir.lz4" 64 0 0 dircomp_indirect0.bin
+Running denoiserOIDN D "C:\Users\orzech\AppData\Local\Temp\frender/SampleScene_LM0_final_Dir.lz4" "C:\Users\orzech\AppData\Local\Temp\frender/SampleScene_LM0_final_Dir.lz4" 1024 0
+Running denoiserOIDN m "C:\Users\orzech\AppData\Local\Temp\frender/light_-1606917739_0_Mask.lz4" "C:\Users\orzech\AppData\Local\Temp\frender/light_-1606917739_0_Mask.lz4" 1024 0
+Running combineMasks "C:/Projects/chopper/Assets/BakeryLightmaps/SampleScene_LM0_mask.tga" "C:\Users\orzech\AppData\Local\Temp\frender/masks_0.bin" "C:\Users\orzech\AppData\Local\Temp\frender/"
+Running denoiserOIDN c "C:\Users\orzech\AppData\Local\Temp\frender/SampleScene_LM0_final_HDR.lz4" "C:\Users\orzech\AppData\Local\Temp\frender/SampleScene_LM0_final_HDR.lz4" 1024 1
+Running seamfixer "C:\Users\orzech\AppData\Local\Temp\frender" "0" "SampleScene_LM0_final_HDR.lz4" "SampleScene_LM0_final_Dir.lz4
+Running halffloat2hdr "C:\Users\orzech\AppData\Local\Temp\frender/SampleScene_LM0_final_HDR.lz4" "C:/Projects/chopper/Assets/BakeryLightmaps/SampleScene_LM0_final.hdr"
+Running rgba2tga "C:\Users\orzech\AppData\Local\Temp\frender/SampleScene_LM0_final_Dir.lz4" "C:/Projects/chopper/Assets/BakeryLightmaps/SampleScene_LM0_dir.tga" 
+Waiting on threads to park on joinable thread list timed out.
