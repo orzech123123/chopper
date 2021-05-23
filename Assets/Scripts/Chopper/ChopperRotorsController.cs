@@ -29,8 +29,6 @@ namespace Assets.Scripts.Chopper
             var factor = Mathf.Lerp(0, 1, _enginesWarmUpDiffTime);
             var speed = _settings.MaxSpeed * factor;
 
-            _player.SetTopRotorSpeed(speed);
-            _player.SetRearRotorSpeed(speed);
         }
     }
 }
