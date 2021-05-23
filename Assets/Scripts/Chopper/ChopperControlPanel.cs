@@ -44,42 +44,6 @@ namespace Assets.Scripts.Chopper
                 }
             }
 
-            /*if (_inputManager.IsForwardActive)
-            {
-                if (_inputManager.ForwardValue > 0)
-                {
-                    pressedKeyCode.Add(PressedKeyCode.ForwardPressed);
-                }
-                else
-                {
-                    pressedKeyCode.Add(PressedKeyCode.BackPressed);
-                }
-            }*/
-
-            /*if (_inputManager.IsLeftRightActive)
-            {
-                if (_inputManager.LeftRightValue > 0)
-                {
-                    pressedKeyCode.Add(PressedKeyCode.RightPressed);
-                }
-                else
-                {
-                    pressedKeyCode.Add(PressedKeyCode.LeftPressed);
-                }
-            }*/
-
-            /*if (_inputManager.IsTurnOnYActive)
-            {
-                if (_inputManager.TurnOnYValue > 0)
-                {
-                    pressedKeyCode.Add(PressedKeyCode.TurnRightPressed);
-                }
-                else
-                {
-                    pressedKeyCode.Add(PressedKeyCode.TurnLeftPressed);
-                }
-            }*/
-
             if(!_helicopterController.IsOnGround)
             {
                 pressedKeyCode.Add(PressedKeyCode.TurnLeftPressed);

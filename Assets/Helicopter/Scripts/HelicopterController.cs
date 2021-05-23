@@ -34,6 +34,7 @@ public class HelicopterController : MonoBehaviour
         }
     }
 
+    //MOJE
     public float turnValueFromInputManager = 0f;
     public Vector2 hMove = Vector2.zero;
 
@@ -64,7 +65,7 @@ public class HelicopterController : MonoBehaviour
         hTurn = Mathf.Lerp(hTurn, turn, Time.fixedDeltaTime * TurnForce);
         HelicopterModel.AddRelativeTorque(0f, hTurn * HelicopterModel.mass, 0f);
         
-        //MOJE TODO HelicopterModel.AddRelativeForce(Vector3.forward * Mathf.Max(0f, hMove.y * ForwardForce * HelicopterModel.mass));
+        //MOJE HelicopterModel.AddRelativeForce(Vector3.forward * Mathf.Max(0f, hMove.y * ForwardForce * HelicopterModel.mass));
         HelicopterModel.AddRelativeForce(Vector3.forward * hMove.y * ForwardForce * HelicopterModel.mass)/*MOJE TODO Mathf.Max(0f, hMove.y * ForwardForce * HelicopterModel.mass)*/;
 
     }
@@ -140,7 +141,7 @@ public class HelicopterController : MonoBehaviour
                 case PressedKeyCode.TurnRightPressed:
                     {
                         if (IsOnGround) break;
-                        //var force = (turnForcePercent - Mathf.Abs(hMove.y)) * HelicopterModel.mass;
+                        //MOJE var force = (turnForcePercent - Mathf.Abs(hMove.y)) * HelicopterModel.mass;
                         var force = turnValueFromInputManager * (turnForcePercent - Mathf.Abs(hMove.y)) * HelicopterModel.mass;
                         HelicopterModel.AddRelativeTorque(0f, force, 0);
                     }
@@ -148,7 +149,7 @@ public class HelicopterController : MonoBehaviour
                 case PressedKeyCode.TurnLeftPressed:
                     {
                         if (IsOnGround) break;
-                        //var force = -(turnForcePercent - Mathf.Abs(hMove.y)) * HelicopterModel.mass;
+                        //MOJE var force = -(turnForcePercent - Mathf.Abs(hMove.y)) * HelicopterModel.mass;
                         var force = turnValueFromInputManager * (turnForcePercent - Mathf.Abs(hMove.y)) * HelicopterModel.mass;
                         HelicopterModel.AddRelativeTorque(0f, force, 0);
                     }
