@@ -16,7 +16,7 @@ namespace Assets.Scripts.Input
         float smooth = 1f;
         float GetAxisH = 0;
         float GetAxisV = 0;
-        private float _inertnessValue = 0.3f;
+        private float _inertnessValue = 0.15f;
 
         public MobileInputManager(Joystick leftJoystick, Joystick rightJoystick)
         {

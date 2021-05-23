@@ -7,17 +7,25 @@ namespace Assets.Scripts.Chopper
 {
     public class ChopperControlPanel : ControlPanel
     {
-        //[SerializeField]
-        //private Joystick _leftJoystick;
-        //[SerializeField]
-        //private Joystick _rightJoystick;
-
         private IInputManager _inputManager;
+        private HelicopterController _helicopterController;
 
         [Inject]
-        public void Construct(IInputManager inputManager)
+        public void Construct(IInputManager inputManager, HelicopterController helicopterController)
         {
             _inputManager = inputManager;
+            _helicopterController = helicopterController;
+        }
+
+        private void LateUpdate()
+        {
+            if(_helicopterController.IsOnGround)
+            {
+                return;
+            }
+
+            _helicopterController.hMove = new Vector2(_inputManager.LeftRightValue, _inputManager.ForwardValue);
+            _helicopterController.turnValueFromInputManager = _inputManager.TurnOnYValue;
         }
 
         void FixedUpdate()
@@ -36,7 +44,7 @@ namespace Assets.Scripts.Chopper
                 }
             }
 
-            if (_inputManager.IsForwardActive)
+            /*if (_inputManager.IsForwardActive)
             {
                 if (_inputManager.ForwardValue > 0)
                 {
@@ -46,9 +54,9 @@ namespace Assets.Scripts.Chopper
                 {
                     pressedKeyCode.Add(PressedKeyCode.BackPressed);
                 }
-            }
+            }*/
 
-            if (_inputManager.IsLeftRightActive)
+            /*if (_inputManager.IsLeftRightActive)
             {
                 if (_inputManager.LeftRightValue > 0)
                 {
@@ -58,9 +66,9 @@ namespace Assets.Scripts.Chopper
                 {
                     pressedKeyCode.Add(PressedKeyCode.LeftPressed);
                 }
-            }
+            }*/
 
-            if (_inputManager.IsTurnOnYActive)
+            /*if (_inputManager.IsTurnOnYActive)
             {
                 if (_inputManager.TurnOnYValue > 0)
                 {
@@ -70,6 +78,11 @@ namespace Assets.Scripts.Chopper
                 {
                     pressedKeyCode.Add(PressedKeyCode.TurnLeftPressed);
                 }
+            }*/
+
+            if(!_helicopterController.IsOnGround)
+            {
+                pressedKeyCode.Add(PressedKeyCode.TurnLeftPressed);
             }
 
             KeyPressed(pressedKeyCode.ToArray());

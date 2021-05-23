@@ -12,22 +12,22 @@ namespace Assets.Scripts.Installers
 
         public override void InstallBindings()
         {
-            Container
-                .BindInterfacesTo<ChopperFlightController>()
-                .AsSingle()
-                .WithArguments(_settings.ChopperFlightControllerSettings);
+            //Container
+            //    .BindInterfacesTo<ChopperFlightController>()
+            //    .AsSingle()
+            //    .WithArguments(_settings.ChopperFlightControllerSettings);
 
-            Container
-                .BindInterfacesTo<ChopperRotorsController>()
-                .AsSingle()
-                .WithArguments(_settings.ChopperRotorsControllerSettings);
+            //Container
+            //    .BindInterfacesTo<ChopperRotorsController>()
+            //    .AsSingle()
+            //    .WithArguments(_settings.ChopperRotorsControllerSettings);
         }
 
         [Serializable]
         public class Settings
         {
-            public ChopperFlightControllerSettings ChopperFlightControllerSettings;
-            public ChopperRotorsControllerSettings ChopperRotorsControllerSettings;
+            //public ChopperFlightControllerSettings ChopperFlightControllerSettings;
+            //public ChopperRotorsControllerSettings ChopperRotorsControllerSettings;
         }
     }
 }

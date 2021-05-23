@@ -64,6 +64,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3aa0c747e26ae342b574331f4863443, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _totalHealth: 100
 --- !u!195 &7850565474788817520
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -160,6 +161,10 @@ PrefabInstance:
       value: troop_car_b
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 75a30b474bd763e4bbdd1a6682411343, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 75a30b474bd763e4bbdd1a6682411343, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -172,6 +177,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 75a30b474bd763e4bbdd1a6682411343, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 75a30b474bd763e4bbdd1a6682411343, type: 3}
       propertyPath: m_LocalRotation.x
       value: 0
       objectReference: {fileID: 0}
@@ -181,14 +190,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 75a30b474bd763e4bbdd1a6682411343, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 75a30b474bd763e4bbdd1a6682411343, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 75a30b474bd763e4bbdd1a6682411343, type: 3}
-      propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 75a30b474bd763e4bbdd1a6682411343, type: 3}
