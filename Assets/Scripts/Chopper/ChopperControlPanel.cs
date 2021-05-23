@@ -24,17 +24,18 @@ namespace Assets.Scripts.Chopper
                 return;
             }
 
-            _helicopterController.hMove = new Vector2(_inputManager.LeftRightValue, _inputManager.ForwardValue);
-            _helicopterController.turnValueFromInputManager = _inputManager.TurnOnYValue;
+            _helicopterController.hMove = new Vector2(_inputManager.TurnOnYValue, _inputManager.TurnOnXValue);
+            //_helicopterController.hMove = new Vector2(_inputManager.LeftRightValue, _inputManager.ForwardValue);
+            //_helicopterController.turnValueFromInputManager = _inputManager.TurnOnYValue;
         }
 
         void FixedUpdate()
         {
             var pressedKeyCode = new List<PressedKeyCode>();
 
-            if (_inputManager.IsVerticalActive)
+            if (_inputManager.IsForwardActive)
             {
-                if (_inputManager.VerticalValue > 0)
+                if (_inputManager.ForwardValue > 0)
                 {
                     pressedKeyCode.Add(PressedKeyCode.SpeedUpPressed);
                 }
@@ -44,10 +45,10 @@ namespace Assets.Scripts.Chopper
                 }
             }
 
-            if(!_helicopterController.IsOnGround)
-            {
-                pressedKeyCode.Add(PressedKeyCode.TurnLeftPressed);
-            }
+            //if(!_helicopterController.IsOnGround)
+            //{
+            //    pressedKeyCode.Add(PressedKeyCode.TurnLeftPressed);
+            //}
 
             KeyPressed(pressedKeyCode.ToArray());
         }
